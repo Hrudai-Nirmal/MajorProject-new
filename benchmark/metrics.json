@@ -1,6 +1,60 @@
 {
-  "status": "no_gold_labels_yet",
+  "status": "ok",
   "total_benchmark_rows": 36,
-  "labeled_rows": 0,
-  "note": "LM dictionary scores are populated (scripts/compute_lm_scores.py) but gold_sentiment/gold_risk_flags/gold_topics still need a human labeler (docs/METHODOLOGY.md: LM score is a labeling aid, not the gold label). Fill in benchmark_labels.gold_* for at least a subset of chunks, then rerun."
+  "labeled_rows": 36,
+  "US": {
+    "per_class": {
+      "positive": {
+        "precision": 1.0,
+        "recall": 0.95,
+        "f1": 0.9743589743589743,
+        "support": 20
+      },
+      "negative": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "support": 3
+      },
+      "neutral": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "support": 3
+      }
+    },
+    "macro_f1": 0.7136752136752137,
+    "accuracy": 0.8846153846153846,
+    "n": 26
+  },
+  "India": {
+    "per_class": {
+      "positive": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "support": 3
+      },
+      "negative": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "neutral": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571428571428571,
+        "support": 6
+      }
+    },
+    "macro_f1": 0.5523809523809523,
+    "accuracy": 0.8,
+    "n": 10
+  },
+  "cross_market_gap": {
+    "macro_f1_us": 0.7136752136752137,
+    "macro_f1_india": 0.5523809523809523,
+    "gap": 0.1612942612942614
+  }
 }

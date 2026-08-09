@@ -76,8 +76,21 @@ No personal/private individual data is processed — inputs are public corporate
 ---
 **Status as of 2026-08-10:** Schema applied to Supabase, 10 documents / 36 chunks embedded and stored, all 36 chunks extracted (Groq, since Gemini generateContent is billing-gated on Google AI Pro — embeddings stay on Gemini), LM dictionary scores computed as a labeling aid, frontend scaffolded and live-tested end to end against real data, repo pushed to GitHub.
 
+**Benchmark gold labels — provenance disclosure (important for the writeup, §3.7):**
+`benchmark_labels.gold_sentiment` / `gold_risk_flags` / `gold_topics` are **not** independent
+human labels. docs/METHODOLOGY.md's design assumes a human adjudicates each chunk against the
+LM score aid (§A.1, §A.4); by explicit decision (this is a course pilot, not a research-grade
+benchmark), that step was done by AI instead — the first 19 chunks by Gemini
+(`gemini-flash-latest`, which hit its 20-requests/day free-tier cap partway through) and the
+remaining 17 by Groq (`openai/gpt-oss-120b`), a different model family from the
+`llama-3.3-70b-versatile` used to generate the extractions being evaluated, so the comparison
+isn't purely a model grading itself. Each row's `labeled_by` column records exactly which model
+produced it. `scripts/evaluate.py` result as of this run: US macro-F1 0.71, India macro-F1 0.55,
+gap 0.16 — directionally the finding the project is testing for, but treat the specific numbers
+as illustrative given the label provenance above, not as a rigorous result. **Disclose this in
+the writeup per §3.7** rather than presenting it as hand-labeled.
+
 **Open items requiring your action:**
-- Hand-label `benchmark_labels.gold_sentiment` / `gold_risk_flags` / `gold_topics` for a subset of the 36 chunks — this has to be a human judgment call, not something the pipeline can generate itself, since the whole point of the benchmark is comparing model output against independent ground truth (see docs/METHODOLOGY.md §A.1, §A.4). LM scores are pre-filled as a labeling aid; `scripts/evaluate.py` will compute real P/R/F1 once gold labels exist.
 - Render/Vercel account creation + deploy
 - Confirming Gemini API billing status (only matters if you want to move generation back off Groq later)
 - Decision on whether to keep `.txt` transcript excerpts out of git
