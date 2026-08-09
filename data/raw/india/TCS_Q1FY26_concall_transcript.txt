@@ -1,0 +1,15 @@
+Company: Tata Consultancy Services (TCS)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY26 (quarter ended June 2025)
+Call date: July 10, 2025
+Source: search summary (Business Standard, Yahoo Finance); full transcript PDF at tcs.com investor relations
+
+--- FINANCIAL RESULTS ---
+TCS reported Q1 FY26 revenue of INR 63,437 crore, up 1.3% year-on-year but down 3.3% sequentially, reflecting demand softness and the BSNL contract wind-down -- an explicit, named revenue headwind. In dollar terms revenue was $7,421 million, down 1.1% year-on-year. Operating margin expanded to 24.5% (up 30 basis points quarter-on-quarter) despite the revenue decline. Net profit was INR 12,760 crore, up 4% quarter-on-quarter. Net margin was 20.1%.
+
+--- DEMAND OUTLOOK / RISK ---
+Total contract value (TCV) dropped to $9.4 billion in Q1, down 22.95% from $12.2 billion in Q4 -- a significant sequential deal-signing decline flagged as a demand-side risk. Attrition rate was 13.8% (last twelve months), the highest in nearly two years -- an explicit workforce-stability risk signal. CEO & MD K Krithivasan: "The continued global macro-economic and geo-political uncertainties caused a demand contraction." Management remains optimistic about international growth for FY2026 citing the $9.4 billion order book, but noted continued delays in discretionary spend and project starts -- a mixed near-term-caution/medium-term-confidence framing.
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level coverage rather than the full verbatim call transcript (time-constrained pilot collection). The combination of margin expansion despite revenue decline, elevated attrition, and a sharp TCV drop makes this a strong candidate for a "mixed/negative-leaning" sentiment label during benchmark adjudication.

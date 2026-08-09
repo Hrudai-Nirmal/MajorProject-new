@@ -1,0 +1,17 @@
+Company: Infosys Ltd (INFY)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY26
+Source: search summary (Investing.com / StockInsights); full transcript at infosys.com/investors/reports-filings/quarterly-results/2025-2026/q1/earningscall.html
+
+--- FINANCIAL RESULTS ---
+Q1 FY26 earnings conference call featured CEO & MD Salil Parekh and CFO Jayesh Sanghrajka. Q1 revenue was $5,082 million, year-on-year growth of 2.4% and sequential growth of 1.0% in constant currency. Operating margin was 21.1%, a sequential increase of 0.2 points. EPS in rupee terms grew 8.6% year-over-year, and in dollar terms grew 5.8% year-over-year. Free cash flow of INR 884 crore represented 109% of net profit -- the fifth consecutive quarter of free cash flow exceeding 100% of net profit, a positive liquidity/execution signal.
+
+--- GUIDANCE CUT (explicit risk signal) ---
+Infosys revised its FY26 revenue growth guidance down to 1.5%-3% year-on-year in constant currency terms, a cut from previous guidance -- shares fell on the news. Operating margin guidance was maintained at 20%-22% despite the revenue guidance reduction, meaning management is signaling confidence in cost discipline even as top-line growth expectations narrow.
+
+--- MANAGEMENT COMMENTARY ---
+CEO Salil Parekh: "AI momentum is now rapidly converting into revenue, which demonstrates how Infosys' differentiated enterprise AI value proposition is translating into consistent market share gains." Management characterized the macro environment as remaining uncertain. Large deal wins totaled $3.6 billion for the quarter, with 61% net new (i.e., not renewals) -- a positive forward demand-pipeline indicator that sits in tension with the guidance cut.
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level summary rather than the full call transcript (time-constrained pilot collection). The combination of a guidance cut alongside an upbeat AI-demand narrative and strong deal bookings is a good candidate for a "mixed" sentiment label during benchmark adjudication.

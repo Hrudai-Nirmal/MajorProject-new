@@ -1,0 +1,37 @@
+# Cross-Market LLM Disclosure Analysis (Pilot)
+
+Pilot RAG pipeline comparing US (SEC) vs India (NSE/BSE) corporate disclosure analysis using a single free-tier LLM stack (Gemini). Built as a 3-day course demo, structured to extend afterward.
+
+## Stack
+- Embeddings + generation: Gemini (`text-embedding-004` + Gemini generation model), Google AI Pro plan
+- Vector DB: Supabase (Postgres + pgvector), free tier
+- Backend: FastAPI, deployed on Render free tier
+- Frontend: Next.js + Tailwind, deployed on Vercel free tier
+- Benchmark labeling aid: Loughran-McDonald financial sentiment dictionary
+
+## Structure
+```
+data/
+  raw/us/          # SEC filings + earnings transcripts
+  raw/india/       # NSE/BSE announcements + concall transcripts
+  processed/        # cleaned + chunked output
+scripts/            # collection, cleaning, chunking, embedding, eval scripts
+backend/app/
+  routers/          # FastAPI route handlers
+  services/         # Gemini calls, Supabase client, retrieval logic
+  models/           # pydantic schemas
+frontend/            # Next.js dashboard
+benchmark/           # hand-labeled CSV + evaluation results
+```
+
+## Companies (5 sector-matched pairs)
+| Sector | US | India |
+|---|---|---|
+| Tech | MSFT | INFY |
+| Tech | AAPL | TCS |
+| Banking | JPM | HDFC Bank |
+| Pharma | PFE | Sun Pharma |
+| Retail/Consumer | WMT | RIL |
+
+## Status
+Scope: pilot / proof-of-concept, single model tier (Gemini), ~25-30 hand-labeled benchmark chunks, cross-market generalization as the primary research question.

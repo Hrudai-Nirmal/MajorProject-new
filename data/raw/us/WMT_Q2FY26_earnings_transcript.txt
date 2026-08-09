@@ -1,0 +1,18 @@
+Company: Walmart Inc. (WMT)
+Market: US
+Doc type: earnings_transcript
+Period: Q2 FY2026
+Call date: August 21, 2025
+Source: search summary (Walmart IR / Yahoo Finance), full PDF at stock.walmart.com
+
+--- FINANCIAL RESULTS ---
+Walmart's Q2 FY26 revenue rose 5.6% in constant currency, exceeding expectations across all segments. U.S. comparable sales grew 4.6%, e-commerce sales were up 25% year-over-year (some coverage cites 26%), driven by continued strong demand for convenient and fast delivery, with order volumes increasing across segments.
+
+--- MARGIN DETAIL ---
+Q2 consolidated gross margin increased 4 basis points on a reported basis, up 9 basis points on an adjusted basis excluding an $80 million one-time restructuring charge at Sam's Club, with improved business mix across segments. In Walmart U.S., margins reflected benefits of strong inventory management, though merchandise category mix remained a headwind as sales growth in grocery and health/wellness outpaced general merchandise -- a mix-shift risk factor explicitly noted by management.
+
+--- GUIDANCE / RISK ---
+Despite a $450 million claims-expense headwind (higher than originally anticipated), adjusted operating income rose 0.5%, and annual guidance for adjusted operating income growth was maintained at 3.5%-5.5% on a constant-currency basis. Management indicated they prefer to provide guidance reflecting underlying business expectations, excluding any recovery of tariffs paid -- an explicit statement about how tariff cost pass-through is (not) being baked into guidance.
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level coverage rather than the full verbatim call transcript (time-constrained pilot collection). The claims-expense headwind and tariff-guidance framing are usable risk-flag data points for benchmark labeling.

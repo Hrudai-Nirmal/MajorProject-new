@@ -1,0 +1,33 @@
+Company: Apple Inc. (AAPL)
+Market: US
+Doc type: earnings_transcript
+Period: Q3 FY2025 (June quarter)
+Call date: July 31, 2025
+Source: The Motley Fool transcript, https://www.fool.com/earnings/call-transcripts/2025/08/01/apple-aapl-q3-2025-earnings-call-transcript/
+
+--- RISKS (flagged by Motley Fool editorial) ---
+Apple incurred approximately $800 million in tariff-related costs and estimates $1.1 billion in additional tariffs for the next quarter, with management stating: "This estimate should not be used to make projections for future quarters as there are many factors that could change, including tariff rates."
+iPad revenue was $6.6 billion, down 8% year-over-year, and Wearables, Home and Accessories revenue decreased 9% year-over-year, cited as a "difficult compare" against prior-year launches.
+
+--- TAKEAWAYS ---
+Total revenue $94 billion, up 10%, June quarter record. EPS $1.57, up 12%, June quarter record. iPhone revenue $44.6 billion, up 13%, growth in every geographic segment, record number of upgraders. Mac revenue $8 billion, up 15%. Services revenue $27.4 billion, up 13%, all-time record. Company gross margin 46.5%, down 60 basis points sequentially primarily due to tariff costs. Net income $23.4 billion, June quarter record. Operating cash flow $27.9 billion. Shareholder returns $27 billion ($3.9B dividends, $21B buybacks). Guidance for next quarter: revenue growth mid-to-high single digits; gross margin 46-47% including $1.1B tariff costs; opex $15.6-15.8B. AI investment driving higher capex, expansion in private cloud compute and first-party data centers. $500 billion U.S. investment commitment over next four years.
+
+--- CEO PREPARED REMARKS (Tim Cook) ---
+Today we are proud to report a June quarter revenue record of $94 billion, up 10% from a year ago, better than we expected. EPS set a June quarter record of $1.57, up 12% year-over-year. iPhone revenue $44.6 billion, up 13% year-over-year, growth in every geographic segment and double-digit growth in emerging markets including India, the Middle East, South Asia and Brazil. Mac revenue up 15% year-over-year. Services grew 13%, all-time revenue record.
+
+We see AI as one of the most profound technologies of our lifetime. We are embedding it across our devices and platforms and significantly growing our investments. We've already released more than 20 Apple Intelligence features. We're making good progress on a more personalized Siri and expect to release these features next year. Apple silicon powers on-device Apple Intelligence features; for more advanced tasks, our servers -- also powered by Apple silicon -- deliver greater capabilities while preserving privacy through private cloud compute architecture.
+
+This month we announced a $0.5 billion commitment with MP Materials to strengthen the supply of recycled rare earth materials in the U.S. In August we're opening our Apple Manufacturing Academy in Detroit. These investments are part of Apple's largest-ever spend commitment: over the next 4 years, Apple is investing $500 billion in the U.S.
+
+On tariffs: for the June quarter we incurred approximately $800 million of tariff-related costs. For the September quarter, assuming current global tariff rates and policies do not change and no new tariffs are added, we estimate the impact to add about $1.1 billion to our costs. "This estimate should not be used to make projections for future quarters as there are many factors that could change, including tariff rates."
+
+--- CFO PREPARED REMARKS (Kevan Parekh) ---
+Revenue of $94 billion was up 10% year-over-year, a new June quarter record. Products revenue $66.6 billion, up 8%. Services revenue $27.4 billion, up 13%, all-time record. Company gross margin 46.5%, at the high end of guidance, down 60 basis points sequentially, primarily driven by approximately $800 million in tariff-related costs. Products gross margin 34.5%, down 140 basis points sequentially, driven by mix and tariff-related costs, partly offset by cost savings. Net income $23.4 billion (June quarter record), diluted EPS $1.57, up 12% year-over-year. Operating cash flow $27.9 billion.
+
+Outlook assumes global tariff rates/policies remain in effect, macro outlook does not worsen, and the Google revenue-share agreement continues. Expect September quarter total company revenue growth mid-to-high single digits year-over-year; gross margin 46-47% including the estimated $1.1 billion tariff-related cost impact; opex $15.6-15.8 billion; tax rate around 17%.
+
+--- ANALYST Q&A EXCERPT (risk / demand relevant) ---
+Michael Ng (Goldman Sachs) asked about CapEx growth drivers. Kevan Parekh: "a significant portion of the driver of growth that you're seeing now is really driven by some of our AI-related investments," alongside private cloud compute and hybrid third-party/self-owned data center investment.
+On tariff pull-forward: Cook estimated "the pull forward of demand into April, specifically to be about 1 point of the 10 points" of growth due to tariff discussions.
+Erik Woodring (Morgan Stanley) asked about Safari search decline reports and AI platforms eroding Apple's strategic value as a search access point. Cook: "I think they continue to be very valuable. I think that consumers' behaviors are evolving, and we're monitoring it very closely."
+On China: Cook noted government subsidies affecting some products, Greater China revenue grew 4% quarter-over-quarter driven by iPhone acceleration.

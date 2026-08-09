@@ -1,0 +1,17 @@
+Company: Pfizer Inc. (PFE)
+Market: US
+Doc type: earnings_transcript
+Period: Q2 2025
+Source: search summary (Motley Fool / CNBC / Yahoo Finance coverage of fool.com/earnings/call-transcripts)
+
+--- FINANCIAL RESULTS ---
+Call participants: Albert Bourla (Chairman and CEO), David M. Denton (CFO), Francesca M. DeMartino (Chief Investor Relations Officer). Adjusted diluted EPS was $0.78, ahead of expectations, primarily due to strong top-line performance and cost management execution. Revenue was $14.7 billion, up 10% operationally. Strong contributions came from the Vyndaqel family, Comirnaty, PAXLOVID, Padcev and Eliquis, partially offset by declines in IBRANCE -- an explicit product-level headwind (a legacy oncology drug losing share).
+
+--- GUIDANCE ---
+Pfizer maintained its 2025 revenue forecast in the $61-64 billion range. Better-than-expected non-COVID performance added about $1.5 billion to the outlook, though this was offset by a $1 billion reduction in expected COVID-19 revenue to about $4 billion -- a mixed signal: core business strength offsetting a shrinking pandemic-era product line. Pfizer remains on track for $7.2 billion in cumulative cost cuts by end of 2027, with $4.5 billion in savings targeted by end of 2025 via layoffs and exiting some clinical trials -- an explicit restructuring/risk-mitigation action disclosed alongside the results.
+
+--- TARIFF RISK ---
+Pfizer's 2025 guidance includes $150 million in expected costs from existing tariffs, but not sector-specific pharma levies. When asked about a proposed 250% tariff on pharmaceuticals, CFO David Denton said the company is "looking at all potential ranges when modeling the impact of tariffs." Guidance absorbs current tariffs as well as potential US price adjustments tied to a Trump administration letter to pharma CEOs (dated July 31) -- an explicit, material policy risk disclosed on the call.
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level coverage rather than the full verbatim call transcript (time-constrained pilot collection). Contains multiple genuine risk-flag and guidance data points (tariff exposure, IBRANCE decline, COVID revenue step-down) suitable for benchmark labeling.

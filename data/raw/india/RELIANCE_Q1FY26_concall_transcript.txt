@@ -1,0 +1,17 @@
+Company: Reliance Industries Ltd (RIL)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY26 (quarter ended June 2025)
+Call date: July 18, 2025
+Source: search summary (Republic World / Business Standard / Investing.com); full transcript PDF at ril.com
+
+--- FINANCIAL RESULTS ---
+Reliance Industries reported a 78% year-on-year jump in consolidated net profit for Q1 FY26, reaching INR 26,994 crore -- the company's best-ever first-quarter profit. Revenue from operations was INR 2,48,660 crore, up 5.3% year-over-year. EBITDA rose to INR 58,024 crore, a 36% increase year-over-year.
+
+--- SEGMENT DETAIL ---
+Oil-to-Chemicals (O2C): revenue INR 17,000 crore (note: some coverage reports this figure inconsistently against the larger consolidated revenue base -- flagged for the raw-data cleaning step), up 30%, driven by domestic demand and improved fuel margins.
+Jio Platforms: revenue INR 39,173 crore, up 11.8%; Jio crossed 200 million 5G users and 20 million home broadband connections; EBITDA up 24% year-over-year to INR 18,135 crore, with a 210-basis-point increase in operating margin -- a strong, unambiguous growth signal in the telecom segment.
+Reliance Retail: revenue INR 90,000 crore, up 12% adjusted for the RCPL demerger -- the demerger adjustment itself is a structural item worth flagging for topic-tagging (corporate restructuring).
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level news coverage rather than the full verbatim call transcript (time-constrained pilot collection). RIL's multi-segment structure (energy, telecom, retail) makes it the best candidate in this set for topic-tag diversity within a single company. Full transcript PDF (ril.com) not yet fetched verbatim -- candidate to revisit if time allows.

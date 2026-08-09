@@ -1,0 +1,27 @@
+Company: JPMorgan Chase & Co. (JPM)
+Market: US
+Doc type: earnings_transcript
+Period: Q2 2025
+Call date: July 15, 2025
+Source: The Motley Fool transcript, https://www.fool.com/earnings/call-transcripts/2025/08/04/jpmorgan-jpm-q2-2025-earnings-call-transcript/
+
+--- TAKEAWAYS ---
+Net income $15 billion (GAAP) for Q2 2025, including an income tax benefit of $774 million. GAAP EPS $5.24. ROTCE 21%, including the tax benefit. Total revenue $45.7 billion, down 10% year-on-year, primarily due to a $6.3 billion (31%) decrease in non-interest revenue ex Markets and a $185 million (1%) decline in net interest income ex Markets. Markets revenue up $1.1 billion (15%), led by fixed income (+14%) and equities (+15%). Expenses $23.8 billion, up 5% excluding a prior-year one-off, driven by compensation and higher brokerage/distribution fees. Credit costs $2.8 billion, including $2.4 billion net charge-offs and a $439 million net reserve build tied to new lending activity. CET1 ratio 15%, down 40 basis points from prior quarter. Board intends to raise dividend to $1.50/share in Q3 2025. NII guidance raised to approximately $95.5 billion for full-year 2025.
+
+--- CFO PREPARED REMARKS (Jeremy Barnum) ---
+This quarter, the firm reported net income of $15 billion, EPS of $5.24 on revenue of $45.7 billion, with an ROTCE of 21%. Revenue of $45.7 billion was down $5.3 billion, or 10% year-on-year. NII ex Markets was down $185 million, or 1%, driven by lower rates and deposit margin compression, predominantly offset by higher wholesale deposits and higher revolving Card balances. Markets revenue was up $1.1 billion, or 15%. Credit costs were $2.8 billion, with net charge-offs of $2.4 billion and a net reserve build of $439 million, driven by new lending activity, largely offset by a decrease in adverse-scenario probabilities.
+
+We ended the quarter with a CET1 ratio of 15%, down 40 basis points versus prior quarter, as net income was more than offset by capital distributions and higher risk-weighted assets. Our new SCB reflects the Board's intention to increase the dividend to $1.50 per share in Q3.
+
+Consumer & Community Banking (CCB): net income $5.2 billion on revenue of $18.8 billion, up 6% year-on-year. Card Services & Auto revenue up 15%, driven by higher revolving card balances and auto lease income. Commercial & Investment Bank (CIB): net income $6.7 billion on revenue $19.5 billion, up 9%. Investment banking fees up 7% year-on-year, ranked #1 with 8.9% wallet share; debt underwriting fees up 12%; equity underwriting fees down 6%. "Our pipeline remains robust, and the outlook along with the market tone and sentiment is notably more upbeat." Asset & Wealth Management: net income $1.5 billion, pretax margin 34%, revenue $5.8 billion up 10%, long-term net inflows $31 billion, AUM $4.3 trillion up 18% year-on-year.
+
+Updated guidance: NII ex Markets now expected ~$92 billion; total NII guidance now ~$95.5 billion; adjusted expense guidance ~$95.5 billion, primarily driven by weaker-dollar impact (bottom-line neutral); Card net charge-off rate expected to remain ~3.6%. "While the environment remains extremely dynamic in many ways, navigating uncertainty is the norm for both us and our clients."
+
+--- CEO / REGULATORY COMMENTARY (James Dimon) -- risk-relevant ---
+On capital deployment: "everything is on the table as it always is, and that includes potentially inorganic things," though CFO Barnum noted "acquisitions have a high bar, both financially, strategically and importantly, in some cases, culturally."
+
+On regulation, responding to a question about financial deregulation optimism: "if you look at SLR, G-SIFI, CCAR, Basel III, FSRT, the overlap, the duplication, I actually believe that you can make the system simpler, cheaper, more effective, more transparent and safer. And the things like Silicon Valley Bank and First Republic did not need to happen if you just modify some things." Dimon also flagged a structural risk theme: "We've gone from 8,000 public companies... to 4,000 today," questioning whether shrinking public markets relative to private credit growth is healthy for the system.
+
+CFO Barnum flagged the G-SIB framework specifically as a regulatory risk/inefficiency: "one of the worst is G-SIB, in the sense of both the original gold-plating, the sort of deep conceptual flaws in the framework itself, and the failure to recalibrate it for growth since it was put into effect."
+
+On credit quality: CFO Barnum clarified in Q&A that a rise in consumer nonaccruals was technical, driven by loan forbearance among home-lending customers in the Los Angeles area due to wildfires, and "does not signal increased loss expectations."
