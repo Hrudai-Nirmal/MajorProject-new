@@ -34,4 +34,11 @@ benchmark/           # hand-labeled CSV + evaluation results
 | Retail/Consumer | WMT | RIL |
 
 ## Status
-Scope: pilot / proof-of-concept, single model tier (Gemini), ~25-30 hand-labeled benchmark chunks, cross-market generalization as the primary research question.
+Scope: pilot / proof-of-concept, single model tier (Gemini for embeddings, Groq for generation),
+36 benchmark chunks, cross-market generalization as the primary research question. Live result
+as of 2026-08-10: US macro-F1 0.71 vs India macro-F1 0.55 (gap 0.16) — see `benchmark/metrics.json`
+and REQUIREMENTS.md for the gold-label provenance disclosure (AI-adjudicated, not hand-labeled).
+
+## Deployment
+See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — Render (backend) + Vercel (frontend), both need a
+one-time manual account/GitHub-authorization step, config is otherwise ready (`render.yaml`).

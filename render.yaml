@@ -1,0 +1,24 @@
+# Render Blueprint for the FastAPI backend.
+# Deploy: Render dashboard -> New -> Blueprint -> connect this GitHub repo.
+# Render detects this file automatically and provisions the service below.
+# Secret env vars (sync: false) are NOT stored here -- Render prompts for
+# them once during Blueprint creation, and you can edit them anytime after
+# in the service's Environment tab.
+services:
+  - type: web
+    name: cross-market-disclosure-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
