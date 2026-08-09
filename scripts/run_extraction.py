@@ -37,11 +37,23 @@ def main():
     todo = [c for c in chunks if c["id"] not in already_done]
     print(f"{len(chunks)} chunks total, {len(already_done)} already extracted, {len(todo)} to process.")
 
+    failed = []
     for i, c in enumerate(todo, 1):
         doc = c["documents"]
-        result = extract_signals(
-            c["text"], company=doc["company"], market=doc["market"], doc_type=doc["doc_type"]
-        )
+        result = None
+        last_err = None
+        for attempt in range(2):  # occasional malformed JSON from the model; one retry clears most
+            try:
+                result = extract_signals(
+                    c["text"], company=doc["company"], market=doc["market"], doc_type=doc["doc_type"]
+                )
+                break
+            except Exception as e:
+                last_err = e
+        if result is None:
+            print(f"  [{i}/{len(todo)}] {doc['company']} chunk {c['id']}: FAILED after retry ({last_err}) -- skipped")
+            failed.append(c["id"])
+            continue
         client.table("extraction_results").insert(
             {
                 "chunk_id": c["id"],
@@ -55,7 +67,10 @@ def main():
         ).execute()
         print(f"  [{i}/{len(todo)}] {doc['company']} chunk {c['id']}: {result.get('sentiment_label')}")
 
-    print("Done.")
+    if failed:
+        print(f"\nDone, with {len(failed)} chunk(s) failed twice: {failed}. Rerun this script to retry them.")
+    else:
+        print("\nDone.")
 
 
 if __name__ == "__main__":
