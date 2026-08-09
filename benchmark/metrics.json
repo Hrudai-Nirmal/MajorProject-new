@@ -1,0 +1,6 @@
+{
+  "status": "no_gold_labels_yet",
+  "total_benchmark_rows": 36,
+  "labeled_rows": 0,
+  "note": "LM dictionary scores are populated (scripts/compute_lm_scores.py) but gold_sentiment/gold_risk_flags/gold_topics still need a human labeler (docs/METHODOLOGY.md: LM score is a labeling aid, not the gold label). Fill in benchmark_labels.gold_* for at least a subset of chunks, then rerun."
+}

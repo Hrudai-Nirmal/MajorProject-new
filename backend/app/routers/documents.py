@@ -14,6 +14,13 @@ def list_documents(market: str | None = Query(default=None)):
     return resp.data
 
 
+@router.get("/{document_id}")
+def get_document(document_id: str):
+    client = get_client()
+    resp = client.table("documents").select("*").eq("id", document_id).single().execute()
+    return resp.data
+
+
 @router.get("/{document_id}/extractions")
 def get_extractions(document_id: str):
     client = get_client()

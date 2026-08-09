@@ -16,7 +16,7 @@ Cross-Market LLM Disclosure Analysis — pilot study. Compiled from the locked s
 
 ### 1.2 Runtime / dependencies
 - Backend: Python 3.11+, `fastapi`, `uvicorn`, `google-generativeai`, `supabase-py`, `pydantic`, `python-dotenv`, `httpx` (all in `backend/requirements.txt`)
-- Frontend: Node.js 18+, Next.js, Tailwind CSS, `@supabase/supabase-js` (not yet scaffolded)
+- Frontend: Node.js 18+, Next.js 14.2.35, Tailwind CSS — scaffolded and live-tested (dashboard, per-document report, chat page, all reading through the FastAPI backend rather than calling Supabase directly, so no anon key is needed client-side yet)
 - Database: Postgres with `pgvector` extension (Supabase-managed)
 
 ### 1.3 Network / deployment
@@ -74,4 +74,10 @@ Since this is a course deliverable, worth a quick check of your institution's po
 No personal/private individual data is processed — inputs are public corporate disclosures and public statements by company executives on investor calls. No GDPR or India's DPDP Act exposure from this pipeline as currently scoped.
 
 ---
-**Open items requiring your action:** Supabase `service_role` key, GitHub PAT permission fix, Render/Vercel account creation, confirming Gemini API billing status, and a decision on whether to keep `.txt` transcript excerpts out of git.
+**Status as of 2026-08-10:** Schema applied to Supabase, 10 documents / 36 chunks embedded and stored, all 36 chunks extracted (Groq, since Gemini generateContent is billing-gated on Google AI Pro — embeddings stay on Gemini), LM dictionary scores computed as a labeling aid, frontend scaffolded and live-tested end to end against real data, repo pushed to GitHub.
+
+**Open items requiring your action:**
+- Hand-label `benchmark_labels.gold_sentiment` / `gold_risk_flags` / `gold_topics` for a subset of the 36 chunks — this has to be a human judgment call, not something the pipeline can generate itself, since the whole point of the benchmark is comparing model output against independent ground truth (see docs/METHODOLOGY.md §A.1, §A.4). LM scores are pre-filled as a labeling aid; `scripts/evaluate.py` will compute real P/R/F1 once gold labels exist.
+- Render/Vercel account creation + deploy
+- Confirming Gemini API billing status (only matters if you want to move generation back off Groq later)
+- Decision on whether to keep `.txt` transcript excerpts out of git
