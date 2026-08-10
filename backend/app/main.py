@@ -7,7 +7,10 @@ app = FastAPI(title="Cross-Market Disclosure Analysis API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten to the Vercel domain once deployed
+    allow_origins=[
+        "https://major-project-new-plum.vercel.app",  # production frontend
+        "http://localhost:3000",  # local frontend dev
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
