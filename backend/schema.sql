@@ -25,8 +25,20 @@ create table if not exists chunks (
     unique (document_id, chunk_index) -- lets embed_and_store.py upsert idempotently without re-embedding on rerun
 );
 
-create index if not exists chunks_embedding_idx on chunks
-    using ivfflat (embedding vector_cosine_ops) with (lists = 50);
+-- NO ivfflat/hnsw index at this scale (deliberately). An ivfflat index with
+-- lists=50 was tried and dropped after it caused match_chunks to silently
+-- return ZERO rows for some real queries in production (confirmed live,
+-- 2026-08-10: e.g. "What did Infosys say about margins?" returned empty via
+-- both the RPC and raw SQL, while a sequential scan on the same query found
+-- 5 clearly relevant chunks at similarity 0.68-0.76). Root cause: lists=50
+-- massively over-partitions an index over just 36 rows, and ivfflat's
+-- default single-probe search can miss the right list entirely for some
+-- query vectors. A sequential scan over a few thousand rows is both exact
+-- and effectively instant, so there's no reason to reintroduce an
+-- approximate index until the table is large enough (pgvector's own
+-- guidance: roughly rows/1000 lists, so this becomes worth revisiting
+-- somewhere past ~10k+ chunks) -- and even then, re-tune lists/probes
+-- rather than copying the value below back in.
 
 create table if not exists extraction_results (
     id uuid primary key default gen_random_uuid(),
