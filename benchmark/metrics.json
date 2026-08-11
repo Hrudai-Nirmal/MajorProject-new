@@ -1,60 +1,60 @@
 {
   "status": "ok",
-  "total_benchmark_rows": 36,
-  "labeled_rows": 36,
+  "total_benchmark_rows": 82,
+  "labeled_rows": 82,
   "US": {
     "per_class": {
       "positive": {
-        "precision": 1.0,
-        "recall": 0.95,
-        "f1": 0.9743589743589743,
-        "support": 20
+        "precision": 0.9473684210526315,
+        "recall": 0.9,
+        "f1": 0.9230769230769231,
+        "support": 40
       },
       "negative": {
         "precision": 1.0,
-        "recall": 0.3333333333333333,
-        "f1": 0.5,
-        "support": 3
+        "recall": 0.42857142857142855,
+        "f1": 0.6,
+        "support": 7
       },
       "neutral": {
         "precision": 0.5,
-        "recall": 1.0,
-        "f1": 0.6666666666666666,
-        "support": 3
+        "recall": 0.8,
+        "f1": 0.6153846153846154,
+        "support": 10
       }
     },
-    "macro_f1": 0.7136752136752137,
-    "accuracy": 0.8846153846153846,
-    "n": 26
+    "macro_f1": 0.7128205128205128,
+    "accuracy": 0.8245614035087719,
+    "n": 57
   },
   "India": {
     "per_class": {
       "positive": {
         "precision": 1.0,
-        "recall": 0.6666666666666666,
-        "f1": 0.8,
-        "support": 3
+        "recall": 0.5454545454545454,
+        "f1": 0.7058823529411764,
+        "support": 11
       },
       "negative": {
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
-        "support": 1
+        "support": 2
       },
       "neutral": {
-        "precision": 0.75,
+        "precision": 0.631578947368421,
         "recall": 1.0,
-        "f1": 0.8571428571428571,
-        "support": 6
+        "f1": 0.7741935483870968,
+        "support": 12
       }
     },
-    "macro_f1": 0.5523809523809523,
-    "accuracy": 0.8,
-    "n": 10
+    "macro_f1": 0.49335863377609107,
+    "accuracy": 0.72,
+    "n": 25
   },
   "cross_market_gap": {
-    "macro_f1_us": 0.7136752136752137,
-    "macro_f1_india": 0.5523809523809523,
-    "gap": 0.1612942612942614
+    "macro_f1_us": 0.7128205128205128,
+    "macro_f1_india": 0.49335863377609107,
+    "gap": 0.21946187904442177
   }
 }

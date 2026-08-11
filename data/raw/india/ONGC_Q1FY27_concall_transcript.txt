@@ -1,0 +1,17 @@
+Company: Oil and Natural Gas Corporation Ltd (ONGC)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY27
+Source: search summary (Business Standard / PSUConnect / Yahoo Finance earnings-call highlights); investor relations at ongcindia.com/web/en/investor-corner
+
+--- FINANCIAL RESULTS ---
+For the quarter ended 30 June 2026, ONGC standalone net profit jumped 112% year-on-year to Rs 17,034 crore, its highest-ever quarterly profit before tax at Rs 22,848 crore. Standalone revenue from operations rose 45.2% YoY to Rs 46,460 crore. The surge was driven by elevated crude prices: net realisation on nomination crude rose to US$99.45/barrel from US$66.13 a year earlier, while joint-venture crude realisation improved to US$103.34/barrel from US$67.87. Consolidated net profit told a very different story, falling 43% YoY to Rs 6,554 crore, dragged down by the Refining & Marketing segment, which swung to an operating loss of Rs 16,155 crore versus a Rs 5,932 crore profit a year ago.
+
+--- GUIDANCE / RISK SIGNAL ---
+Management (Director Finance Anupam Agarwal) guided standalone oil-and-gas production of approximately 39 MMT for FY27 and 40 MMT for FY28, with upside skewed toward gas as new projects (DUDP, CPP commissioning, TSP expansions) add roughly 1 BCM/year of gas capacity. Gas production is targeted to reach 3 MMSCMD by Q4 FY27 and 6-7 MMSCMD by Q4 FY28. A flagged operational risk: the gas sales-to-production ratio declined to 75-76% due to lower offtake from isolated fields, reflecting customer-side disruptions and pricing challenges. The sharp divergence between record standalone profit and a heavily loss-making consolidated refining/marketing arm is itself a material risk signal for group-level earnings quality.
+
+--- MANAGEMENT COMMENTARY ---
+Chairman and CEO Arun Singh confirmed ONGC will play a major role in the government's Rs 84,084 crore national "Samudra Manthan" deepwater exploration mission, with the government funding a significant share of exploration costs, which management framed as reducing ONGC's financial burden and improving project economics. This deepwater push is presented as the company's key medium-term growth lever beyond mature onshore/shallow-water fields.
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level summary rather than the full call transcript (time-constrained pilot collection). Likely a "mixed" sentiment case for benchmarking: standalone results read as strongly positive on record crude-price tailwinds, but the consolidated loss from refining/marketing and the gas offtake weakness are genuine negative signals that a naive headline read (standalone profit +112%) would miss.

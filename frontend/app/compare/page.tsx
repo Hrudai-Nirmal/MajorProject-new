@@ -4,7 +4,7 @@ import { listDocuments, getFinancials, type Document, type FinancialSnapshot } f
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 
 // Sector pairing from README.md's company table -- not stored in the DB
-// since it's fixed metadata for this fixed 10-company pilot, not something
+// since it's fixed metadata for this fixed 20-company pilot, not something
 // that needs to survive adding new companies dynamically.
 const SECTOR_PAIRS = [
   { sector: "Technology", us: "MSFT", india: "INFY" },
@@ -12,6 +12,11 @@ const SECTOR_PAIRS = [
   { sector: "Banking", us: "JPM", india: "HDFC" },
   { sector: "Pharma", us: "PFE", india: "Sun" },
   { sector: "Retail / Consumer", us: "WMT", india: "RIL" },
+  { sector: "Energy", us: "XOM", india: "ONGC" },
+  { sector: "Automotive", us: "F", india: "TATAMOTORS" },
+  { sector: "Telecom", us: "VZ", india: "BHARTIARTL" },
+  { sector: "Consumer Staples / FMCG", us: "PG", india: "HINDUNILVR" },
+  { sector: "Financial Services", us: "V", india: "BAJFINANCE" },
 ];
 
 const SENTIMENT_ICON: Record<string, { icon: typeof Smile; cls: string }> = {
@@ -148,7 +153,7 @@ export default async function ComparePage({
         </h1>
       </div>
       <p className="mb-6 max-w-2xl text-sm text-slate-500">
-        Five sector-matched US/India pairs — the pilot&apos;s core comparison. Only figures
+        Ten sector-matched US/India pairs — the pilot&apos;s core comparison. Only figures
         explicitly stated in the collected transcripts are shown.
       </p>
 

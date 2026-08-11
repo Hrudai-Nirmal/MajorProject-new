@@ -1,0 +1,17 @@
+Company: Tata Motors Ltd (TATAMOTORS)
+Market: India
+Doc type: concall_transcript
+Period: Q4 FY26
+Source: search summary (Business Standard / Analytics Insight / Kotak Neo / Tata Motors press releases); investor relations at tatamotors.com/investors
+
+--- FINANCIAL RESULTS ---
+Q1 FY27 results were not yet released as of the collection date (board meeting/concall scheduled for 12 August 2026), so this file covers the most recently reported quarter, Q4 FY26 (quarter ended March 2026), across Tata Motors' demerged reporting units. Tata Motors standalone (commercial vehicles) revenue jumped 43% YoY to Rs 18,598 crore, but standalone PAT more than halved to Rs 455 crore. On a CV-segment basis reported separately, net profit grew 70% YoY to Rs 2,406 crore on revenue of Rs 24,452 crore, with EBITDA up 36% YoY to Rs 3,307 crore. Tata Motors Passenger Vehicles Ltd (TMPV, consolidated, including Jaguar Land Rover) reported a 31% decline in consolidated net profit to Rs 5,878 crore even as revenue rose 7% YoY to roughly Rs 1.05 trillion. The board recommended a final FY26 dividend of Rs 3 per equity share.
+
+--- GUIDANCE / RISK SIGNAL ---
+Full-year FY26 profitability at the PV/JLR unit was impacted by headwinds including tariffs and a cyberattack that crippled JLR's systems and halted production for nearly a month — a concrete, disclosed operational/cybersecurity risk event. Management described Q4 as showing sequential improvement as JLR production normalised after the disruption. Separately, Q1 FY27 preview data shows Tata Motors Commercial Vehicles domestic and international sales of 108,488 units (+27% YoY) and TMPV total sales of 182,574 units (+46% YoY), suggesting a volume recovery heading into the new fiscal year, though audited Q1 FY27 profit figures were unavailable at collection time.
+
+--- MANAGEMENT COMMENTARY ---
+Company commentary characterized the standalone CV business as delivering "a record Q4 FY26 performance and a strong full year, underpinned by disciplined execution and focus on profitable growth," with the sequential improvement attributed to normalisation in JLR production and record domestic CV volumes. No direct named-executive quotes were available in the search sources for this quarter; MD & CEO Girish Wagh and CFO PB Balaji/GV Ramanan are cited elsewhere as the scheduled Q1 FY27 call speakers.
+
+--- NOTE FOR ANALYSIS ---
+Derived from search-result-level summary rather than the full call transcript (time-constrained pilot collection). This file is a mixed-quarter proxy (Q4 FY26 financials plus Q1 FY27 volume-only preview) because the true most-recent quarter's earnings had not been published at the time of collection — flag this explicitly during benchmark adjudication, and expect a "mixed" sentiment label given the sharp divergence between strong CV performance and the JLR profit decline/cyberattack disruption.
