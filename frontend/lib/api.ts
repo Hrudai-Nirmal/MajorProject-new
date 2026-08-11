@@ -53,6 +53,27 @@ export type Metrics = {
   };
 };
 
+export type FinancialSnapshot = {
+  id: string;
+  document_id: string;
+  currency: string | null;
+  revenue: number | null;
+  revenue_unit: string | null;
+  revenue_growth_yoy_pct: number | null;
+  revenue_growth_qoq_pct: number | null;
+  gross_margin_pct: number | null;
+  operating_margin_pct: number | null;
+  net_margin_pct: number | null;
+  ebitda_margin_pct: number | null;
+  eps_growth_yoy_pct: number | null;
+  free_cash_flow: number | null;
+  free_cash_flow_unit: string | null;
+  constant_currency_growth_pct: number | null;
+  sector_specific: Record<string, number>;
+  notes: string | null;
+  model_used: string | null;
+} | null;
+
 export type ChatSource = {
   chunk_id: string;
   document_id: string;
@@ -88,6 +109,14 @@ export async function getExtractions(documentId: string): Promise<Extraction[]> 
     cache: "no-store",
   });
   if (!res.ok) throw new Error(`Failed to load extractions (${res.status})`);
+  return res.json();
+}
+
+export async function getFinancials(documentId: string): Promise<FinancialSnapshot> {
+  const res = await fetch(`${API_URL}/api/documents/${documentId}/financials`, {
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error(`Failed to load financials (${res.status})`);
   return res.json();
 }
 

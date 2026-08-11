@@ -1,0 +1,24 @@
+{
+  "method": "self_retrieval_proxy_not_human_relevance_judgments",
+  "match_count": 10,
+  "US": {
+    "n": 26,
+    "recall@1": 0.9615384615384616,
+    "recall@3": 1.0,
+    "recall@5": 1.0,
+    "recall@10": 1.0,
+    "mrr": 0.9807692307692307,
+    "latency_ms_mean": 634.9604971154314,
+    "latency_ms_p95": 711.2842919996183
+  },
+  "India": {
+    "n": 10,
+    "recall@1": 1.0,
+    "recall@3": 1.0,
+    "recall@5": 1.0,
+    "recall@10": 1.0,
+    "mrr": 1.0,
+    "latency_ms_mean": 624.3893171999844,
+    "latency_ms_p95": 703.0697090003741
+  }
+}

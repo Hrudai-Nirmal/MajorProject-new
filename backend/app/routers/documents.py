@@ -34,6 +34,22 @@ def get_metrics():
         return json.load(f)
 
 
+@router.get("/metrics/retrieval")
+def get_retrieval_metrics():
+    """Serves benchmark/retrieval_metrics.json (scripts/evaluate_retrieval.py).
+    Also registered before /{document_id} for the same shadowing reason as
+    /metrics above -- FastAPI matches routes in registration order, and
+    /{document_id} would otherwise swallow this."""
+    import json
+    import os
+
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "..", "benchmark", "retrieval_metrics.json")
+    if not os.path.exists(path):
+        return {"status": "not_computed_yet"}
+    with open(path) as f:
+        return json.load(f)
+
+
 @router.get("/{document_id}")
 def get_document(document_id: str):
     client = get_client()
@@ -66,3 +82,18 @@ def get_extractions(document_id: str):
     )
     # order by chunk_index so the frontend renders in document order, not insertion order
     return sorted(resp.data, key=lambda r: r.get("chunks", {}).get("chunk_index", 0))
+
+
+@router.get("/{document_id}/financials")
+def get_financials(document_id: str):
+    """Returns the financial_snapshots row for this document, if any
+    (scripts/extract_financials.py). Null fields mean the figure wasn't
+    explicitly disclosed in the collected transcript excerpt, not zero."""
+    client = get_client()
+    resp = (
+        client.table("financial_snapshots")
+        .select("*")
+        .eq("document_id", document_id)
+        .execute()
+    )
+    return resp.data[0] if resp.data else None

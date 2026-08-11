@@ -1,4 +1,4 @@
-import { getDocument, getExtractions, type Extraction } from "@/lib/api";
+import { getDocument, getExtractions, getFinancials, type Extraction } from "@/lib/api";
 import { notFound } from "next/navigation";
 
 const SENTIMENT_COLOR: Record<string, string> = {
@@ -7,10 +7,27 @@ const SENTIMENT_COLOR: Record<string, string> = {
   neutral: "text-slate-700 bg-slate-100",
 };
 
+const SECTOR_LABELS: Record<string, string> = {
+  rotce_pct: "ROTCE",
+  credit_deposit_ratio_pct: "Credit-Deposit Ratio",
+  attrition_rate_pct: "Attrition Rate",
+};
+
+function fmtMoney(value: number | null, unit: string | null, currency: string | null) {
+  if (value === null) return "—";
+  const parts = [value.toLocaleString(), unit, currency].filter(Boolean);
+  return parts.join(" ");
+}
+
+function fmtPct(value: number | null) {
+  return value === null || value === undefined ? "—" : `${value}%`;
+}
+
 export default async function DocumentPage({ params }: { params: { id: string } }) {
-  const [doc, extractions] = await Promise.all([
+  const [doc, extractions, financials] = await Promise.all([
     getDocument(params.id),
     getExtractions(params.id).catch(() => [] as Extraction[]),
+    getFinancials(params.id).catch(() => null),
   ]);
 
   if (!doc) notFound();
@@ -33,6 +50,71 @@ export default async function DocumentPage({ params }: { params: { id: string } 
           </a>
         )}
       </div>
+
+      {financials && (
+        <div className="mb-6 rounded-lg border border-slate-200 bg-white p-4">
+          <h2 className="mb-3 font-medium">Financial snapshot</h2>
+          <p className="mb-3 text-xs text-slate-500">
+            Only figures explicitly stated in the collected transcript excerpt are shown — a dash
+            means it wasn&apos;t disclosed in what we have, not zero.
+          </p>
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-3">
+            <div>
+              <dt className="text-xs text-slate-500">Revenue</dt>
+              <dd className="font-medium">
+                {fmtMoney(financials.revenue, financials.revenue_unit, financials.currency)}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Revenue growth (YoY)</dt>
+              <dd className="font-medium">{fmtPct(financials.revenue_growth_yoy_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Revenue growth (QoQ)</dt>
+              <dd className="font-medium">{fmtPct(financials.revenue_growth_qoq_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Gross margin</dt>
+              <dd className="font-medium">{fmtPct(financials.gross_margin_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Operating margin</dt>
+              <dd className="font-medium">{fmtPct(financials.operating_margin_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Net margin</dt>
+              <dd className="font-medium">{fmtPct(financials.net_margin_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">EBITDA margin</dt>
+              <dd className="font-medium">{fmtPct(financials.ebitda_margin_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">EPS growth (YoY)</dt>
+              <dd className="font-medium">{fmtPct(financials.eps_growth_yoy_pct)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Free cash flow</dt>
+              <dd className="font-medium">
+                {fmtMoney(financials.free_cash_flow, financials.free_cash_flow_unit, financials.currency)}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs text-slate-500">Constant-currency growth</dt>
+              <dd className="font-medium">{fmtPct(financials.constant_currency_growth_pct)}</dd>
+            </div>
+            {Object.entries(financials.sector_specific ?? {}).map(([key, value]) => (
+              <div key={key}>
+                <dt className="text-xs text-slate-500">{SECTOR_LABELS[key] ?? key}</dt>
+                <dd className="font-medium">{fmtPct(value)}</dd>
+              </div>
+            ))}
+          </dl>
+          {financials.notes && (
+            <p className="mt-3 text-xs text-slate-500">{financials.notes}</p>
+          )}
+        </div>
+      )}
 
       {extractions.length === 0 ? (
         <p className="text-slate-600">
