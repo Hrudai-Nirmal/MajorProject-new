@@ -10,6 +10,28 @@ export type Document = {
   source_url: string | null;
   fiscal_period: string | null;
   created_at: string;
+  avg_sentiment_score?: number | null;
+  sentiment_label?: string | null;
+  risk_count?: number;
+};
+
+export type RiskEntry = {
+  flag: string;
+  company: string;
+  ticker: string;
+  market: string;
+  document_id: string;
+};
+
+export type TopicEntry = {
+  topic: string;
+  count: number;
+  companies: string[];
+};
+
+export type RisksTopics = {
+  risks: RiskEntry[];
+  topics: TopicEntry[];
 };
 
 export type Extraction = {
@@ -117,6 +139,12 @@ export async function getFinancials(documentId: string): Promise<FinancialSnapsh
     cache: "no-store",
   });
   if (!res.ok) throw new Error(`Failed to load financials (${res.status})`);
+  return res.json();
+}
+
+export async function getRisksTopics(): Promise<RisksTopics> {
+  const res = await fetch(`${API_URL}/api/documents/risks-topics`, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load risks/topics (${res.status})`);
   return res.json();
 }
 

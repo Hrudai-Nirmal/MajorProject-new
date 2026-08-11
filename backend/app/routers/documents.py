@@ -1,7 +1,58 @@
+from collections import defaultdict
+
 from fastapi import APIRouter, Query
 from app.services.supabase_client import get_client
 
 router = APIRouter()
+
+
+def _attach_sentiment_summary(client, docs: list[dict]) -> list[dict]:
+    """Mutates docs in place, adding avg_sentiment_score / sentiment_label
+    (majority vote) / risk_count, computed from extraction_results. Used by
+    the dashboard cards so a visitor sees signal without clicking into every
+    document."""
+    doc_ids = [d["id"] for d in docs]
+    if not doc_ids:
+        return docs
+
+    chunk_rows = (
+        client.table("chunks").select("id, document_id").in_("document_id", doc_ids).execute().data
+    )
+    chunk_to_doc = {c["id"]: c["document_id"] for c in chunk_rows}
+    chunk_ids = list(chunk_to_doc.keys())
+
+    extractions = (
+        client.table("extraction_results")
+        .select("chunk_id, sentiment_label, sentiment_score, risk_flags")
+        .in_("chunk_id", chunk_ids)
+        .execute()
+        .data
+        if chunk_ids
+        else []
+    )
+
+    agg = defaultdict(lambda: {"scores": [], "labels": [], "risk_count": 0})
+    for e in extractions:
+        doc_id = chunk_to_doc.get(e["chunk_id"])
+        if not doc_id:
+            continue
+        if e.get("sentiment_score") is not None:
+            agg[doc_id]["scores"].append(float(e["sentiment_score"]))
+        if e.get("sentiment_label"):
+            agg[doc_id]["labels"].append(e["sentiment_label"])
+        agg[doc_id]["risk_count"] += len(e.get("risk_flags") or [])
+
+    for d in docs:
+        a = agg.get(d["id"])
+        if a and a["scores"]:
+            d["avg_sentiment_score"] = round(sum(a["scores"]) / len(a["scores"]), 3)
+            d["sentiment_label"] = max(set(a["labels"]), key=a["labels"].count) if a["labels"] else None
+            d["risk_count"] = a["risk_count"]
+        else:
+            d["avg_sentiment_score"] = None
+            d["sentiment_label"] = None
+            d["risk_count"] = 0
+    return docs
 
 
 @router.get("/")
@@ -10,8 +61,8 @@ def list_documents(market: str | None = Query(default=None)):
     q = client.table("documents").select("*")
     if market:
         q = q.eq("market", market)
-    resp = q.execute()
-    return resp.data
+    docs = q.execute().data
+    return _attach_sentiment_summary(client, docs)
 
 
 @router.get("/metrics")
@@ -48,6 +99,61 @@ def get_retrieval_metrics():
         return {"status": "not_computed_yet"}
     with open(path) as f:
         return json.load(f)
+
+
+@router.get("/risks-topics")
+def get_risks_topics():
+    """Aggregates every risk flag and topic across all extraction_results,
+    with the source company/ticker/market attached, for the /risks index
+    page. Also registered before /{document_id} for the same shadowing
+    reason as the /metrics routes above."""
+    client = get_client()
+
+    docs = client.table("documents").select("id, company, ticker, market").execute().data
+    doc_by_id = {d["id"]: d for d in docs}
+
+    chunk_rows = client.table("chunks").select("id, document_id").execute().data
+    chunk_to_doc = {c["id"]: c["document_id"] for c in chunk_rows}
+
+    extractions = (
+        client.table("extraction_results")
+        .select("chunk_id, risk_flags, topics")
+        .execute()
+        .data
+    )
+
+    risks = []
+    topic_companies = defaultdict(set)
+
+    for e in extractions:
+        doc_id = chunk_to_doc.get(e["chunk_id"])
+        doc = doc_by_id.get(doc_id)
+        if not doc:
+            continue
+        for flag in e.get("risk_flags") or []:
+            risks.append(
+                {
+                    "flag": flag,
+                    "company": doc["company"],
+                    "ticker": doc["ticker"],
+                    "market": doc["market"],
+                    "document_id": doc_id,
+                }
+            )
+        for topic in e.get("topics") or []:
+            topic_companies[topic].add(f"{doc['ticker']}|{doc['market']}")
+
+    topics = [
+        {
+            "topic": topic,
+            "count": len(companies),
+            "companies": sorted(companies),
+        }
+        for topic, companies in topic_companies.items()
+    ]
+    topics.sort(key=lambda t: t["count"], reverse=True)
+
+    return {"risks": risks, "topics": topics}
 
 
 @router.get("/{document_id}")

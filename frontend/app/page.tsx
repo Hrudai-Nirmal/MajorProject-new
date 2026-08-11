@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Building2, FileText, Globe2, TriangleAlert } from "lucide-react";
+import { ArrowRight, FileText, Frown, Globe2, Meh, Smile, TriangleAlert } from "lucide-react";
 import { listDocuments, type Document } from "@/lib/api";
+import { CompanyAvatar } from "@/components/CompanyAvatar";
 
 function MarketBadge({ market }: { market: "US" | "India" }) {
   const cls =
@@ -9,6 +10,24 @@ function MarketBadge({ market }: { market: "US" | "India" }) {
       : "bg-amber-50 text-amber-700 ring-1 ring-inset ring-amber-200";
   return (
     <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${cls}`}>{market}</span>
+  );
+}
+
+const SENTIMENT_ICON: Record<string, { icon: typeof Smile; cls: string }> = {
+  positive: { icon: Smile, cls: "text-emerald-600" },
+  negative: { icon: Frown, cls: "text-rose-600" },
+  neutral: { icon: Meh, cls: "text-slate-400" },
+};
+
+function SentimentIndicator({ label }: { label?: string | null }) {
+  if (!label) return null;
+  const entry = SENTIMENT_ICON[label] ?? SENTIMENT_ICON.neutral;
+  const Icon = entry.icon;
+  return (
+    <span className={`flex items-center gap-1 text-xs font-medium capitalize ${entry.cls}`}>
+      <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+      {label}
+    </span>
   );
 }
 
@@ -75,9 +94,7 @@ export default async function DashboardPage() {
           >
             <div className="mb-3 flex items-start justify-between gap-2">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-slate-400 ring-1 ring-inset ring-slate-200 transition-colors group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:ring-indigo-200">
-                  <Building2 className="h-4.5 w-4.5" strokeWidth={2} />
-                </span>
+                <CompanyAvatar ticker={doc.ticker} />
                 <div>
                   <p className="font-medium leading-tight text-slate-900">{doc.company}</p>
                   <p className="text-xs text-slate-400">{doc.ticker}</p>
@@ -85,11 +102,19 @@ export default async function DashboardPage() {
               </div>
               <MarketBadge market={market} />
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-slate-500">
+            <div className="mb-3 flex items-center gap-1.5 text-xs text-slate-500">
               <FileText className="h-3.5 w-3.5" strokeWidth={2} />
               <span className="capitalize">{doc.doc_type.replace(/_/g, " ")}</span>
               <span className="text-slate-300">·</span>
               <span>{doc.fiscal_period ?? "period n/a"}</span>
+            </div>
+            <div className="flex items-center justify-between border-t border-slate-100 pt-2.5">
+              <SentimentIndicator label={doc.sentiment_label} />
+              {!!doc.risk_count && (
+                <span className="flex items-center gap-1 text-xs font-medium text-amber-600">
+                  {doc.risk_count} risk{doc.risk_count === 1 ? "" : "s"} flagged
+                </span>
+              )}
             </div>
             <ArrowRight
               className="absolute bottom-4 right-4 h-4 w-4 text-slate-300 opacity-0 transition-all group-hover:translate-x-0.5 group-hover:text-indigo-500 group-hover:opacity-100"

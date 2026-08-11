@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { LineChart, LayoutGrid, MessageSquareText, Target } from "lucide-react";
+import {
+  LineChart,
+  LayoutGrid,
+  MessageSquareText,
+  Target,
+  ShieldAlert,
+  GitCompareArrows,
+} from "lucide-react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -13,6 +20,8 @@ export const metadata: Metadata = {
 
 const NAV_ITEMS = [
   { href: "/", label: "Dashboard", icon: LayoutGrid },
+  { href: "/compare", label: "Compare", icon: GitCompareArrows },
+  { href: "/risks", label: "Risks", icon: ShieldAlert },
   { href: "/chat", label: "Chat", icon: MessageSquareText },
   { href: "/benchmark", label: "Benchmark", icon: Target },
 ];
