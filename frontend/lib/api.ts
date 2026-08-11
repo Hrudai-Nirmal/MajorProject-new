@@ -21,6 +21,36 @@ export type Extraction = {
   topics: string[];
   summary: string | null;
   model_used: string | null;
+  chunks: { chunk_index: number; text: string } | null;
+};
+
+export type ClassMetrics = {
+  precision: number;
+  recall: number;
+  f1: number;
+  support: number;
+};
+
+export type MarketMetrics = {
+  per_class: Record<string, ClassMetrics>;
+  macro_f1: number;
+  accuracy: number;
+  n: number;
+};
+
+export type Metrics = {
+  status: string;
+  total_benchmark_rows?: number;
+  labeled_rows?: number;
+  note?: string;
+  skipped_missing_model_prediction?: number;
+  US?: MarketMetrics;
+  India?: MarketMetrics;
+  cross_market_gap?: {
+    macro_f1_us: number;
+    macro_f1_india: number;
+    gap: number;
+  };
 };
 
 export type ChatSource = {
@@ -61,7 +91,7 @@ export async function getExtractions(documentId: string): Promise<Extraction[]> 
   return res.json();
 }
 
-export async function getMetrics(): Promise<Record<string, unknown>> {
+export async function getMetrics(): Promise<Metrics> {
   const res = await fetch(`${API_URL}/api/documents/metrics`, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load metrics (${res.status})`);
   return res.json();

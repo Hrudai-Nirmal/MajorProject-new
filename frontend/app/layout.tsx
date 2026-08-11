@@ -23,6 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/chat" className="hover:underline">
                 Chat
               </Link>
+              <Link href="/benchmark" className="hover:underline">
+                Benchmark
+              </Link>
             </nav>
           </div>
         </header>

@@ -67,7 +67,7 @@ export default async function DocumentPage({ params }: { params: { id: string } 
                 </div>
               )}
               {ex.topics?.length > 0 && (
-                <div className="flex flex-wrap gap-1">
+                <div className="mb-2 flex flex-wrap gap-1">
                   {ex.topics.map((t, i) => (
                     <span
                       key={i}
@@ -77,6 +77,17 @@ export default async function DocumentPage({ params }: { params: { id: string } 
                     </span>
                   ))}
                 </div>
+              )}
+              {ex.chunks?.text && (
+                <details className="mt-1 rounded border border-slate-100 bg-slate-50 px-3 py-1.5">
+                  <summary className="cursor-pointer text-xs font-medium text-slate-500">
+                    Source excerpt — verify the summary and risk flags above against the actual
+                    text (chunk #{ex.chunks.chunk_index})
+                  </summary>
+                  <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">
+                    {ex.chunks.text}
+                  </p>
+                </details>
               )}
             </div>
           ))}
