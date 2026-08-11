@@ -3,8 +3,10 @@
 Pilot RAG pipeline comparing US (SEC) vs India (NSE/BSE) corporate disclosure analysis using a single free-tier LLM stack (Gemini). Built as a 3-day course demo, structured to extend afterward.
 
 ## Stack
-- Embeddings + generation: Gemini (`text-embedding-004` + Gemini generation model), Google AI Pro plan
-- Vector DB: Supabase (Postgres + pgvector), free tier
+- Embeddings: Gemini `gemini-embedding-001` (768-dim). Generation (extraction, financial ratios,
+  chat): Groq (`llama-3.3-70b-versatile` + `openai/gpt-oss-120b`) — Gemini's `generateContent` is
+  billing-gated on this project's Google AI Pro plan, `embedContent` isn't, see REQUIREMENTS.md
+- Vector DB: Supabase (Postgres + pgvector), free tier — no ANN index at this scale, see schema.sql
 - Backend: FastAPI, deployed on Render free tier
 - Frontend: Next.js + Tailwind, deployed on Vercel free tier
 - Benchmark labeling aid: Loughran-McDonald financial sentiment dictionary
@@ -38,6 +40,11 @@ Scope: pilot / proof-of-concept, single model tier (Gemini for embeddings, Groq 
 36 benchmark chunks, cross-market generalization as the primary research question. Live result
 as of 2026-08-10: US macro-F1 0.71 vs India macro-F1 0.55 (gap 0.16) — see `benchmark/metrics.json`
 and REQUIREMENTS.md for the gold-label provenance disclosure (AI-adjudicated, not hand-labeled).
+
+## Report
+See [docs/REPORT.md](docs/REPORT.md) for the full write-up: methodology, benchmark tables,
+retrieval quality, the cross-market gap discussion, and limitations (including the AI-label
+provenance disclosure and a real production bug that was caught and fixed mid-project).
 
 ## Deployment
 See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — Render (backend) + Vercel (frontend), both need a
