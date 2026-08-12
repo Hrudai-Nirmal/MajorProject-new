@@ -40,6 +40,11 @@ function MarketCard({
             </span>
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
               <div
+                role="progressbar"
+                aria-label={`${label} ${cls} F1 score`}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={Math.round(c.f1 * 100)}
                 className="h-full rounded-full bg-slate-400"
                 style={{ width: `${c.f1 * 100}%` }}
               />
@@ -151,6 +156,11 @@ export default async function BenchmarkPage() {
               <span className="w-16 shrink-0 text-xs font-semibold text-indigo-700">US</span>
               <div className="h-3 flex-1 overflow-hidden rounded-full bg-slate-100">
                 <div
+                  role="progressbar"
+                  aria-label="US macro F1 relative score"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={Math.round((usF1 / maxF1) * 100)}
                   className="h-full rounded-full bg-indigo-500"
                   style={{ width: `${(usF1 / maxF1) * 100}%` }}
                 />
@@ -163,6 +173,11 @@ export default async function BenchmarkPage() {
               <span className="w-16 shrink-0 text-xs font-semibold text-amber-700">India</span>
               <div className="h-3 flex-1 overflow-hidden rounded-full bg-slate-100">
                 <div
+                  role="progressbar"
+                  aria-label="India macro F1 relative score"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={Math.round((indiaF1 / maxF1) * 100)}
                   className="h-full rounded-full bg-amber-500"
                   style={{ width: `${(indiaF1 / maxF1) * 100}%` }}
                 />

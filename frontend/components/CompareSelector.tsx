@@ -28,6 +28,7 @@ export function CompareSelector({
           US company
         </span>
         <select
+          aria-label="US company"
           value={selectedUs}
           onChange={(e) => go(e.target.value, selectedIndia)}
           className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition-colors focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100"
@@ -44,6 +45,7 @@ export function CompareSelector({
           India company
         </span>
         <select
+          aria-label="India company"
           value={selectedIndia}
           onChange={(e) => go(selectedUs, e.target.value)}
           className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition-colors focus:border-indigo-300 focus:ring-2 focus:ring-indigo-100"

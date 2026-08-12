@@ -3,6 +3,7 @@ import { ArrowRight, Frown, GitCompareArrows, Meh, Smile, TriangleAlert } from "
 import { listDocuments, getFinancials, type Document, type FinancialSnapshot } from "@/lib/api";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 import { CompareSelector } from "@/components/CompareSelector";
+import { ComparisonTools } from "@/components/ComparisonTools";
 
 // Sector pairing from README.md's company table -- shown as quick-pick
 // shortcuts below the free-form dropdowns. Not stored in the DB since it's
@@ -195,6 +196,11 @@ export default async function ComparePage({
         <CompanyPanel doc={usDoc} financials={usFinancials} />
         <CompanyPanel doc={indiaDoc} financials={indiaFinancials} />
       </div>
+
+      <ComparisonTools
+        us={usDoc ? { company: usDoc.company, ticker: usDoc.ticker, market: usDoc.market, financials: usFinancials } : null}
+        india={indiaDoc ? { company: indiaDoc.company, ticker: indiaDoc.ticker, market: indiaDoc.market, financials: indiaFinancials } : null}
+      />
     </div>
   );
 }

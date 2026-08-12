@@ -1,21 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   Bot,
+  Clock3,
+  ExternalLink,
   Loader2,
   MessageSquareText,
   Search,
   SendHorizontal,
+  Trash2,
   TriangleAlert,
 } from "lucide-react";
-import { askQuestion, type ChatSource } from "@/lib/api";
+import { askQuestion, NoModelOutputError, type ChatSource } from "@/lib/api";
+import { ModelOutputModal } from "@/components/ModelOutputModal";
 
 const SUGGESTIONS = [
   "What risks did Apple management mention?",
   "How did TCS attrition trend?",
   "What did Infosys say about margins?",
 ];
+
+type ChatHistoryItem = {
+  id: string;
+  question: string;
+  market: string;
+  answer: string;
+  sources: ChatSource[];
+  createdAt: string;
+};
+
+const CHAT_HISTORY_KEY = "cross-market-chat-history";
 
 export default function ChatPage() {
   const [question, setQuestion] = useState("");
@@ -25,22 +41,65 @@ export default function ChatPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [askedQuestion, setAskedQuestion] = useState<string | null>(null);
+  const [modelOutputError, setModelOutputError] = useState<string | null>(null);
+  const [history, setHistory] = useState<ChatHistoryItem[]>([]);
+  const [historyReady, setHistoryReady] = useState(false);
 
-  async function runQuestion(q: string) {
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(CHAT_HISTORY_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored) as unknown;
+        if (Array.isArray(parsed)) setHistory(parsed.filter(isChatHistoryItem).slice(0, 10));
+      }
+    } catch {
+      window.localStorage.removeItem(CHAT_HISTORY_KEY);
+    } finally {
+      setHistoryReady(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!historyReady) return;
+    try {
+      window.localStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(history));
+    } catch {
+      // History is an enhancement; chat remains usable if storage is unavailable.
+    }
+  }, [history, historyReady]);
+
+  async function runQuestion(q: string, marketOverride = market) {
     if (!q.trim()) return;
     setLoading(true);
     setError(null);
     setAnswer(null);
+    setSources([]);
     setAskedQuestion(q);
+    setModelOutputError(null);
     try {
-      const res = await askQuestion(q, market || undefined);
+      const res = await askQuestion(q, marketOverride || undefined);
       setAnswer(res.answer);
       setSources(res.sources);
+      setHistory((current) => [{ id: `${Date.now()}`, question: q.trim(), market: marketOverride, answer: res.answer, sources: res.sources, createdAt: new Date().toISOString() }, ...current].slice(0, 10));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong");
+      if (err instanceof NoModelOutputError) {
+        setModelOutputError(err.message);
+      } else {
+        setError(err instanceof Error ? err.message : "Something went wrong");
+      }
     } finally {
       setLoading(false);
     }
+  }
+
+  function restoreHistory(item: ChatHistoryItem) {
+    setQuestion(item.question);
+    setMarket(item.market);
+    setAskedQuestion(item.question);
+    setAnswer(item.answer);
+    setSources(item.sources);
+    setError(null);
+    setModelOutputError(null);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -73,6 +132,7 @@ export default function ChatPage() {
           <Search className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} />
           <input
             type="text"
+            aria-label="Question for the disclosure corpus"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="e.g. What risks did Apple management mention?"
@@ -81,6 +141,7 @@ export default function ChatPage() {
         </div>
         <div className="flex gap-2">
           <select
+            aria-label="Filter question by market"
             value={market}
             onChange={(e) => setMarket(e.target.value)}
             className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
@@ -91,7 +152,7 @@ export default function ChatPage() {
           </select>
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !question.trim()}
             className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? (
@@ -104,10 +165,20 @@ export default function ChatPage() {
         </div>
       </form>
 
+      {history.length > 0 && (
+        <section className="chat-history" aria-labelledby="chat-history-title">
+          <div className="chat-history-heading"><h2 id="chat-history-title"><Clock3 aria-hidden="true" size={15} /> Recent research</h2><button type="button" onClick={() => setHistory([])}><Trash2 aria-hidden="true" size={14} /> Clear</button></div>
+          <div className="chat-history-list">
+            {history.slice(0, 5).map((item) => <button type="button" key={item.id} onClick={() => restoreHistory(item)}><span>{item.question}</span><small>{item.market || "All markets"} / {formatHistoryTime(item.createdAt)}</small></button>)}
+          </div>
+        </section>
+      )}
+
       {!askedQuestion && !loading && (
         <div className="mb-6 flex flex-wrap gap-2">
           {SUGGESTIONS.map((s) => (
             <button
+              type="button"
               key={s}
               onClick={() => {
                 setQuestion(s);
@@ -136,11 +207,18 @@ export default function ChatPage() {
       )}
 
       {answer && !loading && (
-        <div className="mb-6 flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="chat-answer mb-6 flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600">
             <Bot className="h-4 w-4" strokeWidth={2.25} />
           </span>
           <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">{answer}</p>
+        </div>
+      )}
+
+      {answer && !loading && (
+        <div className="follow-up-actions" aria-label="Suggested follow-up questions">
+          <span className="mono-label">Continue research</span>
+          {["Which risks were mentioned?", "Summarize the financial signals.", market === "US" ? "How does India compare?" : "How does the US compare?"].map((suggestion) => <button type="button" key={suggestion} onClick={() => { setQuestion(suggestion); runQuestion(suggestion); }}>{suggestion}</button>)}
         </div>
       )}
 
@@ -173,6 +251,11 @@ export default function ChatPage() {
                     <span className="flex items-center gap-1.5 text-[11px] text-slate-400">
                       <span className="h-1 w-14 overflow-hidden rounded-full bg-slate-100">
                         <span
+                          role="progressbar"
+                          aria-label={`${s.company} source match`}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                          aria-valuenow={pct}
                           className="block h-full rounded-full bg-indigo-500"
                           style={{ width: `${pct}%` }}
                         />
@@ -181,12 +264,33 @@ export default function ChatPage() {
                     </span>
                   </div>
                   <p className="leading-relaxed text-slate-700">{s.text}</p>
+                  <Link className="source-link" href={`/documents/${s.document_id}#chunk-${encodeURIComponent(s.chunk_id)}`}><ExternalLink aria-hidden="true" size={13} /> Open cited disclosure</Link>
                 </div>
               );
             })}
           </div>
         </div>
       )}
+
+      <ModelOutputModal
+        open={modelOutputError !== null}
+        question={askedQuestion ?? question}
+        reason={modelOutputError ?? "The model did not return an answer."}
+        onClose={() => setModelOutputError(null)}
+        onRetry={() => runQuestion(askedQuestion ?? question)}
+      />
     </div>
   );
+}
+
+function isChatHistoryItem(value: unknown): value is ChatHistoryItem {
+  if (!value || typeof value !== "object") return false;
+  const item = value as Partial<ChatHistoryItem>;
+  return typeof item.id === "string" && typeof item.question === "string" && typeof item.answer === "string" && typeof item.createdAt === "string" && Array.isArray(item.sources);
+}
+
+function formatHistoryTime(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Earlier";
+  return new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit" }).format(date);
 }

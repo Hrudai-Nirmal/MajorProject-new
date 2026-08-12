@@ -111,6 +111,13 @@ export type ChatResponse = {
   sources: ChatSource[];
 };
 
+export class NoModelOutputError extends Error {
+  constructor(message = "The model completed the request without returning an answer.") {
+    super(message);
+    this.name = "NoModelOutputError";
+  }
+}
+
 export async function listDocuments(market?: string): Promise<Document[]> {
   const url = new URL(`${API_URL}/api/documents/`);
   if (market) url.searchParams.set("market", market);
@@ -159,11 +166,43 @@ export async function askQuestion(
   market?: string,
   top_k = 5
 ): Promise<ChatResponse> {
-  const res = await fetch(`${API_URL}/api/chat/`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question, market: market || null, top_k }),
-  });
-  if (!res.ok) throw new Error(`Chat request failed (${res.status})`);
-  return res.json();
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 45_000);
+
+  try {
+    const res = await fetch(`${API_URL}/api/chat/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, market: market || null, top_k }),
+      signal: controller.signal,
+    });
+    if (!res.ok) throw new Error(`Chat request failed (${res.status})`);
+
+    const rawPayload = await res.text();
+    if (!rawPayload.trim()) {
+      throw new NoModelOutputError();
+    }
+
+    let payload: Partial<ChatResponse>;
+    try {
+      payload = JSON.parse(rawPayload) as Partial<ChatResponse>;
+    } catch {
+      throw new NoModelOutputError("The model response arrived in an unreadable format.");
+    }
+    if (typeof payload.answer !== "string" || !payload.answer.trim()) {
+      throw new NoModelOutputError();
+    }
+
+    return {
+      answer: payload.answer.trim(),
+      sources: Array.isArray(payload.sources) ? payload.sources : [],
+    };
+  } catch (error) {
+    if (error instanceof DOMException && error.name === "AbortError") {
+      throw new NoModelOutputError("The model did not return an answer within 45 seconds.");
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 }

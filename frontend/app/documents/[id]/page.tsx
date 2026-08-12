@@ -213,6 +213,7 @@ export default async function DocumentPage({ params }: { params: { id: string } 
             return (
               <div
                 key={ex.id}
+                id={`chunk-${ex.chunk_id}`}
                 className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
               >
                 <div className={`h-1 ${style.bar}`} />
