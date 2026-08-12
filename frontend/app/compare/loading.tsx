@@ -3,6 +3,10 @@ export default function CompareLoading() {
     <div className="animate-pulse">
       <div className="mb-6 h-7 w-56 rounded bg-slate-200" />
       <div className="mb-6 h-4 w-full max-w-xl rounded bg-slate-100" />
+      <div className="mb-6 grid gap-3 sm:grid-cols-2">
+        <div className="h-9 rounded-lg border border-slate-200 bg-white" />
+        <div className="h-9 rounded-lg border border-slate-200 bg-white" />
+      </div>
       <div className="mb-6 flex flex-wrap gap-1.5">
         {Array.from({ length: 5 }).map((_, i) => (
           <div key={i} className="h-7 w-32 rounded-full bg-slate-100" />

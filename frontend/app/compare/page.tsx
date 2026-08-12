@@ -2,10 +2,11 @@ import Link from "next/link";
 import { ArrowRight, Frown, GitCompareArrows, Meh, Smile, TriangleAlert } from "lucide-react";
 import { listDocuments, getFinancials, type Document, type FinancialSnapshot } from "@/lib/api";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
+import { CompareSelector } from "@/components/CompareSelector";
 
-// Sector pairing from README.md's company table -- not stored in the DB
-// since it's fixed metadata for this fixed 20-company pilot, not something
-// that needs to survive adding new companies dynamically.
+// Sector pairing from README.md's company table -- shown as quick-pick
+// shortcuts below the free-form dropdowns. Not stored in the DB since it's
+// fixed metadata for this fixed 20-company pilot.
 const SECTOR_PAIRS = [
   { sector: "Technology", us: "MSFT", india: "INFY" },
   { sector: "Technology", us: "AAPL", india: "TCS" },
@@ -109,7 +110,7 @@ function CompanyPanel({ doc, financials }: { doc: Document | undefined; financia
 export default async function ComparePage({
   searchParams,
 }: {
-  searchParams: { pair?: string };
+  searchParams: { us?: string; india?: string };
 }) {
   let documents: Document[] = [];
   let error: string | null = null;
@@ -131,11 +132,18 @@ export default async function ComparePage({
     );
   }
 
-  const pairIndex = Math.min(Math.max(Number(searchParams.pair ?? 0) || 0, 0), SECTOR_PAIRS.length - 1);
-  const pair = SECTOR_PAIRS[pairIndex];
+  const usDocs = documents.filter((d) => d.market === "US");
+  const indiaDocs = documents.filter((d) => d.market === "India");
 
-  const usDoc = documents.find((d) => d.ticker === pair.us);
-  const indiaDoc = documents.find((d) => d.ticker === pair.india);
+  const usTicker = usDocs.some((d) => d.ticker === searchParams.us)
+    ? searchParams.us!
+    : usDocs[0]?.ticker ?? "";
+  const indiaTicker = indiaDocs.some((d) => d.ticker === searchParams.india)
+    ? searchParams.india!
+    : indiaDocs[0]?.ticker ?? "";
+
+  const usDoc = usDocs.find((d) => d.ticker === usTicker);
+  const indiaDoc = indiaDocs.find((d) => d.ticker === indiaTicker);
 
   const [usFinancials, indiaFinancials] = await Promise.all([
     usDoc ? getFinancials(usDoc.id).catch(() => null) : Promise.resolve(null),
@@ -149,21 +157,31 @@ export default async function ComparePage({
           <GitCompareArrows className="h-4 w-4" strokeWidth={2.25} />
         </span>
         <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
-          Sector comparison
+          Company comparison
         </h1>
       </div>
       <p className="mb-6 max-w-2xl text-sm text-slate-500">
-        Ten sector-matched US/India pairs — the pilot&apos;s core comparison. Only figures
+        Pick any US company and any India company to compare side by side. Only figures
         explicitly stated in the collected transcripts are shown.
       </p>
 
-      <div className="mb-6 flex flex-wrap gap-1.5">
-        {SECTOR_PAIRS.map((p, i) => (
+      <CompareSelector
+        usOptions={usDocs.map((d) => ({ ticker: d.ticker, company: d.company }))}
+        indiaOptions={indiaDocs.map((d) => ({ ticker: d.ticker, company: d.company }))}
+        selectedUs={usTicker}
+        selectedIndia={indiaTicker}
+      />
+
+      <div className="mb-6 flex flex-wrap items-center gap-1.5">
+        <span className="mr-1 text-[11px] font-medium uppercase tracking-wide text-slate-400">
+          Sector-matched shortcuts:
+        </span>
+        {SECTOR_PAIRS.map((p) => (
           <Link
             key={p.sector + p.us}
-            href={`/compare?pair=${i}`}
+            href={`/compare?us=${p.us}&india=${p.india}`}
             className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-              i === pairIndex
+              p.us === usTicker && p.india === indiaTicker
                 ? "bg-indigo-600 text-white"
                 : "border border-slate-200 bg-white text-slate-600 hover:border-indigo-200 hover:text-indigo-600"
             }`}
