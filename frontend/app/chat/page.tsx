@@ -12,9 +12,9 @@ import {
 import { askQuestion, type ChatSource } from "@/lib/api";
 
 const SUGGESTIONS = [
-  "What risks did Apple management mention?",
-  "How did TCS attrition trend?",
   "What did Infosys say about margins?",
+  "Compare risks for Coca-Cola and Varun Beverages.",
+  "Which India companies mention execution or margin pressure?",
 ];
 
 export default function ChatPage() {
