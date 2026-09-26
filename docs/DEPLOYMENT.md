@@ -36,6 +36,10 @@ after ~15 min idle, ~30s cold start on the next request.
    step 7 above.
 5. Deploy.
 
+Branch note: GitHub's default branch is currently `main`, so Vercel deploys `main` by default.
+Keep `main` synchronized with the MVP branch, or change Vercel's production branch setting before
+assuming a push has reached production.
+
 ## After both are live
 
 CORS is already restricted in `backend/app/main.py` to the production Vercel domain and localhost
