@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, FileText, Frown, Globe2, Meh, Smile, TriangleAlert } from "lucide-react";
 import { listDocuments, type Document } from "@/lib/api";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
+import { MvpInsightBanner } from "@/components/MvpInsightBanner";
 
 /**
  * Server-rendered dashboard overview; counts come from the backend so deployed copy cannot drift
@@ -167,6 +168,8 @@ export default async function DashboardPage() {
           across 13 sector-matched pairs, including six full-source India variants.
         </p>
       </div>
+
+      <MvpInsightBanner showBenchmarkLink />
 
       <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <StatPill label="Companies" value={String(documents.length)} />

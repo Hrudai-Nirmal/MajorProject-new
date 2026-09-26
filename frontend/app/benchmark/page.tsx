@@ -1,4 +1,5 @@
 import { Info, Target, TriangleAlert } from "lucide-react";
+import { MvpInsightBanner } from "@/components/MvpInsightBanner";
 import { getMetrics, type MarketMetrics } from "@/lib/api";
 
 const CLASS_STYLE: Record<string, string> = {
@@ -136,6 +137,8 @@ export default async function BenchmarkPage() {
         classification (positive/negative/neutral), macro-F1, segmented by market — the
         cross-market generalization gap is the pilot&apos;s primary research question.
       </p>
+
+      <MvpInsightBanner />
 
       {metrics.cross_market_gap && (
         <div className="mb-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
