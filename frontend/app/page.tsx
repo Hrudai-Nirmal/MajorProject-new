@@ -85,12 +85,6 @@ const DEMO_STEPS = [
     copy: "128 labeled chunks; US 0.717 vs India 0.653.",
   },
   {
-    href: "/",
-    icon: SearchCheck,
-    title: "Inspect full-source India",
-    copy: "Look for the Full transcript badge on India records.",
-  },
-  {
     href: "/compare?us=KO&india=VBL",
     icon: GitCompareArrows,
     title: "Compare beverages",
@@ -104,7 +98,18 @@ const DEMO_STEPS = [
   },
 ];
 
-function DemoModeSection() {
+function DemoModeSection({ fullSourceHref }: { fullSourceHref: string }) {
+  const demoSteps = [
+    DEMO_STEPS[0],
+    {
+      href: fullSourceHref,
+      icon: SearchCheck,
+      title: "Inspect full-source India",
+      copy: "Open a real Full transcript India record.",
+    },
+    ...DEMO_STEPS.slice(1),
+  ];
+
   return (
     <section className="mb-10 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       <div className="mb-4 flex items-center justify-between gap-3">
@@ -122,7 +127,7 @@ function DemoModeSection() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {DEMO_STEPS.map((step, index) => {
+        {demoSteps.map((step, index) => {
           const Icon = step.icon;
           return (
             <Link
@@ -161,6 +166,8 @@ export default async function DashboardPage() {
 
   const us = documents.filter((d) => d.market === "US");
   const india = documents.filter((d) => d.market === "India");
+  const firstFullSourceIndiaDoc = india.find((d) => getSourceFidelity(d) === "full_transcript");
+  const fullSourceHref = firstFullSourceIndiaDoc ? `/documents/${firstFullSourceIndiaDoc.id}` : "/";
 
   if (error) {
     return (
@@ -255,7 +262,7 @@ export default async function DashboardPage() {
 
       <MvpInsightBanner showBenchmarkLink />
 
-      <DemoModeSection />
+      <DemoModeSection fullSourceHref={fullSourceHref} />
 
       <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <StatPill label="Companies" value={String(documents.length)} />
