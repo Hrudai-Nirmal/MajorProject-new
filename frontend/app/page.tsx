@@ -35,6 +35,26 @@ function SentimentIndicator({ label }: { label?: string | null }) {
   );
 }
 
+function getSourceFidelity(doc: Document) {
+  return doc.source_fidelity ?? (doc.doc_id.includes("_full_") ? "full_transcript" : "summary_excerpt");
+}
+
+function SourceFidelityBadge({ doc }: { doc: Document }) {
+  const sourceFidelity = getSourceFidelity(doc);
+  const isFullTranscript = sourceFidelity === "full_transcript";
+  return (
+    <span
+      className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ring-inset ${
+        isFullTranscript
+          ? "bg-sky-50 text-sky-700 ring-sky-200"
+          : "bg-stone-50 text-stone-600 ring-stone-200"
+      }`}
+    >
+      {isFullTranscript ? "Full transcript" : "Summary excerpt"}
+    </span>
+  );
+}
+
 function StatPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
@@ -115,6 +135,9 @@ export default async function DashboardPage() {
               <span className="text-slate-300">·</span>
               <span>{doc.fiscal_period ?? "period n/a"}</span>
             </div>
+            <div className="mb-3">
+              <SourceFidelityBadge doc={doc} />
+            </div>
             <div className="flex items-center justify-between border-t border-slate-100 pt-2.5">
               <SentimentIndicator label={doc.sentiment_label} />
               {!!doc.risk_count && (
@@ -140,8 +163,8 @@ export default async function DashboardPage() {
           Company disclosures
         </h1>
         <p className="mt-1 text-sm text-slate-500">
-          Sentiment, risk, and financial signals extracted from 26 US/India company disclosures
-          across 13 sector-matched pairs.
+          Sentiment, risk, and financial signals extracted from 32 US/India disclosure records
+          across 13 sector-matched pairs, including six full-source India variants.
         </p>
       </div>
 

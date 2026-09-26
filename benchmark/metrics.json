@@ -1,7 +1,7 @@
 {
   "status": "ok",
-  "total_benchmark_rows": 98,
-  "labeled_rows": 98,
+  "total_benchmark_rows": 128,
+  "labeled_rows": 128,
   "US": {
     "per_class": {
       "positive": {
@@ -30,31 +30,31 @@
   "India": {
     "per_class": {
       "positive": {
-        "precision": 0.9166666666666666,
-        "recall": 0.6875,
-        "f1": 0.7857142857142857,
-        "support": 16
+        "precision": 0.8076923076923077,
+        "recall": 0.75,
+        "f1": 0.7777777777777779,
+        "support": 28
       },
       "negative": {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "support": 2
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4,
+        "support": 4
       },
       "neutral": {
-        "precision": 0.6818181818181818,
-        "recall": 0.9375,
-        "f1": 0.7894736842105263,
-        "support": 16
+        "precision": 0.7297297297297297,
+        "recall": 0.84375,
+        "f1": 0.7826086956521738,
+        "support": 32
       }
     },
-    "macro_f1": 0.525062656641604,
-    "accuracy": 0.7647058823529411,
-    "n": 34
+    "macro_f1": 0.653462157809984,
+    "accuracy": 0.765625,
+    "n": 64
   },
   "cross_market_gap": {
     "macro_f1_us": 0.7167224080267559,
-    "macro_f1_india": 0.525062656641604,
-    "gap": 0.1916597513851519
+    "macro_f1_india": 0.653462157809984,
+    "gap": 0.06326025021677195
   }
 }

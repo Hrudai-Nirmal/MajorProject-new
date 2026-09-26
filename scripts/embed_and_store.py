@@ -33,6 +33,44 @@ def load_chunks() -> list[dict]:
     return rows
 
 
+def build_document_payload(chunk: dict) -> dict:
+    """Build the Supabase documents-row payload from one processed chunk."""
+    return {
+        "doc_id": chunk["doc_id"],
+        "market": chunk["market"],
+        "company": chunk["company"],
+        "ticker": chunk["ticker"],
+        "doc_type": chunk["doc_type"],
+        "source_url": chunk.get("source"),
+        "fiscal_period": chunk.get("period"),
+        "source_fidelity": chunk.get("source_fidelity", "summary_excerpt"),
+    }
+
+
+def should_retry_without_source_fidelity(exc: Exception) -> bool:
+    """Detect the exact migration gap raised when Supabase lacks the new column."""
+    message = str(exc).lower()
+    return "source_fidelity" in message and ("schema cache" in message or "pgrst204" in message)
+
+
+def upsert_document(client, payload: dict):
+    """Upsert a document row, tolerating old Supabase schemas until schema.sql is applied."""
+    try:
+        return client.table("documents").upsert(payload, on_conflict="doc_id").execute()
+    except Exception as exc:
+        if not should_retry_without_source_fidelity(exc):
+            raise
+
+        fallback_payload = {k: v for k, v in payload.items() if k != "source_fidelity"}
+        if not getattr(upsert_document, "source_fidelity_warning_shown", False):
+            print(
+                "WARNING: Supabase documents table does not expose source_fidelity yet; "
+                "retrying document upserts without that column. Apply backend/schema.sql to store it."
+            )
+            upsert_document.source_fidelity_warning_shown = True
+        return client.table("documents").upsert(fallback_payload, on_conflict="doc_id").execute()
+
+
 def main():
     chunks = load_chunks()
     if not chunks:
@@ -47,22 +85,7 @@ def main():
         doc_id = c["doc_id"]
         if doc_id in doc_ids_seen:
             continue
-        resp = (
-            client.table("documents")
-            .upsert(
-                {
-                    "doc_id": doc_id,
-                    "market": c["market"],
-                    "company": c["company"],
-                    "ticker": c["ticker"],
-                    "doc_type": c["doc_type"],
-                    "source_url": c.get("source"),
-                    "fiscal_period": c.get("period"),
-                },
-                on_conflict="doc_id",
-            )
-            .execute()
-        )
+        resp = upsert_document(client, build_document_payload(c))
         row_id = resp.data[0]["id"]
         doc_ids_seen[doc_id] = row_id
         print(f"  documents: upserted {doc_id} -> {row_id}")

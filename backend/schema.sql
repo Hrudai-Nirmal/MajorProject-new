@@ -11,9 +11,13 @@ create table if not exists documents (
     doc_type text not null, -- '10-K' | '10-Q' | 'earnings_transcript' | 'annual_report' | 'nse_bse_announcement' | 'concall_transcript'
     source_url text,
     fiscal_period text,
+    source_fidelity text not null default 'summary_excerpt', -- 'summary_excerpt' for curated search summaries, 'full_transcript' when derived from a complete official transcript
     raw_text text,
     created_at timestamptz default now()
 );
+
+alter table documents
+    add column if not exists source_fidelity text not null default 'summary_excerpt';
 
 create table if not exists chunks (
     id uuid primary key default gen_random_uuid(),

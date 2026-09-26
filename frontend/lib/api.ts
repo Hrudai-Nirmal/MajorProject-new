@@ -9,6 +9,7 @@ export type Document = {
   doc_type: string;
   source_url: string | null;
   fiscal_period: string | null;
+  source_fidelity: string | null;
   created_at: string;
   avg_sentiment_score?: number | null;
   sentiment_label?: string | null;

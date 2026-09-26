@@ -48,8 +48,8 @@ benchmark/           # AI-adjudicated labels + evaluation results
 
 ## Status
 Scope: pilot / proof-of-concept, single model stack (Gemini for embeddings, Groq for generation),
-26 documents / 98 benchmark chunks, cross-market generalization as the primary research question.
-Current benchmark result: US macro-F1 0.717 vs India macro-F1 0.525 (gap 0.192) — see
+32 documents / 128 benchmark chunks, cross-market generalization as the primary research question.
+Current benchmark result: US macro-F1 0.717 vs India macro-F1 0.653 (gap 0.063) — see
 `benchmark/metrics.json` and REQUIREMENTS.md for the gold-label provenance disclosure
 (AI-adjudicated, not independently hand-labeled).
 

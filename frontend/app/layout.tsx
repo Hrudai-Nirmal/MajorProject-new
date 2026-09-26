@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="font-medium text-slate-600">
                 Research/educational purposes only — not investment advice.
               </span>{" "}
-              Pilot scope: 13 sector-matched US/India company pairs, 26 documents / 98 chunks,
+              Pilot scope: 13 sector-matched US/India company pairs, 32 documents / 128 chunks,
               single model stack. See{" "}
               <Link href="/benchmark" className="text-indigo-600 hover:underline">
                 benchmark results

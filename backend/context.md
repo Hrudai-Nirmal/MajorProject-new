@@ -14,9 +14,14 @@ financial-snapshot data from Supabase and exposes those records to the Next.js f
   Supabase project is the most likely cause when `/api/health` works but `/api/documents/` fails.
 - `GROQ_GENERATION_MODEL` defaults to `openai/gpt-oss-120b` because the previous
   `llama-3.3-70b-versatile` model is no longer available to this Groq key.
+- `documents.source_fidelity` distinguishes short curated excerpts from full-transcript-derived
+  India documents, which lets the evaluation compare source quality instead of treating all
+  disclosures as equally complete.
 
 ## Gotchas
 
 - `/api/health` only proves the FastAPI process is alive; it does not prove Supabase is reachable.
 - Keep literal routes such as `/metrics` registered before `/{document_id}` to avoid FastAPI route
   shadowing.
+- If live ingestion warns about `source_fidelity`, apply `backend/schema.sql` in Supabase and rerun
+  `scripts/embed_and_store.py`; the script only falls back so chunk ingestion can continue.

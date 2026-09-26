@@ -6,7 +6,7 @@ import { CompareSelector } from "@/components/CompareSelector";
 
 // Sector pairing from README.md's company table -- shown as quick-pick
 // shortcuts below the free-form dropdowns. Not stored in the DB since it's
-// fixed metadata for this fixed 26-company pilot.
+// fixed metadata for this fixed 13-pair pilot.
 const SECTOR_PAIRS = [
   { sector: "Technology", us: "MSFT", india: "INFY" },
   { sector: "Technology", us: "AAPL", india: "TCS" },

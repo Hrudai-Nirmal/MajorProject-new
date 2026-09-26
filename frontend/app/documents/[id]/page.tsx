@@ -10,7 +10,7 @@ import {
   TrendingUp,
   Wallet,
 } from "lucide-react";
-import { getDocument, getExtractions, getFinancials, type Extraction } from "@/lib/api";
+import { getDocument, getExtractions, getFinancials, type Document, type Extraction } from "@/lib/api";
 import { notFound } from "next/navigation";
 
 const SENTIMENT_STYLE: Record<
@@ -87,6 +87,26 @@ function StatCard({
   );
 }
 
+function getSourceFidelity(doc: Document) {
+  return doc.source_fidelity ?? (doc.doc_id.includes("_full_") ? "full_transcript" : "summary_excerpt");
+}
+
+function SourceFidelityBadge({ doc }: { doc: Document }) {
+  const sourceFidelity = getSourceFidelity(doc);
+  const isFullTranscript = sourceFidelity === "full_transcript";
+  return (
+    <span
+      className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ring-inset ${
+        isFullTranscript
+          ? "bg-sky-50 text-sky-700 ring-sky-200"
+          : "bg-stone-50 text-stone-600 ring-stone-200"
+      }`}
+    >
+      {isFullTranscript ? "Full transcript" : "Summary excerpt"}
+    </span>
+  );
+}
+
 export default async function DocumentPage({ params }: { params: { id: string } }) {
   const [doc, extractions, financials] = await Promise.all([
     getDocument(params.id),
@@ -119,6 +139,9 @@ export default async function DocumentPage({ params }: { params: { id: string } 
               {doc.ticker} · <span className="capitalize">{doc.doc_type.replace(/_/g, " ")}</span>{" "}
               · {doc.fiscal_period ?? "period n/a"}
             </p>
+            <div className="mt-2">
+              <SourceFidelityBadge doc={doc} />
+            </div>
           </div>
           {doc.source_url && (
             <a
