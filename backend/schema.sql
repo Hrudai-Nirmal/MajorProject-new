@@ -103,6 +103,12 @@ alter table extraction_results enable row level security;
 alter table benchmark_labels enable row level security;
 alter table financial_snapshots enable row level security;
 
+drop policy if exists "public read documents" on documents;
+drop policy if exists "public read chunks" on chunks;
+drop policy if exists "public read extraction_results" on extraction_results;
+drop policy if exists "public read benchmark_labels" on benchmark_labels;
+drop policy if exists "public read financial_snapshots" on financial_snapshots;
+
 create policy "public read documents" on documents for select using (true);
 create policy "public read chunks" on chunks for select using (true);
 create policy "public read extraction_results" on extraction_results for select using (true);
