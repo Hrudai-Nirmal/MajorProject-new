@@ -1,5 +1,17 @@
 import Link from "next/link";
-import { ArrowRight, FileText, Frown, Globe2, Meh, Smile, TriangleAlert } from "lucide-react";
+import {
+  ArrowRight,
+  FileText,
+  Frown,
+  GitCompareArrows,
+  Globe2,
+  Meh,
+  MessageSquareText,
+  SearchCheck,
+  Smile,
+  Target,
+  TriangleAlert,
+} from "lucide-react";
 import { listDocuments, type Document } from "@/lib/api";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 import { MvpInsightBanner } from "@/components/MvpInsightBanner";
@@ -62,6 +74,78 @@ function StatPill({ label, value }: { label: string; value: string }) {
       <p className="text-xs font-medium text-slate-500">{label}</p>
       <p className="mt-0.5 text-xl font-semibold tracking-tight text-slate-900">{value}</p>
     </div>
+  );
+}
+
+const DEMO_STEPS = [
+  {
+    href: "/benchmark",
+    icon: Target,
+    title: "See the gap narrow",
+    copy: "128 labeled chunks; US 0.717 vs India 0.653.",
+  },
+  {
+    href: "/",
+    icon: SearchCheck,
+    title: "Inspect full-source India",
+    copy: "Look for the Full transcript badge on India records.",
+  },
+  {
+    href: "/compare?us=KO&india=VBL",
+    icon: GitCompareArrows,
+    title: "Compare beverages",
+    copy: "Coca-Cola vs Varun Beverages side by side.",
+  },
+  {
+    href: "/chat",
+    icon: MessageSquareText,
+    title: "Ask the research desk",
+    copy: "Try the Infosys margins prompt with cited sources.",
+  },
+];
+
+function DemoModeSection() {
+  return (
+    <section className="mb-10 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            Demo mode
+          </p>
+          <h2 className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
+            Four-click reviewer path
+          </h2>
+        </div>
+        <span className="hidden rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-inset ring-slate-200 sm:inline-flex">
+          3–5 minute walkthrough
+        </span>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {DEMO_STEPS.map((step, index) => {
+          const Icon = step.icon;
+          return (
+            <Link
+              key={step.title}
+              href={step.href}
+              className="group rounded-xl border border-slate-200 bg-slate-50/70 p-4 transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:bg-white hover:shadow-sm"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-indigo-600 ring-1 ring-inset ring-slate-200">
+                  <Icon className="h-4 w-4" strokeWidth={2.25} />
+                </span>
+                <span className="text-xs font-semibold text-slate-300">0{index + 1}</span>
+              </div>
+              <p className="font-medium text-slate-900">{step.title}</p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">{step.copy}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 opacity-0 transition-opacity group-hover:opacity-100">
+                Open <ArrowRight className="h-3 w-3" strokeWidth={2.25} />
+              </span>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -170,6 +254,8 @@ export default async function DashboardPage() {
       </div>
 
       <MvpInsightBanner showBenchmarkLink />
+
+      <DemoModeSection />
 
       <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <StatPill label="Companies" value={String(documents.length)} />
