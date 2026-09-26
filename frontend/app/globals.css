@@ -4,20 +4,30 @@
 
 :root {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --surface-grid: #dbe5f3;
+  --surface-paper: #f5f8ff;
+  --brand-ink: #334155;
+  --signal-cobalt: #2563eb;
+  --statement-amber: #f59e0b;
 }
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--surface-paper);
+  background-image:
+    linear-gradient(var(--surface-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--surface-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background-color: #c7d2fe;
-  color: #1e1b4b;
+  background-color: var(--statement-amber);
+  color: var(--brand-ink);
 }
 
-/* subtle scrollbar, kept light-palette consistent */
+/* Keep the chrome quiet so the harder app palette remains the foreground. */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -26,7 +36,7 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
+  background-color: #b9c7dc;
   border-radius: 999px;
-  border: 2px solid #f8fafc;
+  border: 2px solid var(--surface-paper);
 }

@@ -3,6 +3,10 @@ import { ArrowRight, FileText, Frown, Globe2, Meh, Smile, TriangleAlert } from "
 import { listDocuments, type Document } from "@/lib/api";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 
+/**
+ * Server-rendered dashboard overview; counts come from the backend so deployed copy cannot drift
+ * from the live disclosure set.
+ */
 function MarketBadge({ market }: { market: "US" | "India" }) {
   const cls =
     market === "US"
@@ -14,7 +18,7 @@ function MarketBadge({ market }: { market: "US" | "India" }) {
 }
 
 const SENTIMENT_ICON: Record<string, { icon: typeof Smile; cls: string }> = {
-  positive: { icon: Smile, cls: "text-emerald-600" },
+  positive: { icon: Smile, cls: "text-indigo-600" },
   negative: { icon: Frown, cls: "text-rose-600" },
   neutral: { icon: Meh, cls: "text-slate-400" },
 };
@@ -40,6 +44,7 @@ function StatPill({ label, value }: { label: string; value: string }) {
   );
 }
 
+/** Renders the top-level company disclosure dashboard. */
 export default async function DashboardPage() {
   let documents: Document[] = [];
   let error: string | null = null;
@@ -57,11 +62,13 @@ export default async function DashboardPage() {
       <div className="flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-800">
         <TriangleAlert className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={2} />
         <div>
-          <p className="font-medium">Couldn&apos;t reach the backend.</p>
+          <p className="font-medium">Couldn&apos;t load disclosure data.</p>
           <p className="text-sm">{error}</p>
           <p className="mt-2 text-sm">
-            Is the FastAPI backend running and is <code className="rounded bg-rose-100 px-1 py-0.5">NEXT_PUBLIC_API_URL</code> set
-            correctly?
+            If <code className="rounded bg-rose-100 px-1 py-0.5">/api/health</code> is healthy,
+            check the backend&apos;s Supabase project status plus{" "}
+            <code className="rounded bg-rose-100 px-1 py-0.5">SUPABASE_URL</code> and{" "}
+            <code className="rounded bg-rose-100 px-1 py-0.5">SUPABASE_SERVICE_ROLE_KEY</code>.
           </p>
         </div>
       </div>
@@ -133,8 +140,8 @@ export default async function DashboardPage() {
           Company disclosures
         </h1>
         <p className="mt-1 text-sm text-slate-500">
-          Sentiment, risk, and financial signals extracted from earnings calls — 5 sector-matched
-          US/India company pairs.
+          Sentiment, risk, and financial signals extracted from 26 US/India company disclosures
+          across 13 sector-matched pairs.
         </p>
       </div>
 

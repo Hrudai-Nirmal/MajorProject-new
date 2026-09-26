@@ -2,7 +2,7 @@ import { Info, Target, TriangleAlert } from "lucide-react";
 import { getMetrics, type MarketMetrics } from "@/lib/api";
 
 const CLASS_STYLE: Record<string, string> = {
-  positive: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+  positive: "bg-indigo-50 text-indigo-700 ring-indigo-200",
   negative: "bg-rose-50 text-rose-700 ring-rose-200",
   neutral: "bg-slate-100 text-slate-600 ring-slate-200",
 };

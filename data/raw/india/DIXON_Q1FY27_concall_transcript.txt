@@ -1,0 +1,14 @@
+Company: Dixon Technologies (India) Ltd (DIXON)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY27
+Source: search summary of Dixon Q1 FY27 investor presentation / regulatory filing, https://indianstockalerts.com/news/dixon-investor-presentation-9456
+
+--- FINANCIAL RESULTS ---
+Dixon Technologies reported a mixed Q1 FY27. Headline consolidated revenue was around Rs. 16,076 crore, up about 25% year over year, while adjusted revenue was about Rs. 15,557 crore, up roughly 21% year over year. Reported EBITDA was about Rs. 991 crore and reported PAT before non-controlling interest was about Rs. 718 crore, both showing large year-over-year gains. However, the adjusted picture was weaker: EBITDA excluding fair-value gains was about Rs. 472 crore, down slightly year over year, with adjusted EBITDA margin around 3.0%, down about 80 basis points. This creates an important interpretation split between headline profit growth and underlying operating margin pressure.
+
+--- MANAGEMENT COMMENTARY ---
+The disclosure points to broad revenue growth across mobile and other electronics manufacturing services, consumer electronics, and appliances. Dixon continues to benefit from India electronics manufacturing scale-up, customer additions, and a larger manufacturing footprint. The company also highlighted working-capital discipline, with net working-capital days remaining negative. Return metrics were still healthy but softened compared with the prior year, with ROCE and ROE both lower. The tone is cautiously constructive: demand and revenue execution appear strong, but investors are asked to distinguish between reported profit aided by fair-value gains and the core operating business.
+
+--- RISK SIGNALS ---
+The key risk signal is margin compression. Adjusted operating profitability did not keep pace with revenue growth, reflecting input-cost inflation, product mix, and the expiry of a mobile PLI benefit. Free cash flow was negative for the quarter, which matters for a fast-growing manufacturing business with working-capital and capacity requirements. The stock reaction described in market summaries focused on these margin concerns despite strong top-line growth. For benchmarking, this is a useful mixed-sentiment Indian disclosure: growth is strong, but quality of earnings and sustainability of margin are the central questions.

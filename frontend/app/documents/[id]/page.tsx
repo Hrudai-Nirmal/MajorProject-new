@@ -18,10 +18,10 @@ const SENTIMENT_STYLE: Record<
   { text: string; bg: string; ring: string; bar: string; icon: typeof Smile }
 > = {
   positive: {
-    text: "text-emerald-700",
-    bg: "bg-emerald-50",
-    ring: "ring-emerald-200",
-    bar: "bg-emerald-300",
+    text: "text-indigo-700",
+    bg: "bg-indigo-50",
+    ring: "ring-indigo-200",
+    bar: "bg-indigo-300",
     icon: Smile,
   },
   negative: {
@@ -63,7 +63,7 @@ function GrowthValue({ value }: { value: number | null | undefined }) {
   const positive = value > 0;
   const flat = value === 0;
   const Icon = flat ? Meh : positive ? TrendingUp : TrendingDown;
-  const color = flat ? "text-slate-500" : positive ? "text-emerald-600" : "text-rose-600";
+  const color = flat ? "text-slate-500" : positive ? "text-indigo-600" : "text-rose-600";
   return (
     <span className={`flex items-center gap-1 font-semibold ${color}`}>
       <Icon className="h-3.5 w-3.5" strokeWidth={2.5} />

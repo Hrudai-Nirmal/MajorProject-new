@@ -6,7 +6,7 @@ import { CompareSelector } from "@/components/CompareSelector";
 
 // Sector pairing from README.md's company table -- shown as quick-pick
 // shortcuts below the free-form dropdowns. Not stored in the DB since it's
-// fixed metadata for this fixed 20-company pilot.
+// fixed metadata for this fixed 26-company pilot.
 const SECTOR_PAIRS = [
   { sector: "Technology", us: "MSFT", india: "INFY" },
   { sector: "Technology", us: "AAPL", india: "TCS" },
@@ -18,10 +18,13 @@ const SECTOR_PAIRS = [
   { sector: "Telecom", us: "VZ", india: "BHARTIARTL" },
   { sector: "Consumer Staples / FMCG", us: "PG", india: "HINDUNILVR" },
   { sector: "Financial Services", us: "V", india: "BAJFINANCE" },
+  { sector: "Semiconductors / Electronics", us: "NVDA", india: "DIXON" },
+  { sector: "Industrials / Capital Goods", us: "CAT", india: "LT" },
+  { sector: "Beverages / Consumer Staples", us: "KO", india: "VBL" },
 ];
 
 const SENTIMENT_ICON: Record<string, { icon: typeof Smile; cls: string }> = {
-  positive: { icon: Smile, cls: "text-emerald-600" },
+  positive: { icon: Smile, cls: "text-indigo-600" },
   negative: { icon: Frown, cls: "text-rose-600" },
   neutral: { icon: Meh, cls: "text-slate-400" },
 };

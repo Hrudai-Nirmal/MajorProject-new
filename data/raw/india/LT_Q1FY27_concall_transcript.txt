@@ -1,0 +1,14 @@
+Company: Larsen & Toubro Ltd (LT)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY27
+Source: L&T Q1 FY27 earnings call transcript, https://investors.larsentoubro.com/upload/Analysttrans/FY2027AnalysttransL%26T%20Q1%20FY27%20Earnings%20Call%20Transcript.pdf
+
+--- FINANCIAL RESULTS ---
+Larsen & Toubro reported Q1 FY27 group revenue of about Rs. 679 billion, up 7% year over year, with international revenues contributing roughly 51% of total group revenue. Group EBITDA margin excluding other income was 9.0%, down from 9.9% in the prior-year quarter. Group PAT was about Rs. 41 billion, up 14% year over year. Management attributed the PAT improvement to better services performance, higher treasury income, and improved working-capital levels in the projects and manufacturing portfolio. Net working capital to sales improved to 4.9% in June 2026 from 10.1% in June 2025, and operating cash flow excluding financial services remained healthy.
+
+--- ORDER BOOK AND SEGMENT COMMENTARY ---
+The order book stood at about Rs. 7.79 trillion as of June 2026, up 27% year over year. International orders represented a growing share of the portfolio, with the Middle East a large component of the international order book. L&T described a healthy opportunity pipeline of about Rs. 15 trillion for the remaining nine months of FY27. Infrastructure and Utilities order inflows more than doubled year over year, while Energy - Green saw strong ordering momentum from offshore wind and HVDC platform wins. Management said slow-moving orders were less than 1% of the order book.
+
+--- OUTLOOK AND RISKS ---
+Management kept FY27 guidance for 10%-12% order inflow growth and 10%-12% revenue growth, while targeting a projects-and-manufacturing margin around 7.8%. The main risk signal is execution disruption from geopolitical conflict and supply-chain constraints, especially in the Middle East. Q1 revenue growth was described as relatively subdued partly because of those disruptions. The disclosure is positive on order visibility, working capital, and portfolio resilience, but mixed on near-term execution and margin pressure.

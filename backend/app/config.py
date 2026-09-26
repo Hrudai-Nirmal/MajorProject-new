@@ -16,8 +16,9 @@ SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 EMBEDDING_MODEL = "models/gemini-embedding-001"
 EMBEDDING_DIM = 768  # truncated from native 3072 via outputDimensionality (pgvector index cap is 2000 dims)
 
-# Generation moved to Groq (free developer tier, no billing account needed).
-GROQ_GENERATION_MODEL = "llama-3.3-70b-versatile"
+# Generation moved to Groq (free developer tier, no billing account needed). Keep the model
+# overrideable because Groq access changes by account and deprecates hosted model IDs over time.
+GROQ_GENERATION_MODEL = os.environ.get("GROQ_GENERATION_MODEL", "openai/gpt-oss-120b")
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 
 if not GEMINI_API_KEY:

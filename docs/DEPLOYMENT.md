@@ -38,12 +38,15 @@ after ~15 min idle, ~30s cold start on the next request.
 
 ## After both are live
 
-Tighten CORS in `backend/app/main.py` — it currently allows `*`
-(`allow_origins=["*"]`, flagged in REQUIREMENTS.md §1.3 as temporary).
-Change it to your actual Vercel domain:
+CORS is already restricted in `backend/app/main.py` to the production Vercel domain and localhost
+for development:
 
 ```python
-allow_origins=["https://your-project.vercel.app"],
+allow_origins=[
+    "https://major-project-new-plum.vercel.app",
+    "http://localhost:3000",
+],
 ```
 
-Commit and push; Render auto-deploys on push (`autoDeploy: true` in `render.yaml`).
+If the Vercel deployment URL changes, update that allow-list, commit, and push; Render auto-deploys
+on push (`autoDeploy: true` in `render.yaml`).

@@ -1,14 +1,14 @@
 {
   "status": "ok",
-  "total_benchmark_rows": 82,
-  "labeled_rows": 82,
+  "total_benchmark_rows": 98,
+  "labeled_rows": 98,
   "US": {
     "per_class": {
       "positive": {
-        "precision": 0.9473684210526315,
-        "recall": 0.9,
-        "f1": 0.9230769230769231,
-        "support": 40
+        "precision": 0.9555555555555556,
+        "recall": 0.9148936170212766,
+        "f1": 0.9347826086956522,
+        "support": 47
       },
       "negative": {
         "precision": 1.0,
@@ -23,17 +23,17 @@
         "support": 10
       }
     },
-    "macro_f1": 0.7128205128205128,
-    "accuracy": 0.8245614035087719,
-    "n": 57
+    "macro_f1": 0.7167224080267559,
+    "accuracy": 0.84375,
+    "n": 64
   },
   "India": {
     "per_class": {
       "positive": {
-        "precision": 1.0,
-        "recall": 0.5454545454545454,
-        "f1": 0.7058823529411764,
-        "support": 11
+        "precision": 0.9166666666666666,
+        "recall": 0.6875,
+        "f1": 0.7857142857142857,
+        "support": 16
       },
       "negative": {
         "precision": 0.0,
@@ -42,19 +42,19 @@
         "support": 2
       },
       "neutral": {
-        "precision": 0.631578947368421,
-        "recall": 1.0,
-        "f1": 0.7741935483870968,
-        "support": 12
+        "precision": 0.6818181818181818,
+        "recall": 0.9375,
+        "f1": 0.7894736842105263,
+        "support": 16
       }
     },
-    "macro_f1": 0.49335863377609107,
-    "accuracy": 0.72,
-    "n": 25
+    "macro_f1": 0.525062656641604,
+    "accuracy": 0.7647058823529411,
+    "n": 34
   },
   "cross_market_gap": {
-    "macro_f1_us": 0.7128205128205128,
-    "macro_f1_india": 0.49335863377609107,
-    "gap": 0.21946187904442177
+    "macro_f1_us": 0.7167224080267559,
+    "macro_f1_india": 0.525062656641604,
+    "gap": 0.1916597513851519
   }
 }
