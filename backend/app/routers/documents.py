@@ -1,9 +1,24 @@
+"""Document API routes backed by Supabase disclosure tables."""
+
 from collections import defaultdict
 
-from fastapi import APIRouter, Query
+import httpx
+from fastapi import APIRouter, HTTPException, Query
 from app.services.supabase_client import get_client
 
 router = APIRouter()
+
+DATABASE_UNAVAILABLE_DETAIL = (
+    "Disclosure database is unavailable. Check the Supabase URL and service role key."
+)
+
+
+def _execute_database_query(query_builder):
+    """Execute a Supabase query and translate connection failures into a stable API error."""
+    try:
+        return query_builder.execute().data
+    except (httpx.HTTPError, OSError) as exc:
+        raise HTTPException(status_code=503, detail=DATABASE_UNAVAILABLE_DETAIL) from exc
 
 
 def _attach_sentiment_summary(client, docs: list[dict]) -> list[dict]:
@@ -15,18 +30,18 @@ def _attach_sentiment_summary(client, docs: list[dict]) -> list[dict]:
     if not doc_ids:
         return docs
 
-    chunk_rows = (
-        client.table("chunks").select("id, document_id").in_("document_id", doc_ids).execute().data
+    chunk_rows = _execute_database_query(
+        client.table("chunks").select("id, document_id").in_("document_id", doc_ids)
     )
     chunk_to_doc = {c["id"]: c["document_id"] for c in chunk_rows}
     chunk_ids = list(chunk_to_doc.keys())
 
     extractions = (
-        client.table("extraction_results")
-        .select("chunk_id, sentiment_label, sentiment_score, risk_flags")
-        .in_("chunk_id", chunk_ids)
-        .execute()
-        .data
+        _execute_database_query(
+            client.table("extraction_results")
+            .select("chunk_id, sentiment_label, sentiment_score, risk_flags")
+            .in_("chunk_id", chunk_ids)
+        )
         if chunk_ids
         else []
     )
@@ -61,7 +76,7 @@ def list_documents(market: str | None = Query(default=None)):
     q = client.table("documents").select("*")
     if market:
         q = q.eq("market", market)
-    docs = q.execute().data
+    docs = _execute_database_query(q)
     return _attach_sentiment_summary(client, docs)
 
 
@@ -109,17 +124,14 @@ def get_risks_topics():
     reason as the /metrics routes above."""
     client = get_client()
 
-    docs = client.table("documents").select("id, company, ticker, market").execute().data
+    docs = _execute_database_query(client.table("documents").select("id, company, ticker, market"))
     doc_by_id = {d["id"]: d for d in docs}
 
-    chunk_rows = client.table("chunks").select("id, document_id").execute().data
+    chunk_rows = _execute_database_query(client.table("chunks").select("id, document_id"))
     chunk_to_doc = {c["id"]: c["document_id"] for c in chunk_rows}
 
-    extractions = (
-        client.table("extraction_results")
-        .select("chunk_id, risk_flags, topics")
-        .execute()
-        .data
+    extractions = _execute_database_query(
+        client.table("extraction_results").select("chunk_id, risk_flags, topics")
     )
 
     risks = []
@@ -159,8 +171,10 @@ def get_risks_topics():
 @router.get("/{document_id}")
 def get_document(document_id: str):
     client = get_client()
-    resp = client.table("documents").select("*").eq("id", document_id).single().execute()
-    return resp.data
+    docs = _execute_database_query(
+        client.table("documents").select("*").eq("id", document_id).single()
+    )
+    return docs
 
 
 @router.get("/{document_id}/extractions")
@@ -170,24 +184,17 @@ def get_extractions(document_id: str):
     source excerpt behind each sentiment/risk/topic call, not just the
     model's summary of it."""
     client = get_client()
-    chunk_rows = (
-        client.table("chunks")
-        .select("id, chunk_index")
-        .eq("document_id", document_id)
-        .execute()
-        .data
+    chunk_rows = _execute_database_query(
+        client.table("chunks").select("id, chunk_index").eq("document_id", document_id)
     )
     ids = [c["id"] for c in chunk_rows]
     if not ids:
         return []
-    resp = (
-        client.table("extraction_results")
-        .select("*, chunks(chunk_index, text)")
-        .in_("chunk_id", ids)
-        .execute()
+    extraction_rows = _execute_database_query(
+        client.table("extraction_results").select("*, chunks(chunk_index, text)").in_("chunk_id", ids)
     )
     # order by chunk_index so the frontend renders in document order, not insertion order
-    return sorted(resp.data, key=lambda r: r.get("chunks", {}).get("chunk_index", 0))
+    return sorted(extraction_rows, key=lambda r: r.get("chunks", {}).get("chunk_index", 0))
 
 
 @router.get("/{document_id}/financials")
@@ -196,10 +203,7 @@ def get_financials(document_id: str):
     (scripts/extract_financials.py). Null fields mean the figure wasn't
     explicitly disclosed in the collected transcript excerpt, not zero."""
     client = get_client()
-    resp = (
-        client.table("financial_snapshots")
-        .select("*")
-        .eq("document_id", document_id)
-        .execute()
+    financial_rows = _execute_database_query(
+        client.table("financial_snapshots").select("*").eq("document_id", document_id)
     )
-    return resp.data[0] if resp.data else None
+    return financial_rows[0] if financial_rows else None

@@ -1,0 +1,21 @@
+Company: Infosys Ltd (INFY)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY26
+Source fidelity: full_transcript
+Source: Infosys Q1 FY26 earnings call transcript, https://www.infosys.com/investors/reports-filings/quarterly-results/2025-2026/q1/documents/transcripts/earningscall.pdf
+
+--- FINANCIAL RESULTS ---
+Infosys described Q1 FY26 as a quarter of steady execution in a demand environment that remained selective. Revenue was reported at about USD 5.08 billion, with year-over-year growth around 2.4% and constant-currency growth around 1.0%. Operating margin was about 21.1%, which management framed as evidence that the company was protecting profitability while continuing to invest in delivery, training, and client-facing capabilities. The call also discussed healthy cash generation, with free cash flow conversion above net profit, and a treasury yield on cash balances around 7.2%. Management continued to stress that cash discipline and capital allocation remained important because client decision cycles had not normalized uniformly across verticals.
+
+--- DEALS, DEMAND, AND VERTICAL COMMENTARY ---
+The full-call discussion was more nuanced than a short results summary. Large-deal total contract value was about USD 3.6 billion, with a majority described as net new. Management presented that as a positive signal for medium-term revenue visibility, but not a guarantee of immediate acceleration because large programs still ramp at different speeds. Europe was called out as a strong geography, with growth around 12.3%, while some other regions and sectors were more cautious. Clients were prioritizing cost takeout, vendor consolidation, automation, cloud modernization, and AI-enabled productivity. Infosys positioned its AI and data offerings as useful for both efficiency and growth programs, but management did not claim that discretionary spending had broadly recovered.
+
+--- MARGIN AND OPERATING DISCIPLINE ---
+The margin discussion balanced optimism with caution. Infosys highlighted utilization, automation, pyramid management, offshore mix, and subcontractor optimization as levers supporting profitability. At the same time, wage increases, travel, transition costs for large deals, and pricing pressure in competitive renewals were recurring constraints. The call implied that margin defense was being achieved through operating discipline rather than a benign demand backdrop. Management avoided overstating the recovery and emphasized that conversion of the deal pipeline into revenue would depend on client approvals, macro stability, and project start timing.
+
+--- Q&A AND SOURCE-FIDELITY NOTE ---
+The question-and-answer portion adds source fidelity because analysts pushed management on whether the lowered guidance reflected one-time softness or a broader spending reset. Management’s responses indicated that demand was uneven by vertical and geography, with some clients still approving efficiency programs while delaying more discretionary transformation work. This distinction matters for sentiment modeling: a short excerpt can label the quarter as positive because margins and deal wins look healthy, while the full-call context shows a more cautious forward-looking stance.
+
+--- OUTLOOK AND RISKS ---
+Guidance for FY26 was lowered to a revenue growth range of about 1.5% to 3.0% in constant currency, which is the main negative sentiment signal in the disclosure. The downgrade indicates that the company saw enough uncertainty to temper the full-year outlook despite strong deal wins and resilient margins. Risk themes include delayed discretionary spending, weak decision velocity in some accounts, intense pricing competition, currency volatility, and execution risk around large transformation programs. The full transcript is useful for cross-market comparison because it separates headline deal strength from management’s more cautious comments about near-term demand conversion.

@@ -33,7 +33,15 @@ CHUNK_TARGET_WORDS = 180   # smaller chunks so the shorter search-summary
                             # documents still split into multiple chunks
 CHUNK_OVERLAP_WORDS = 30
 
-HEADER_FIELDS = ["Company", "Market", "Doc type", "Period", "Call date", "Source"]
+HEADER_FIELDS = [
+    "Company",
+    "Market",
+    "Doc type",
+    "Period",
+    "Call date",
+    "Source fidelity",
+    "Source",
+]
 
 
 def parse_header(text: str) -> tuple[dict, str]:
@@ -118,6 +126,7 @@ def main():
                         "market": meta.get("Market", ""),
                         "doc_type": meta.get("Doc type", ""),
                         "period": meta.get("Period", ""),
+                        "source_fidelity": meta.get("Source fidelity", "summary_excerpt"),
                         "source": meta.get("Source", ""),
                         "doc_id": file_path.stem,
                         "chunk_index": idx,

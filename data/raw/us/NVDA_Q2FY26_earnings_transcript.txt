@@ -1,0 +1,14 @@
+Company: NVIDIA Corporation (NVDA)
+Market: US
+Doc type: earnings_transcript
+Period: Q2 FY2026 (quarter ended July 27, 2025)
+Source: NVIDIA investor relations press release, https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2026/default.aspx
+
+--- FINANCIAL RESULTS ---
+NVIDIA reported another very strong AI-infrastructure quarter. Revenue was $46.7 billion, up 6% sequentially and 56% year over year. Data Center remained the dominant segment with revenue of $41.1 billion, up 5% from the prior quarter and 56% from the prior year. Non-GAAP gross margin was 72.7%, recovering sharply from Q1 but still below the prior-year period. Non-GAAP operating income was $30.2 billion, up 30% sequentially and 51% year over year, while non-GAAP diluted EPS was $1.05. The quarter therefore reads as clearly positive on demand, scale, and profitability, though the margin comparison shows that product mix, export controls, and H20-related charges remain important context.
+
+--- MANAGEMENT COMMENTARY ---
+Management framed Blackwell as the central driver of the next AI cycle, emphasizing enterprise and cloud demand for training and inference. The company highlighted adoption of Blackwell server systems across enterprise partners and introduced networking products intended to connect distributed data centers for larger AI workloads. The tone was strongly growth-oriented: management described AI as a broad platform shift and presented Data Center momentum as supply-constrained rather than demand-constrained. The disclosure also emphasized ecosystem breadth beyond GPUs, including networking, enterprise servers, AI software, and industry-specific deployments.
+
+--- OUTLOOK AND RISKS ---
+NVIDIA guided Q3 FY2026 revenue to about $54.0 billion, plus or minus 2%, without assuming H20 shipments to China. It guided GAAP and non-GAAP gross margins to roughly 73.3% and 73.5%, respectively, plus or minus 50 basis points, and said it expected to exit the year with non-GAAP gross margins in the mid-70% range. The main risk signals are export-control exposure, dependence on very large AI infrastructure spending, high operating-expense growth, and the possibility that supply, memory, or networking constraints could affect timing. Overall sentiment is positive, but the disclosure contains meaningful regulatory and concentration risks.

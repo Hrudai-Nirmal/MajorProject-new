@@ -1,0 +1,21 @@
+Company: Larsen & Toubro Ltd (LT)
+Market: India
+Doc type: concall_transcript
+Period: Q1 FY27
+Source fidelity: full_transcript
+Source: L&T Q1 FY27 earnings call transcript, https://investors.larsentoubro.com/upload/Analysttrans/FY2027AnalysttransL%26T%20Q1%20FY27%20Earnings%20Call%20Transcript.pdf
+
+--- FINANCIAL RESULTS ---
+Larsen & Toubro reported Q1 FY27 group revenue of about Rs. 679 billion, up roughly 7% year over year, with international revenues contributing close to half of group revenue. Group EBITDA margin excluding other income was about 9.0%, compared with about 9.9% in the prior-year quarter, so the topline and profit trajectory were positive but margin pressure was visible. Profit after tax was about Rs. 41 billion, up roughly 14% year over year. Management connected the PAT improvement to better services performance, treasury income, working-capital control, and execution across the projects and manufacturing portfolio.
+
+--- ORDERS AND BACKLOG ---
+The full transcript gives a stronger view of demand quality than a short results summary. The order book was about Rs. 7.79 trillion at quarter end, up roughly 27% year over year, with international orders representing a significant share. Management described a healthy opportunity pipeline of about Rs. 15 trillion for the remainder of FY27. Infrastructure and utilities order inflows were notably strong, while energy and green-transition work benefited from offshore wind and HVDC opportunities. Management also stated that slow-moving orders were less than 1% of the order book, which is an important risk-control detail for a capital-goods company with a large execution backlog.
+
+--- EXECUTION, MARGINS, AND CASH FLOW ---
+Management’s Q&A emphasized that L&T’s operating outcome depends on converting a strong order book into profitable execution. International exposure, particularly in the Middle East, supports growth and scale, but it also exposes the company to geopolitical disruption, logistics constraints, and project timing risk. Net working capital to sales improved materially, falling to about 4.9% from about 10.1% a year earlier, which management used to support the cash-flow and balance-sheet story. The margin discussion remained measured because project mix, commodity costs, mobilization expenses, and international execution can all move profitability quarter to quarter.
+
+--- Q&A AND SOURCE-FIDELITY NOTE ---
+The full transcript adds detail on why order inflow alone is not enough to judge sentiment. Analysts pressed around margin normalization, international execution, working-capital sustainability, and whether geopolitical disruption could delay revenue conversion. That richer context helps the benchmark separate demand quality from execution risk. For an engineering and construction company, a very large backlog is positive only if the orders are executable, profitable, and cash-converting, so source fidelity materially affects the risk labels.
+
+--- OUTLOOK AND RISKS ---
+Management kept FY27 guidance for order inflow growth around 10%-12% and revenue growth around 10%-12%, while targeting projects-and-manufacturing margin near 7.8%. Sentiment is positive on backlog, pipeline, working capital, and order visibility. It is mixed on near-term execution because revenue growth was relatively subdued and margin compression was evident. Key risk flags include geopolitical disruption, supply-chain delays, commodity-cost movements, large-project execution complexity, and dependence on timely customer clearances. The full-source document improves the benchmark because it includes order-quality and working-capital context that the shorter excerpt only sketches.

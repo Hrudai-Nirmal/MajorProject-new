@@ -1,41 +1,84 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Link from "next/link";
-import { SiteNav } from "@/components/SiteNav";
+import {
+  LineChart,
+  LayoutGrid,
+  MessageSquareText,
+  Target,
+  ShieldAlert,
+  GitCompareArrows,
+} from "lucide-react";
 import "./globals.css";
 
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair", display: "swap" });
+/**
+ * Shared app shell for the disclosure dashboard; the copy stays deliberately specific so the
+ * deployed UI mirrors the benchmark scope reported in the project documentation.
+ */
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
 
 export const metadata: Metadata = {
   title: "Cross-Market Disclosure Analysis",
-  description: "US vs India corporate disclosure sentiment and risk dashboard.",
+  description: "US vs India corporate disclosure sentiment & risk dashboard (pilot).",
 };
 
-export const viewport: Viewport = {
-  colorScheme: "dark",
-  themeColor: "#0B0B0B",
-};
+const NAV_ITEMS = [
+  { href: "/", label: "Dashboard", icon: LayoutGrid },
+  { href: "/compare", label: "Compare", icon: GitCompareArrows },
+  { href: "/risks", label: "Risks", icon: ShieldAlert },
+  { href: "/chat", label: "Chat", icon: MessageSquareText },
+  { href: "/benchmark", label: "Benchmark", icon: Target },
+];
 
+/** Renders the route frame used by every dashboard page. */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
-      <body>
-        <header className="site-header">
-          <div className="site-header-inner">
-            <Link href="/" className="brand-lockup" aria-label="Cross-Market Disclosure Analysis home">
-              <Image className="brand-logo" src="/brand-logo.png" alt="" width={38} height={38} priority />
-              <span className="brand-name">Cross-Market</span>
-              <span className="brand-tag">Disclosure analysis</span>
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen bg-[#f5f8ff] text-[#334155] antialiased">
+        <header className="sticky top-0 z-10 border-b-2 border-[#6b7c93] bg-[#ffffff]/92 backdrop-blur-md">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+            <Link href="/" className="flex items-center gap-2.5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg border-2 border-[#6b7c93] bg-[#2563eb] text-white shadow-sm">
+                <LineChart className="h-4.5 w-4.5" strokeWidth={2.25} />
+              </span>
+              <span className="flex flex-col leading-tight">
+                <span className="text-sm font-semibold tracking-tight text-slate-900">
+                  Cross-Market Disclosure Analysis
+                </span>
+                <span className="text-[11px] font-medium text-slate-400">US · India pilot</span>
+              </span>
             </Link>
-            <SiteNav />
+            <nav className="flex items-center gap-1 rounded-full border-2 border-[#6b7c93] bg-[#fff7e6] p-1 shadow-sm">
+              {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:bg-white hover:text-indigo-600 hover:shadow-sm"
+                >
+                  <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                  <span className="hidden sm:inline">{label}</span>
+                </Link>
+              ))}
+            </nav>
           </div>
         </header>
-        <main>{children}</main>
-        <footer className="site-footer">
-          <div className="footer-bottom page-container"><span>(c) 2026 Cross-Market Disclosure Analysis</span><span>Research / educational use only</span></div>
+
+        <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">{children}</main>
+
+        <footer className="mt-8 border-t-2 border-[#6b7c93] bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+            <p className="text-xs leading-relaxed text-slate-500">
+              <span className="font-medium text-slate-600">
+                Research/educational purposes only — not investment advice.
+              </span>{" "}
+              Pilot scope: 13 sector-matched US/India company pairs, 32 documents / 128 chunks,
+              single model stack. See{" "}
+              <Link href="/benchmark" className="text-indigo-600 hover:underline">
+                benchmark results
+              </Link>{" "}
+              and the project report for full methodology and limitations.
+            </p>
+          </div>
         </footer>
       </body>
     </html>

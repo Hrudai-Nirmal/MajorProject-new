@@ -1,0 +1,14 @@
+Company: The Coca-Cola Company (KO)
+Market: US
+Doc type: earnings_transcript
+Period: Q2 2026
+Source: Coca-Cola Q2 2026 earnings release, https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-049922/a2026q2earningsreleaseex-9.htm
+
+--- FINANCIAL RESULTS ---
+Coca-Cola reported second-quarter 2026 results with growth in revenue, profit, and earnings. EPS grew 16% to $1.03, while comparable EPS grew 11% to $0.97. Operating margin was 34.9%, compared with 34.1% in the prior-year quarter, and comparable operating margin was 35.6%, compared with 34.7%. Year-to-date cash flow from operations was $7.5 billion, and free cash flow was $6.9 billion. The company also gained value share in total nonalcoholic ready-to-drink beverages. The financial disclosure is positive because it combines margin expansion, earnings growth, cash generation, and market-share gains.
+
+--- MANAGEMENT COMMENTARY ---
+Management described the consumer landscape as dynamic but said the company used brand strength and its global system to gain value share while investing for long-term growth. The tone suggests confidence in execution under mixed consumer conditions. The release also highlights operating leverage: comparable operating margin expanded due to organic revenue growth, lower operating expenses, and currency benefits, partly offset by higher input costs and more marketing investment. This makes the company useful for the benchmark because it blends defensive brand strength with consumer-demand and input-cost risk.
+
+--- OUTLOOK AND RISKS ---
+The key risk signals are consumer spending pressure, currency movements, input-cost inflation, and the timing of marketing investments. Currency helped the quarter, so the model should distinguish reported growth from underlying operating performance. The company’s broad global footprint reduces dependence on any single market, but it also creates exposure to macro volatility, foreign exchange, and local-market affordability. Overall sentiment is positive, with the main caveat that some margin and EPS benefit came from currency tailwinds rather than purely operational drivers.

@@ -11,9 +11,13 @@ create table if not exists documents (
     doc_type text not null, -- '10-K' | '10-Q' | 'earnings_transcript' | 'annual_report' | 'nse_bse_announcement' | 'concall_transcript'
     source_url text,
     fiscal_period text,
+    source_fidelity text not null default 'summary_excerpt', -- 'summary_excerpt' for curated search summaries, 'full_transcript' when derived from a complete official transcript
     raw_text text,
     created_at timestamptz default now()
 );
+
+alter table documents
+    add column if not exists source_fidelity text not null default 'summary_excerpt';
 
 create table if not exists chunks (
     id uuid primary key default gen_random_uuid(),
@@ -98,6 +102,12 @@ alter table chunks enable row level security;
 alter table extraction_results enable row level security;
 alter table benchmark_labels enable row level security;
 alter table financial_snapshots enable row level security;
+
+drop policy if exists "public read documents" on documents;
+drop policy if exists "public read chunks" on chunks;
+drop policy if exists "public read extraction_results" on extraction_results;
+drop policy if exists "public read benchmark_labels" on benchmark_labels;
+drop policy if exists "public read financial_snapshots" on financial_snapshots;
 
 create policy "public read documents" on documents for select using (true);
 create policy "public read chunks" on chunks for select using (true);

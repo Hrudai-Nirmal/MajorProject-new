@@ -2,23 +2,23 @@
   "method": "self_retrieval_proxy_not_human_relevance_judgments",
   "match_count": 10,
   "US": {
-    "n": 57,
-    "recall@1": 0.9122807017543859,
-    "recall@3": 1.0,
-    "recall@5": 1.0,
+    "n": 64,
+    "recall@1": 0.90625,
+    "recall@3": 0.984375,
+    "recall@5": 0.984375,
     "recall@10": 1.0,
-    "mrr": 0.956140350877193,
-    "latency_ms_mean": 645.1900141404813,
-    "latency_ms_p95": 788.8794169994071
+    "mrr": 0.947265625,
+    "latency_ms_mean": 662.5995970171061,
+    "latency_ms_p95": 752.6219158899039
   },
   "India": {
-    "n": 25,
-    "recall@1": 0.88,
-    "recall@3": 1.0,
-    "recall@5": 1.0,
-    "recall@10": 1.0,
-    "mrr": 0.9266666666666665,
-    "latency_ms_mean": 631.6332801597309,
-    "latency_ms_p95": 713.7742499980959
+    "n": 64,
+    "recall@1": 0.734375,
+    "recall@3": 0.921875,
+    "recall@5": 0.96875,
+    "recall@10": 0.984375,
+    "mrr": 0.8274925595238095,
+    "latency_ms_mean": 655.1460533737554,
+    "latency_ms_p95": 753.3041669521481
   }
 }

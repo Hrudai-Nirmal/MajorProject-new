@@ -10,7 +10,7 @@ import {
   TrendingUp,
   Wallet,
 } from "lucide-react";
-import { getDocument, getExtractions, getFinancials, type Extraction } from "@/lib/api";
+import { getDocument, getExtractions, getFinancials, type Document, type Extraction } from "@/lib/api";
 import { notFound } from "next/navigation";
 
 const SENTIMENT_STYLE: Record<
@@ -18,10 +18,10 @@ const SENTIMENT_STYLE: Record<
   { text: string; bg: string; ring: string; bar: string; icon: typeof Smile }
 > = {
   positive: {
-    text: "text-emerald-700",
-    bg: "bg-emerald-50",
-    ring: "ring-emerald-200",
-    bar: "bg-emerald-300",
+    text: "text-indigo-700",
+    bg: "bg-indigo-50",
+    ring: "ring-indigo-200",
+    bar: "bg-indigo-300",
     icon: Smile,
   },
   negative: {
@@ -63,7 +63,7 @@ function GrowthValue({ value }: { value: number | null | undefined }) {
   const positive = value > 0;
   const flat = value === 0;
   const Icon = flat ? Meh : positive ? TrendingUp : TrendingDown;
-  const color = flat ? "text-slate-500" : positive ? "text-emerald-600" : "text-rose-600";
+  const color = flat ? "text-slate-500" : positive ? "text-indigo-600" : "text-rose-600";
   return (
     <span className={`flex items-center gap-1 font-semibold ${color}`}>
       <Icon className="h-3.5 w-3.5" strokeWidth={2.5} />
@@ -84,6 +84,26 @@ function StatCard({
       <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">{label}</p>
       <div className="mt-1 text-sm">{children}</div>
     </div>
+  );
+}
+
+function getSourceFidelity(doc: Document) {
+  return doc.source_fidelity ?? (doc.doc_id.includes("_full_") ? "full_transcript" : "summary_excerpt");
+}
+
+function SourceFidelityBadge({ doc }: { doc: Document }) {
+  const sourceFidelity = getSourceFidelity(doc);
+  const isFullTranscript = sourceFidelity === "full_transcript";
+  return (
+    <span
+      className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ring-inset ${
+        isFullTranscript
+          ? "bg-sky-50 text-sky-700 ring-sky-200"
+          : "bg-stone-50 text-stone-600 ring-stone-200"
+      }`}
+    >
+      {isFullTranscript ? "Full transcript" : "Summary excerpt"}
+    </span>
   );
 }
 
@@ -119,6 +139,9 @@ export default async function DocumentPage({ params }: { params: { id: string } 
               {doc.ticker} · <span className="capitalize">{doc.doc_type.replace(/_/g, " ")}</span>{" "}
               · {doc.fiscal_period ?? "period n/a"}
             </p>
+            <div className="mt-2">
+              <SourceFidelityBadge doc={doc} />
+            </div>
           </div>
           {doc.source_url && (
             <a
@@ -213,7 +236,6 @@ export default async function DocumentPage({ params }: { params: { id: string } 
             return (
               <div
                 key={ex.id}
-                id={`chunk-${ex.chunk_id}`}
                 className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
               >
                 <div className={`h-1 ${style.bar}`} />

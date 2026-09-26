@@ -101,5 +101,7 @@ CC growth % = (Revenue_t at prior-year FX rates − Revenue_t−1) / Revenue_t�
 3. Benchmark evaluation table — Precision/Recall/F1 by market, by sentiment class, macro-F1
 4. Retrieval quality table — Recall@k, MRR, mean latency, by market
 5. Cross-market generalization gap discussion — where and why the pipeline over/under-performs on Indian disclosures (e.g. transcript formatting differences, terminology, currency/unit conventions)
-6. Limitations — data fidelity asymmetry (2 fully-fetched US transcripts vs. search-summary-derived excerpts for the other 8, per the earlier collection note), single model tier, small benchmark size (~25-30 chunks), single quarter per company
+6. Limitations — data fidelity asymmetry (full transcripts / official releases are still unevenly
+   distributed), AI-generated gold labels, one model stack, small benchmark size (128 chunks),
+   single quarter per company
 7. Appendix — company list, source URLs, labeling guidelines used for adjudication

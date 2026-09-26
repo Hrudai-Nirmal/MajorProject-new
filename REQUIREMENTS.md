@@ -1,18 +1,20 @@
 # Project Requirements
 
-Cross-Market LLM Disclosure Analysis — pilot study. Compiled from the locked stack and current build state.
+Cross-Market LLM Disclosure Analysis — pilot study. Compiled from the locked stack and current
+26-company build state.
 
 ## 1. Technical Requirements
 
 ### 1.1 Accounts / credentials
 | Item | Status | Notes |
 |---|---|---|
-| Gemini API key (Google AI Studio) | Have it | Confirmed working key, tied to Google AI Pro plan |
-| Supabase project | Partial | Have URL + `anon`/publishable key. Still need the **`service_role`** key for backend writes (Settings → API) |
-| Supabase schema applied | **Not done** | `backend/schema.sql` needs to be run in the Supabase SQL Editor — nothing exists in the DB yet |
-| Render account | Needed | For FastAPI backend deploy (free tier) |
-| Vercel account | Needed | For Next.js frontend deploy (free tier) |
-| GitHub PAT with repo write access | **Blocked** | Current token authenticates but is denied push access — needs "Contents: Read and write" scoped to `MajorProject-new` |
+| Gemini API key (Google AI Studio) | Active | Used for `gemini-embedding-001` embeddings only |
+| Groq API key | Active | Used for extraction, financial-ratio parsing, gold-label adjudication, and chat generation |
+| Supabase project | Active | Postgres + pgvector backing `documents`, `chunks`, `extraction_results`, `benchmark_labels`, and `financial_snapshots` |
+| Supabase schema applied | Done | `backend/schema.sql` defines the live schema and exact `match_chunks` retrieval function |
+| Render backend | Deployed | FastAPI service reads secrets from Render environment variables |
+| Vercel frontend | Deployed | Next.js frontend reads the backend URL from `NEXT_PUBLIC_API_URL` |
+| GitHub repository | Active | Source of truth: `Hrudai-Nirmal/MajorProject-new`, deployed from `main` |
 
 ### 1.2 Runtime / dependencies
 - Backend: Python 3.11+, `fastapi`, `uvicorn`, `google-generativeai`, `supabase-py`, `pydantic`, `python-dotenv`, `httpx` (all in `backend/requirements.txt`)
@@ -21,8 +23,11 @@ Cross-Market LLM Disclosure Analysis — pilot study. Compiled from the locked s
 
 ### 1.3 Network / deployment
 - Render and Vercel both need unrestricted outbound access to `generativelanguage.googleapis.com` and `*.supabase.co` — this is a non-issue on those platforms (only my dev sandbox here has a restrictive allowlist, which is why I couldn't live-test the Gemini/Supabase calls directly)
-- CORS: backend currently allows `*`, should be tightened to the Vercel domain once deployed
-- Environment variables: `GEMINI_API_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` on Render (backend only, never exposed to frontend); `NEXT_PUBLIC_SUPABASE_URL` + anon key on Vercel (frontend, safe to expose — protected by RLS)
+- CORS: backend allows the production Vercel domain plus localhost for development; keep this list
+  explicit if the frontend domain changes
+- Environment variables: `GEMINI_API_KEY`, `GROQ_API_KEY`, `SUPABASE_URL`,
+  `SUPABASE_SERVICE_ROLE_KEY` on Render (backend only, never exposed to frontend);
+  `NEXT_PUBLIC_API_URL` on Vercel
 
 ### 1.4 Data source access
 - SEC EDGAR: public, free, no key required. Best practice is a descriptive `User-Agent` header with contact info on automated requests (SEC's fair-access policy)
@@ -33,16 +38,21 @@ Cross-Market LLM Disclosure Analysis — pilot study. Compiled from the locked s
 
 | Component | Tier | Expected cost |
 |---|---|---|
-| Gemini API (embeddings + generation) | Google AI Pro plan (existing) | $0 marginal, **but verify below** |
-| Supabase | Free tier (500MB DB, 1GB storage, 2GB bandwidth) | $0 — well within limits for ~20 documents |
+| Gemini API (embeddings only) | Free developer/API quota or configured billing | Low / $0 expected at this dataset size |
+| Groq API (generation) | Free developer tier | $0 expected for pilot/demo use |
+| Supabase | Free tier (500MB DB, 1GB storage, 2GB bandwidth) | $0 — well within limits for ~26 documents |
 | Render | Free web service tier | $0 — note: spins down after ~15 min idle, ~30s cold start |
 | Vercel | Hobby (free) plan | $0 |
 | GitHub | Free tier | $0 |
 | Domain name | Not required — `*.vercel.app` / `*.onrender.com` subdomains work fine | $0 |
 
-**One thing to verify, not assume:** Google's consumer "AI Pro" subscription (Gemini app / Google One) and the **developer API** billing (`generativelanguage.googleapis.com`, what our backend calls) are historically separate products. Some Pro plans include a bundled API quota; others don't, and API usage bills separately through a linked Cloud Billing account once you exceed the free tier. Worth checking your Google AI Studio billing page before the demo so there's no surprise charge — flagging this rather than assuming $0 across the board.
+**Important billing note:** Google's consumer "AI Pro" subscription (Gemini app / Google One) and
+the developer API (`generativelanguage.googleapis.com`, what the backend calls) are separate
+products. This is why the project uses Gemini only for embeddings and Groq for generation after
+Gemini `generateContent` returned billing/quota errors in development.
 
-**Total expected cost: $0**, assuming everything stays on free tiers and the Gemini Pro plan does cover our API calls.
+**Total expected cost: $0** for the current pilot/demo footprint, assuming all services remain on
+their free tiers.
 
 ## 3. Legal / Compliance Requirements
 
@@ -56,7 +66,9 @@ These are typically copyrighted by the publisher (or the company, for IR-hosted 
 - Always retain the source attribution (already doing this in each file's header)
 
 ### 3.3 NSE/BSE disclosures
-Regulatory filings, generally free to access; factual content can be republished, but bulk scraping/redistribution of full announcement PDFs may be subject to exchange-specific terms of use if this scales beyond the pilot's 5 companies.
+Regulatory filings, generally free to access; factual content can be republished, but bulk
+scraping/redistribution of full announcement PDFs may be subject to exchange-specific terms of use
+if this scales beyond the current pilot.
 
 ### 3.4 Loughran-McDonald dictionary
 Free for academic/research use with attribution (Notre Dame). No cost, no restrictive license for this use case.
@@ -74,7 +86,11 @@ Since this is a course deliverable, worth a quick check of your institution's po
 No personal/private individual data is processed — inputs are public corporate disclosures and public statements by company executives on investor calls. No GDPR or India's DPDP Act exposure from this pipeline as currently scoped.
 
 ---
-**Status as of 2026-08-10:** Schema applied to Supabase, 10 documents / 36 chunks embedded and stored, all 36 chunks extracted (Groq, since Gemini generateContent is billing-gated on Google AI Pro — embeddings stay on Gemini), LM dictionary scores computed as a labeling aid, frontend scaffolded and live-tested end to end against real data, repo pushed to GitHub.
+**Status as of 2026-09-26:** Schema applied to Supabase, 26 documents / 98 chunks embedded and
+stored (64 US / 34 India), all chunks extracted with Groq generation, LM dictionary scores
+computed as a labeling aid, financial snapshots generated where values were explicitly stated,
+benchmark and retrieval metrics written to `benchmark/`, backend deployed on Render, frontend
+deployed on Vercel, repo pushed to GitHub.
 
 **Benchmark gold labels — provenance disclosure (important for the writeup, §3.7):**
 `benchmark_labels.gold_sentiment` / `gold_risk_flags` / `gold_topics` are **not** independent
@@ -82,15 +98,17 @@ human labels. docs/METHODOLOGY.md's design assumes a human adjudicates each chun
 LM score aid (§A.1, §A.4); by explicit decision (this is a course pilot, not a research-grade
 benchmark), that step was done by AI instead — the first 19 chunks by Gemini
 (`gemini-flash-latest`, which hit its 20-requests/day free-tier cap partway through) and the
-remaining 17 by Groq (`openai/gpt-oss-120b`), a different model family from the
-`llama-3.3-70b-versatile` used to generate the extractions being evaluated, so the comparison
-isn't purely a model grading itself. Each row's `labeled_by` column records exactly which model
-produced it. `scripts/evaluate.py` result as of this run: US macro-F1 0.71, India macro-F1 0.55,
-gap 0.16 — directionally the finding the project is testing for, but treat the specific numbers
-as illustrative given the label provenance above, not as a rigorous result. **Disclose this in
-the writeup per §3.7** rather than presenting it as hand-labeled.
+remaining 17 by Groq (`openai/gpt-oss-120b`). The 46 chunks added with the 10-company expansion and the 16
+chunks added with the later 6-company expansion were also adjudicated by Groq
+(`openai/gpt-oss-120b`). Each row's `labeled_by` column records exactly which model produced it.
+`scripts/evaluate.py` result as of the current run: US macro-F1 0.717, India macro-F1 0.525, gap
+0.192 — directionally the finding the project is testing for, but treat the specific numbers as
+illustrative given the label provenance above, not as a rigorous result.
+**Disclose this in the writeup per §3.7** rather than presenting it as hand-labeled.
 
-**Open items requiring your action:**
-- Render/Vercel account creation + deploy
-- Confirming Gemini API billing status (only matters if you want to move generation back off Groq later)
-- Decision on whether to keep `.txt` transcript excerpts out of git
+**Open items / caveats:**
+- The India subset still needs higher-fidelity full transcript coverage before the project can
+  separate true cross-market model weakness from source-data quality effects.
+- Confirming Gemini API billing only matters if generation is moved back from Groq to Gemini later.
+- Decide whether to keep `.txt` transcript excerpts out of public git history if the repo becomes
+  public-facing.
