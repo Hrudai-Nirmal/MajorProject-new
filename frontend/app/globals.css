@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+.company-avatar { display:inline-grid;place-items:center;flex:none;border-radius:7px;border:1px solid #464646;padding:4px;overflow:hidden }
+.company-avatar[data-backdrop="light"] { background:#fafafa }
+.company-avatar[data-backdrop="dark"] { background:#222;color:#ddd }
+.company-avatar img { width:100%;height:100%;object-fit:contain }
+.company-avatar-sm { width:30px;height:30px }
+.company-avatar-md { width:40px;height:40px }
+.company-avatar-lg { width:50px;height:50px }
+@keyframes desk-arrive { from {opacity:0;transform:translateY(7px)} to {opacity:1;transform:none} }
+@media screen and (prefers-reduced-motion:no-preference) {
+  .mast,.pair,.desk article.panel,.tool-grid { animation:desk-arrive 270ms ease-out both }
+  .tool-grid { animation-delay:50ms }
+  .chip,.action,.tool,.company-avatar,.tool>svg:last-child { transition:transform 170ms ease-out, background-color 170ms ease-out,border-color 170ms ease-out }
+  .action:active,.chip:active { transform:scale(.97) }
+  details[open]>blockquote { animation:desk-arrive 190ms ease-out }
+  @media (hover:hover) {
+    .tool:hover,.tool:focus-visible { transform:translateY(-3px) }
+    .tool:hover>svg:last-child { transform:translate(2px,-2px) }
+    .group:hover .company-avatar { transform:scale(1.06) }
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important }
+  .group:hover { transform:none }
+}
+
 :root {
   color-scheme: dark;
   --canvas: #080808;
