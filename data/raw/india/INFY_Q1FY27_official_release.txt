@@ -1,0 +1,12 @@
+Company: Infosys Ltd (INFY)
+Market: India
+Doc type: earnings_release_summary
+Period: Q1 FY2027
+Source fidelity: summary_excerpt
+Source: https://www.infosys.com/investors/reports-filings/quarterly-results/2026-2027/q1/documents/ifrs-usd-press-release.pdf
+
+Infosys reported US$5,082 million of revenue for the quarter ended June 30, 2026. Constant-currency revenue grew 2.4% year over year and 1.0% sequentially. Operating margin was 21.1%, and free cash flow was about US$955 million. Large-deal total contract value was US$3.6 billion, of which 61% was net new. Management said AI-related revenue accounted for 8.2% of total revenue.
+
+The company revised its fiscal 2027 revenue-growth guidance to 1.5%–3.0% in constant currency and retained operating-margin guidance of 20%–22%. Management described client interest in AI and transformation programs as a source of opportunity. The finance team emphasized disciplined operations and cash generation while referring to a challenging business environment. The combination of deal wins and revised guidance makes this a mixed-sentiment disclosure.
+
+This text is a concise paraphrase of the company's official IFRS USD press release and should be treated as a summary excerpt, not as a complete transcript or an independent assessment of performance.

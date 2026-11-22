@@ -1,0 +1,12 @@
+Company: Tata Consultancy Services (TCS)
+Market: India
+Doc type: earnings_release_summary
+Period: Q1 FY2027
+Source fidelity: summary_excerpt
+Source: https://www.tcs.com/who-we-are/newsroom/press-release/tcs-financial-results-q1-fy-2027
+
+TCS reported revenue of US$7,624 million for the quarter ended June 30, 2026. Revenue was flat from the previous quarter and increased 2.7% from a year earlier in US dollar terms. Constant-currency sequential growth was 0.4%. Operating margin, excluding an exceptional item, was 24.0%, while net margin was 19.2%. Net income was US$1,460 million on the same basis. Net cash from operations was US$1,310 million, representing 93% of net income.
+
+Management highlighted a US$9.5 billion total contract value for new orders, including a large AI transformation agreement with SKF. Annualized AI revenue reached US$2.6 billion, up 13.6% sequentially. The company also reported partnerships with ServiceNow and other major clients. Management expressed confidence in demand for AI, modernization, cybersecurity and cloud services, while acknowledging geopolitical and macroeconomic headwinds.
+
+Segment performance was mixed. Banking and financial services grew sequentially, while consumer business, life sciences, manufacturing and energy-related segments declined in constant currency. North America also declined slightly quarter over quarter. This summary is a paraphrase of the official company release; it is not a transcript of management's complete call.
