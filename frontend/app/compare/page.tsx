@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Frown, GitCompareArrows, Meh, Smile, TriangleAlert } from "lucide-react";
-import { listDocuments, getFinancials, type Document, type FinancialSnapshot } from "@/lib/api";
+import { ArrowRight, Frown, GitCompareArrows, Meh, Smile } from "lucide-react";
+import type { Document, FinancialSnapshot } from "@/lib/api";
+import { documents, publishedFinancials } from "@/lib/catalog";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 import { CompareSelector } from "@/components/CompareSelector";
 
@@ -110,31 +111,11 @@ function CompanyPanel({ doc, financials }: { doc: Document | undefined; financia
   );
 }
 
-export default async function ComparePage({
+export default function ComparePage({
   searchParams,
 }: {
   searchParams: { us?: string; india?: string };
 }) {
-  let documents: Document[] = [];
-  let error: string | null = null;
-  try {
-    documents = await listDocuments();
-  } catch (e) {
-    error = e instanceof Error ? e.message : "Failed to load documents";
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-800">
-        <TriangleAlert className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={2} />
-        <div>
-          <p className="font-medium">Couldn&apos;t reach the backend.</p>
-          <p className="text-sm">{error}</p>
-        </div>
-      </div>
-    );
-  }
-
   const usDocs = documents.filter((d) => d.market === "US");
   const indiaDocs = documents.filter((d) => d.market === "India");
 
@@ -148,10 +129,8 @@ export default async function ComparePage({
   const usDoc = usDocs.find((d) => d.ticker === usTicker);
   const indiaDoc = indiaDocs.find((d) => d.ticker === indiaTicker);
 
-  const [usFinancials, indiaFinancials] = await Promise.all([
-    usDoc ? getFinancials(usDoc.id).catch(() => null) : Promise.resolve(null),
-    indiaDoc ? getFinancials(indiaDoc.id).catch(() => null) : Promise.resolve(null),
-  ]);
+  const usFinancials = publishedFinancials(usDoc?.id);
+  const indiaFinancials = publishedFinancials(indiaDoc?.id);
 
   return (
     <div>
