@@ -2,7 +2,7 @@
 
 import unittest
 
-from scripts.embed_and_store import build_document_payload
+from scripts.embed_and_store import build_document_payload, should_embed_chunk
 
 
 class EmbedPayloadTests(unittest.TestCase):
@@ -21,6 +21,11 @@ class EmbedPayloadTests(unittest.TestCase):
         payload = build_document_payload(chunk)
 
         self.assertEqual("full_transcript", payload["source_fidelity"])
+
+    def test_unchanged_chunk_does_not_need_embedding(self):
+        self.assertFalse(should_embed_chunk({"text": "same"}, "same"))
+        self.assertTrue(should_embed_chunk({"text": "old"}, "new"))
+        self.assertTrue(should_embed_chunk(None, "new"))
 
 
 if __name__ == "__main__":

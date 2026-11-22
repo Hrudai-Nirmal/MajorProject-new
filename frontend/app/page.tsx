@@ -55,6 +55,11 @@ function getSourceFidelity(doc: Document) {
 function SourceFidelityBadge({ doc }: { doc: Document }) {
   const sourceFidelity = getSourceFidelity(doc);
   const isFullTranscript = sourceFidelity === "full_transcript";
+  const label = isFullTranscript
+    ? "Full transcript"
+    : sourceFidelity === "official_release_excerpt"
+      ? "Official release excerpt"
+      : "Summary excerpt";
   return (
     <span
       className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ring-inset ${
@@ -63,7 +68,7 @@ function SourceFidelityBadge({ doc }: { doc: Document }) {
           : "bg-stone-50 text-stone-600 ring-stone-200"
       }`}
     >
-      {isFullTranscript ? "Full transcript" : "Summary excerpt"}
+      {label}
     </span>
   );
 }
@@ -155,7 +160,11 @@ function DemoModeSection({ fullSourceHref }: { fullSourceHref: string }) {
 }
 
 /** Renders the top-level company disclosure dashboard. */
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams?: { source?: string };
+}) {
   let documents: Document[] = [];
   let error: string | null = null;
   try {
@@ -166,6 +175,12 @@ export default async function DashboardPage() {
 
   const us = documents.filter((d) => d.market === "US");
   const india = documents.filter((d) => d.market === "India");
+  const companyCount = new Set(documents.map((doc) => `${doc.market}:${doc.ticker}`)).size;
+  const sourceFilter = ["full_transcript", "official_release_excerpt", "summary_excerpt"].includes(searchParams?.source ?? "")
+    ? searchParams?.source
+    : undefined;
+  const visibleUs = sourceFilter ? us.filter((doc) => getSourceFidelity(doc) === sourceFilter) : us;
+  const visibleIndia = sourceFilter ? india.filter((doc) => getSourceFidelity(doc) === sourceFilter) : india;
   const firstFullSourceIndiaDoc = india.find((d) => getSourceFidelity(d) === "full_transcript");
   const fullSourceHref = firstFullSourceIndiaDoc ? `/documents/${firstFullSourceIndiaDoc.id}` : "/";
 
@@ -255,8 +270,8 @@ export default async function DashboardPage() {
           Company disclosures
         </h1>
         <p className="mt-1 text-sm text-slate-500">
-          Sentiment, risk, and financial signals extracted from 32 US/India disclosure records
-          across 13 sector-matched pairs, including six full-source India variants.
+          Explore {documents.length} US and India disclosure records across {companyCount} companies.
+          Sentiment and financial signals appear when analysis is complete.
         </p>
       </div>
 
@@ -265,14 +280,32 @@ export default async function DashboardPage() {
       <DemoModeSection fullSourceHref={fullSourceHref} />
 
       <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <StatPill label="Companies" value={String(documents.length)} />
+        <StatPill label="Companies" value={String(companyCount)} />
         <StatPill label="Markets" value="2" />
         <StatPill label="US disclosures" value={String(us.length)} />
         <StatPill label="India disclosures" value={String(india.length)} />
       </div>
 
-      {renderGroup("US", "US", us)}
-      {renderGroup("India", "India", india)}
+      <div className="mb-6 flex flex-wrap gap-2" aria-label="Filter by source type">
+        {[
+          ["All sources", "/", undefined],
+          ["Full transcripts", "/?source=full_transcript", "full_transcript"],
+          ["Official release excerpts", "/?source=official_release_excerpt", "official_release_excerpt"],
+          ["Summaries", "/?source=summary_excerpt", "summary_excerpt"],
+        ].map(([label, href, value]) => (
+          <Link
+            key={label}
+            href={href ?? "/"}
+            className={`rounded-full px-3 py-1.5 text-xs font-semibold ring-1 ring-inset ${sourceFilter === value ? "bg-indigo-600 text-white ring-indigo-600" : "bg-white text-slate-600 ring-slate-200"}`}
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
+
+      {visibleUs.length + visibleIndia.length === 0 && <p className="mb-6 text-sm text-slate-500">No records match this source type.</p>}
+      {renderGroup("US", "US", visibleUs)}
+      {renderGroup("India", "India", visibleIndia)}
     </div>
   );
 }

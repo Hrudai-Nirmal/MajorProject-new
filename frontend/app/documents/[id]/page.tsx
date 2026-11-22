@@ -94,6 +94,11 @@ function getSourceFidelity(doc: Document) {
 function SourceFidelityBadge({ doc }: { doc: Document }) {
   const sourceFidelity = getSourceFidelity(doc);
   const isFullTranscript = sourceFidelity === "full_transcript";
+  const label = isFullTranscript
+    ? "Full transcript"
+    : sourceFidelity === "official_release_excerpt"
+      ? "Official release excerpt"
+      : "Summary excerpt";
   return (
     <span
       className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ring-inset ${
@@ -102,7 +107,7 @@ function SourceFidelityBadge({ doc }: { doc: Document }) {
           : "bg-stone-50 text-stone-600 ring-stone-200"
       }`}
     >
-      {isFullTranscript ? "Full transcript" : "Summary excerpt"}
+      {label}
     </span>
   );
 }
@@ -156,6 +161,15 @@ export default async function DocumentPage({ params }: { params: { id: string } 
         </div>
       </div>
 
+      {!financials && (
+        <div className="mb-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="font-semibold text-slate-900">Financial snapshot</h2>
+          <p className="mt-2 text-sm text-slate-500">
+            No financial figures have been extracted for this record yet. The source document may still contain figures; check the source link above.
+          </p>
+        </div>
+      )}
+
       {financials && (
         <div className="mb-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4 flex items-center gap-2">
@@ -165,8 +179,17 @@ export default async function DocumentPage({ params }: { params: { id: string } 
             <h2 className="font-semibold text-slate-900">Financial snapshot</h2>
           </div>
           <p className="mb-4 text-xs text-slate-500">
-            Only figures explicitly stated in the collected transcript excerpt are shown — a dash
+            Only figures explicitly stated in the collected source are shown — a dash
             means it wasn&apos;t disclosed in what we have, not zero.
+          </p>
+          <p className="mb-4 text-xs font-medium text-indigo-700">
+            {[
+              financials.revenue, financials.revenue_growth_yoy_pct,
+              financials.revenue_growth_qoq_pct, financials.gross_margin_pct,
+              financials.operating_margin_pct, financials.net_margin_pct,
+              financials.ebitda_margin_pct, financials.eps_growth_yoy_pct,
+              financials.free_cash_flow, financials.constant_currency_growth_pct,
+            ].filter((value) => value !== null && value !== undefined).length} of 10 core figures available
           </p>
           <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
             <StatCard label="Revenue">

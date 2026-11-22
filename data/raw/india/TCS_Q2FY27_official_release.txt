@@ -1,0 +1,12 @@
+Company: Tata Consultancy Services (TCS)
+Market: India
+Doc type: earnings_release_summary
+Period: Q2 FY2027
+Source fidelity: summary_excerpt
+Source: https://www.tcs.com/who-we-are/newsroom/press-release/tcs-financial-results-q2-fy-2027
+
+TCS reported US$7,642 million in revenue for the quarter ended September 30, 2026. This represented 0.2% sequential growth and 2.4% year-over-year growth in US dollar terms. Constant-currency sequential growth was 0.5%. Operating margin was 24.0%, net profit was US$1,450 million, and net margin was 19.0%. Total contract value for the quarter was US$9.6 billion.
+
+Management reported that international revenue grew 1.2% sequentially in constant currency. Banking and financial services, manufacturing, and technology services were among the stronger business segments. Annualized AI revenue reached US$3.1 billion and exceeded 10% of revenue. The company announced strategic work with Porsche and Best Buy, including AI and engineering initiatives.
+
+Regional performance was uneven. The UK and Asia Pacific grew, while India revenue declined 10.3% sequentially in constant currency. The mix of expanding AI work and uneven geographic demand provides both positive and cautionary signals for sentiment analysis. This is a source-linked summary of the company release, not a full earnings-call transcript.

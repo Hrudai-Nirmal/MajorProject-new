@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "total_benchmark_rows": 128,
+  "total_benchmark_rows": 148,
   "labeled_rows": 128,
   "US": {
     "per_class": {

@@ -48,7 +48,12 @@ benchmark/           # AI-adjudicated labels + evaluation results
 
 ## Status
 Scope: pilot / proof-of-concept, single model stack (Gemini for embeddings, Groq for generation),
-32 documents / 128 benchmark chunks, cross-market generalization as the primary research question.
+40 documents / 148 chunks, cross-market generalization as the primary research question.
+The eight November 2026 additions (20 chunks) are embedded and have sentiment/risk/topic
+extractions from local Qwen 3.5 9B after the configured Groq key returned 401. They also have
+Loughran-McDonald dictionary scores, but await independent benchmark labels. The reported F1
+still covers the original 128 labeled chunks; it must not be interpreted as a score for the
+new local model.
 Current benchmark result: US macro-F1 0.717 vs India macro-F1 0.653 (gap 0.063) — see
 `benchmark/metrics.json` and REQUIREMENTS.md for the gold-label provenance disclosure
 (AI-adjudicated, not independently hand-labeled).

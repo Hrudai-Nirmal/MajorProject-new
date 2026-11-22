@@ -47,6 +47,11 @@ def build_document_payload(chunk: dict) -> dict:
     }
 
 
+def should_embed_chunk(existing_chunk: dict | None, text: str) -> bool:
+    """Embed only new or changed text; unchanged vectors stay valid."""
+    return existing_chunk is None or existing_chunk["text"] != text
+
+
 def should_retry_without_source_fidelity(exc: Exception) -> bool:
     """Detect the exact migration gap raised when Supabase lacks the new column."""
     message = str(exc).lower()
@@ -90,9 +95,15 @@ def main():
         doc_ids_seen[doc_id] = row_id
         print(f"  documents: upserted {doc_id} -> {row_id}")
 
+    existing_rows = client.table("chunks").select("document_id, chunk_index, text").execute().data
+    existing_by_key = {(row["document_id"], row["chunk_index"]): row for row in existing_rows}
     total = 0
+    skipped = 0
     for c in chunks:
         document_id = doc_ids_seen[c["doc_id"]]
+        if not should_embed_chunk(existing_by_key.get((document_id, c["chunk_index"])), c["text"]):
+            skipped += 1
+            continue
         embedding = embed_text(c["text"], task_type="retrieval_document")
         client.table("chunks").upsert(
             {
@@ -106,7 +117,7 @@ def main():
         total += 1
         print(f"  chunks: embedded + stored {c['doc_id']} #{c['chunk_index']} ({total}/{len(chunks)})")
 
-    print(f"\nDone. {len(doc_ids_seen)} documents, {total} chunks embedded and stored.")
+    print(f"\nDone. {len(doc_ids_seen)} documents, {total} chunks embedded and stored, {skipped} unchanged.")
 
 
 if __name__ == "__main__":

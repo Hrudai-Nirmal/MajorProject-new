@@ -14,6 +14,10 @@ risk/topic indexes, and asking retrieval-grounded questions.
   India records from shorter curated summaries.
 - Until the live Supabase table has the `source_fidelity` column, the UI falls back to `doc_id`
   (`_full_` means full transcript) so the distinction is still visible.
+- The home page filters by source fidelity and counts distinct companies separately from
+  disclosure records. Detail pages show financial-field coverage and an explicit pending state.
+- New official release excerpts are labeled separately from paraphrased summaries; new
+  sentiment results can come from a different model and must not be described by the existing F1.
 
 ## Gotchas
 
