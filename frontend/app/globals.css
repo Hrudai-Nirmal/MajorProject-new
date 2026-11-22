@@ -4,13 +4,13 @@
 
 :root {
   color-scheme: dark;
-  --canvas: #0c1118;
-  --panel: #151c26;
-  --inset: #101720;
-  --line: #344152;
-  --ink: #edf1f7;
-  --muted: #a1aec0;
-  --accent: #89bdff;
+  --canvas: #080808;
+  --panel: #171717;
+  --inset: #101010;
+  --line: #393939;
+  --ink: #f4f4f4;
+  --muted: #b1b1b1;
+  --accent: #e0e0e0;
 }
 .bg-white,
 .hover\:bg-white:hover {
@@ -19,7 +19,7 @@
 .bg-indigo-600,
 .bg-indigo-700,
 .hover\:bg-indigo-700:hover {
-  background-color: #294e79;
+  background-color: #444444;
 }
 body {
   font-family:
@@ -33,7 +33,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: #304f73;
+  background: #555555;
   color: white;
 }
 :focus-visible {
@@ -53,7 +53,7 @@ body {
 }
 .shell {
   border-bottom: 1px solid var(--line);
-  background: #101620;
+  background: #101010;
 }
 .shell-inner,
 .desk-footer {
@@ -97,7 +97,7 @@ body {
 }
 .shell nav a:hover,
 .chip:hover {
-  background: #253347;
+  background: #292929;
   border-radius: 5px;
 }
 .brief-nav,
@@ -177,7 +177,7 @@ body {
 .query {
   flex: 1;
   min-width: 0;
-  border: 1px solid #59718b;
+  border: 1px solid #626262;
   background: var(--inset);
   border-radius: 5px;
   padding: 0 14px;
@@ -194,14 +194,14 @@ body {
   outline: none;
 }
 .action {
-  background: #94c5ff;
-  color: #0e2034;
+  background: #ededed;
+  color: #121212;
   border-radius: 5px;
   padding: 12px 20px;
   font-weight: 650;
 }
 .action:hover {
-  background: #b7d8ff;
+  background: #ffffff;
 }
 .fields {
   display: flex;
@@ -248,7 +248,7 @@ body {
   color: var(--accent);
 }
 .selected {
-  background: #203952;
+  background: #363636;
 }
 .desk-link:hover,
 .table-wrap a:hover {
@@ -271,7 +271,7 @@ body {
 }
 .tool:hover {
   border-color: var(--accent);
-  background: #1b2838;
+  background: #222222;
 }
 .tool > svg:last-child {
   position: absolute;
@@ -293,9 +293,9 @@ blockquote,
   overflow-wrap: anywhere;
 }
 blockquote {
-  border-left: 2px solid #50769d;
+  border-left: 2px solid #767676;
   padding-left: 14px;
-  color: #d4deeb;
+  color: #dddddd;
 }
 .panel details > summary {
   cursor: pointer;
@@ -351,7 +351,7 @@ blockquote {
     margin: 12pt 0;
   }
   .brief-sheet a {
-    color: #174875;
+    color: #383838;
     text-decoration: underline;
   }
   .brief-sheet ~ article.panel,
