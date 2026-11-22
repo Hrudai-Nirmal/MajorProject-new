@@ -10,6 +10,7 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import { askQuestion, type ChatSource } from "@/lib/api";
+import {SaveEvidence,type Citation} from "@/components/evidence-brief";
 
 const SUGGESTIONS = [
   "What did Infosys say about margins?",
@@ -22,6 +23,7 @@ export default function ChatPage() {
   const [market, setMarket] = useState<string>("");
   const [answer, setAnswer] = useState<string | null>(null);
   const [sources, setSources] = useState<ChatSource[]>([]);
+  const [citations,setCitations]=useState<Citation[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [askedQuestion, setAskedQuestion] = useState<string | null>(null);
@@ -31,13 +33,26 @@ export default function ChatPage() {
     setLoading(true);
     setError(null);
     setAnswer(null);
+    setSources([]);
+    setCitations([]);
     setAskedQuestion(q);
     try {
       const res = await askQuestion(q, market || undefined);
       setAnswer(res.answer);
       setSources(res.sources);
+      const found=await Promise.allSettled(res.sources.map(async s=>{
+        const response=await fetch("/api/evidence?id="+encodeURIComponent(s.chunk_id));
+        return response.ok?await response.json() as Citation:null;
+      }));
+      setCitations(found.flatMap(item=>item.status==="fulfilled"&&item.value?[item.value]:[]));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong");
+      try {
+        const response=await fetch("/api/evidence?"+new URLSearchParams({q,market}));
+        if(!response.ok)throw new Error("Evidence search failed");
+        const rows: Array<Citation & {summary:string|null}>=await response.json();
+        setCitations(rows);
+        setAnswer(rows.length?"Live generation is unavailable. These stored passage summaries match your question.\n\n"+rows.map(r=>r.company+" · "+r.period+" — "+(r.summary||r.text)).join("\n\n"):"No matching passages were found in the research snapshot.");
+      } catch {setError(err instanceof Error ? err.message : "Unable to load research evidence.")}
     } finally {
       setLoading(false);
     }
@@ -72,6 +87,7 @@ export default function ChatPage() {
         <div className="flex flex-1 items-center gap-2 px-2">
           <Search className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} />
           <input
+            maxLength={400}
             type="text"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -181,12 +197,14 @@ export default function ChatPage() {
                     </span>
                   </div>
                   <p className="leading-relaxed text-slate-700">{s.text}</p>
+                  {citations.filter(c=>c.id===s.chunk_id).map(c=><SaveEvidence key={c.id} citation={c}/>)}
                 </div>
               );
             })}
           </div>
         </div>
       )}
+      {!sources.length&&citations.map(c=><article className="panel" key={c.id}><p className="meta">{c.company} · {c.period}</p><blockquote>{c.text}</blockquote><SaveEvidence citation={c}/></article>)}
     </div>
   );
 }

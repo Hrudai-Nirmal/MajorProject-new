@@ -161,6 +161,7 @@ export async function askQuestion(
   top_k = 5
 ): Promise<ChatResponse> {
   const res = await fetch(`${API_URL}/api/chat/`, {
+    signal: AbortSignal.timeout(12000),
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question, market: market || null, top_k }),
