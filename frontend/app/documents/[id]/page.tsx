@@ -95,7 +95,7 @@ function SourceFidelityBadge({ doc }: { doc: Document }) {
   const sourceFidelity = getSourceFidelity(doc);
   const isFullTranscript = sourceFidelity === "full_transcript";
   const label = isFullTranscript
-    ? "Full transcript"
+    ? "Transcript-derived"
     : sourceFidelity === "official_release_excerpt"
       ? "Official release excerpt"
       : "Summary excerpt";
@@ -148,9 +148,9 @@ export default async function DocumentPage({ params }: { params: { id: string } 
               <SourceFidelityBadge doc={doc} />
             </div>
           </div>
-          {doc.source_url && (
+          {doc.source_url?.match(/https?:\/\/[^\s)]+/) && (
             <a
-              href={doc.source_url}
+              href={doc.source_url.match(/https?:\/\/[^\s)]+/)![0]}
               target="_blank"
               rel="noreferrer"
               className="flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition-colors hover:border-indigo-200 hover:text-indigo-600"
@@ -259,6 +259,7 @@ export default async function DocumentPage({ params }: { params: { id: string } 
             return (
               <div
                 key={ex.id}
+                id={`passage-${ex.chunk_id}`}
                 className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
               >
                 <div className={`h-1 ${style.bar}`} />

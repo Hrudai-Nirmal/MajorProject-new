@@ -1,6 +1,8 @@
 import { Info, Target, TriangleAlert } from "lucide-react";
+import Link from "next/link";
 import { MvpInsightBanner } from "@/components/MvpInsightBanner";
-import { getMetrics, type MarketMetrics } from "@/lib/api";
+import type { MarketMetrics } from "@/lib/api";
+import metrics from "@/research-data/metrics.json";
 
 const CLASS_STYLE: Record<string, string> = {
   positive: "bg-indigo-50 text-indigo-700 ring-indigo-200",
@@ -76,47 +78,13 @@ function MarketCard({
       </table>
 
       <p className="mt-4 border-t border-slate-100 pt-3 text-sm">
-        Macro-F1 <span className="font-semibold text-slate-900">{metrics.macro_f1.toFixed(3)}</span>
+        <Link className="desk-link" href={`/research/disagreements?market=${label}`}>Macro-F1 {metrics.macro_f1.toFixed(3)} · Inspect disagreements →</Link>
       </p>
     </div>
   );
 }
 
 export default async function BenchmarkPage() {
-  let metrics;
-  let error: string | null = null;
-  try {
-    metrics = await getMetrics();
-  } catch (e) {
-    error = e instanceof Error ? e.message : "Failed to load metrics";
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-800">
-        <TriangleAlert className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={2} />
-        <div>
-          <p className="font-medium">Couldn&apos;t reach the backend.</p>
-          <p className="text-sm">{error}</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!metrics || metrics.status !== "ok") {
-    return (
-      <div>
-        <h1 className="mb-4 text-2xl font-semibold tracking-tight text-slate-900">Benchmark</h1>
-        <div className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 text-slate-600 shadow-sm">
-          <Info className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" strokeWidth={2} />
-          <p className="text-sm">
-            {metrics?.note ??
-              "No benchmark result yet. Run scripts/compute_lm_scores.py, then label gold_sentiment for the benchmark chunks, then scripts/evaluate.py."}
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   const usF1 = metrics.US?.macro_f1 ?? 0;
   const indiaF1 = metrics.India?.macro_f1 ?? 0;

@@ -1,5 +1,12 @@
 # Frontend Context
 
+The research desk serves a published snapshot from Supabase. Run
+`uv run --with numpy --with-requirements backend/requirements.txt python scripts/export_research.py`
+after updating labels, documents, or extractions and commit both generated JSON files together.
+Search uses a TF-IDF latent semantic index computed at export time. Filters restrict eligible
+passages before ranking. Comparisons quote sentences from the matching passages. Research
+routes need no live model call. Briefs are saved in this browser and export three highlights.
+
 ## Purpose
 
 Next.js dashboard for browsing the disclosure benchmark, comparing US and India companies, viewing

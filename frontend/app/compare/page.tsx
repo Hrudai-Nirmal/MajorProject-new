@@ -168,6 +168,7 @@ export default async function ComparePage({
         explicitly stated in the collected transcripts are shown.
       </p>
 
+      <p className="actions"><Link className="desk-link" href={`/research/pair?left=${usDoc?.id||""}&right=${indiaDoc?.id||""}`}>Ask these companies a question →</Link></p>
       <CompareSelector
         usOptions={usDocs.map((d) => ({ ticker: d.ticker, company: d.company }))}
         indiaOptions={indiaDocs.map((d) => ({ ticker: d.ticker, company: d.company }))}

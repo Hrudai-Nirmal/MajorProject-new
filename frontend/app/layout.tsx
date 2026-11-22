@@ -1,84 +1,55 @@
+/** Persistent navigation for the disclosure research desk and document library. */
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-import {
-  LineChart,
-  LayoutGrid,
-  MessageSquareText,
-  Target,
-  ShieldAlert,
-  GitCompareArrows,
-} from "lucide-react";
+import { ChartNoAxesCombined, Bookmark } from "lucide-react";
 import "./globals.css";
-
-/**
- * Shared app shell for the disclosure dashboard; the copy stays deliberately specific so the
- * deployed UI mirrors the benchmark scope reported in the project documentation.
- */
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-
 export const metadata: Metadata = {
-  title: "Cross-Market Disclosure Analysis",
-  description: "US vs India corporate disclosure sentiment & risk dashboard (pilot).",
+  title: "Disclosure Desk | Cross-market research",
+  description:
+    "Search and compare US and Indian corporate disclosures with cited evidence.",
 };
-
-const NAV_ITEMS = [
-  { href: "/", label: "Dashboard", icon: LayoutGrid },
-  { href: "/compare", label: "Compare", icon: GitCompareArrows },
-  { href: "/risks", label: "Risks", icon: ShieldAlert },
-  { href: "/chat", label: "Chat", icon: MessageSquareText },
-  { href: "/benchmark", label: "Benchmark", icon: Target },
+const links = [
+  ["/", "Search"],
+  ["/library", "Library"],
+  ["/compare", "Compare"],
+  ["/risks", "Risks"],
+  ["/chat", "Chat"],
+  ["/benchmark", "Benchmark"],
 ];
-
-/** Renders the route frame used by every dashboard page. */
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-[#f5f8ff] text-[#334155] antialiased">
-        <header className="sticky top-0 z-10 border-b-2 border-[#6b7c93] bg-[#ffffff]/92 backdrop-blur-md">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg border-2 border-[#6b7c93] bg-[#2563eb] text-white shadow-sm">
-                <LineChart className="h-4.5 w-4.5" strokeWidth={2.25} />
-              </span>
-              <span className="flex flex-col leading-tight">
-                <span className="text-sm font-semibold tracking-tight text-slate-900">
-                  Cross-Market Disclosure Analysis
-                </span>
-                <span className="text-[11px] font-medium text-slate-400">US · India pilot</span>
-              </span>
+    <html lang="en">
+      <body>
+        <a className="skip" href="#content">
+          Skip to content
+        </a>
+        <header className="shell">
+          <div className="shell-inner">
+            <Link href="/" className="brand">
+              <ChartNoAxesCombined size={26} /> Disclosure Desk
             </Link>
-            <nav className="flex items-center gap-1 rounded-full border-2 border-[#6b7c93] bg-[#fff7e6] p-1 shadow-sm">
-              {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:bg-white hover:text-indigo-600 hover:shadow-sm"
-                >
-                  <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
-                  <span className="hidden sm:inline">{label}</span>
+            <nav aria-label="Main navigation">
+              {links.map(([href, name]) => (
+                <Link key={href} href={href}>
+                  {name}
                 </Link>
               ))}
             </nav>
+            <Link href="/brief" className="brief-nav">
+              <Bookmark size={15} /> My brief
+            </Link>
           </div>
         </header>
-
-        <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">{children}</main>
-
-        <footer className="mt-8 border-t-2 border-[#6b7c93] bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-            <p className="text-xs leading-relaxed text-slate-500">
-              <span className="font-medium text-slate-600">
-                Research/educational purposes only — not investment advice.
-              </span>{" "}
-              Pilot scope: 13 sector-matched US/India company pairs, 32 documents / 128 chunks,
-              single model stack. See{" "}
-              <Link href="/benchmark" className="text-indigo-600 hover:underline">
-                benchmark results
-              </Link>{" "}
-              and the project report for full methodology and limitations.
-            </p>
-          </div>
+        <main id="content" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+          {children}
+        </main>
+        <footer className="desk-footer">
+          <span>Cross-Market Disclosure Analysis</span>
+          <Link href="/research/coverage">Research corpus ↗</Link>
         </footer>
       </body>
     </html>
