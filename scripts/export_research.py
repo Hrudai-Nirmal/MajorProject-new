@@ -15,6 +15,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 from app.services.supabase_client import get_client
+from app.routers.documents import _attach_sentiment_summary
 
 STOP = set("about after also an and are as at be before by can company did do does during for from had has have how in into is it its management of on or our quarter said say that the their this to was we were what which who with would year".split())
 
@@ -48,6 +49,13 @@ def build_index(passages):
             "passages":[{"id":row["id"],"vector":vec} for row,vec in zip(passages,vectors.round(5).tolist())]}
 
 
+def build_catalog(client):
+    """Publish card summaries and financials once for the two browse routes."""
+    docs = fetch_rows(client, "documents", "id,doc_id,company,ticker,market,doc_type,source_url,fiscal_period,source_fidelity,created_at")
+    financials = fetch_rows(client, "financial_snapshots", "*")
+    return {"documents": _attach_sentiment_summary(client, docs), "financials": financials}
+
+
 def main():
     """Export public fields, keeping credentials and embeddings out of client bundles."""
     client = get_client()
@@ -67,7 +75,7 @@ def main():
     metrics=json.loads((ROOT/"benchmark"/"metrics.json").read_text())
     if metrics["labeled_rows"] != sum(bool(row["gold"]) for row in chunks):
         raise ValueError("Rerun benchmark evaluation before publishing the snapshot.")
-    for name, content in [("corpus",{"documents":docs,"passages":chunks}),("index",build_index(chunks)),("metrics",metrics)]:
+    for name, content in [("corpus",{"documents":docs,"passages":chunks}),("index",build_index(chunks)),("metrics",metrics),("catalog",build_catalog(client))]:
         (output/f"{name}.json").write_text(json.dumps(content,separators=(",",":"))+"\n")
 
 

@@ -10,14 +10,14 @@ import {
   SearchCheck,
   Smile,
   Target,
-  TriangleAlert,
 } from "lucide-react";
-import { listDocuments, type Document } from "@/lib/api";
+import type { Document } from "@/lib/api";
+import { documents } from "@/lib/catalog";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 import { MvpInsightBanner } from "@/components/MvpInsightBanner";
 
 /**
- * Server-rendered dashboard overview; counts come from the backend so deployed copy cannot drift
+ * Server-rendered dashboard overview; counts come from the published catalog so deployed copy cannot drift
  * from the live disclosure set.
  */
 function MarketBadge({ market }: { market: "US" | "India" }) {
@@ -160,19 +160,11 @@ function DemoModeSection({ fullSourceHref }: { fullSourceHref: string }) {
 }
 
 /** Renders the top-level company disclosure dashboard. */
-export default async function DashboardPage({
+export default function DashboardPage({
   searchParams,
 }: {
   searchParams?: { source?: string };
 }) {
-  let documents: Document[] = [];
-  let error: string | null = null;
-  try {
-    documents = await listDocuments();
-  } catch (e) {
-    error = e instanceof Error ? e.message : "Failed to load documents";
-  }
-
   const us = documents.filter((d) => d.market === "US");
   const india = documents.filter((d) => d.market === "India");
   const companyCount = new Set(documents.map((doc) => `${doc.market}:${doc.ticker}`)).size;
@@ -183,24 +175,6 @@ export default async function DashboardPage({
   const visibleIndia = sourceFilter ? india.filter((doc) => getSourceFidelity(doc) === sourceFilter) : india;
   const firstFullSourceIndiaDoc = india.find((d) => getSourceFidelity(d) === "full_transcript");
   const fullSourceHref = firstFullSourceIndiaDoc ? `/documents/${firstFullSourceIndiaDoc.id}` : "/";
-
-  if (error) {
-    return (
-      <div className="flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-800">
-        <TriangleAlert className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={2} />
-        <div>
-          <p className="font-medium">Couldn&apos;t load disclosure data.</p>
-          <p className="text-sm">{error}</p>
-          <p className="mt-2 text-sm">
-            If <code className="rounded bg-rose-100 px-1 py-0.5">/api/health</code> is healthy,
-            check the backend&apos;s Supabase project status plus{" "}
-            <code className="rounded bg-rose-100 px-1 py-0.5">SUPABASE_URL</code> and{" "}
-            <code className="rounded bg-rose-100 px-1 py-0.5">SUPABASE_SERVICE_ROLE_KEY</code>.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   if (documents.length === 0) {
     return (
