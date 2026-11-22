@@ -1,5 +1,7 @@
 # Frontend Context
 
+Primary surfaces and actions use neutral black, charcoal, and silver. Market badges and risk states retain their semantic colors.
+
 The research desk serves a published snapshot from Supabase. Run
 `uv run --with numpy --with-requirements backend/requirements.txt python scripts/export_research.py`
 after updating labels, documents, or extractions and commit both generated JSON files together.

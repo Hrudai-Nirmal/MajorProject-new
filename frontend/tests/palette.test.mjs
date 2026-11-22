@@ -9,6 +9,9 @@ function luminance(token) {
   return linear[0]*0.2126+linear[1]*0.7152+linear[2]*0.0722;
 }
 assert.ok(luminance("canvas")<0.05);
+for (const token of ["canvas","panel","inset","line","ink","muted","accent"]) {
+  assert.match(css,new RegExp("--"+token+":\\s*#([0-9a-f]{2})\\1\\1;","i"),token+" must be neutral");
+}
 for(const token of ["ink","muted","accent"]){
   assert.ok((luminance(token)+0.05)/(luminance("panel")+0.05)>=4.5,token+" has insufficient contrast");
 }
