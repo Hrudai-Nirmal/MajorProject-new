@@ -23,6 +23,7 @@ import {
 } from "@/lib/research";
 import { quarterKey } from "@/lib/research-engine.cjs";
 import { SaveEvidence } from "./evidence-brief";
+import { CompanyAvatar } from "./CompanyAvatar";
 import { ResearchForm } from "./research-form";
 
 type Params = Record<string, string | undefined>;
@@ -122,6 +123,7 @@ function Evidence({ row, question }: { row: Passage; question?: string }) {
   return (
     <article className="panel">
       <div className="meta">
+        <CompanyAvatar ticker={doc.ticker} size="sm"/>
         {ticker(doc)} <span>·</span> {doc.market} <span>·</span> {period(doc)}
       </div>
       <h3>{doc.company}</h3>

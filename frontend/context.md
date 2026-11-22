@@ -1,5 +1,7 @@
 # Frontend Context
 
+Company cards use local logo assets, ticker aliases, and a shared building icon for unknown or unavailable logos. Motion uses short CSS transitions and honors reduced-motion preferences.
+
 Primary surfaces and actions use neutral black, charcoal, and silver. Market badges and risk states retain their semantic colors.
 
 The research desk serves a published snapshot from Supabase. Run
