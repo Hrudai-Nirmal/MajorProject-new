@@ -16,7 +16,7 @@ function formatPercent(value: number | null | undefined) {
 
 /** Show the most recent snapshot and links to every collected disclosure. */
 export function CompanyDetails({option}: {option?: CompanyOption}) {
-  if (!option) return <div className="flex min-h-[320px] items-center justify-center rounded-2xl border border-dashed border-[#505050] bg-[#101010] p-8 text-center text-sm text-[#a9a9a9]">Select a company to inspect its disclosures.</div>;
+  if (!option) return <div className="company-pane flex min-h-[320px] items-center justify-center text-center text-sm text-[#a9a9a9]">Select a company to inspect its disclosures.</div>;
   const document = option.documents[0];
   const financials: FinancialSnapshot = publishedFinancials(document.id);
   const metrics = [
@@ -25,7 +25,7 @@ export function CompanyDetails({option}: {option?: CompanyOption}) {
     ["Gross margin", formatPercent(financials?.gross_margin_pct)],
     ["Operating margin", formatPercent(financials?.operating_margin_pct)],
   ];
-  return <section className="rounded-2xl border border-[#393939] bg-white p-5 shadow-sm sm:p-6" aria-label={`${option.company} details`}>
+  return <section className="company-pane" aria-label={`${option.company} details`}>
     <div className="flex items-start gap-4 border-b border-[#393939] pb-5">
       <CompanyAvatar ticker={option.ticker} size="lg" />
       <div className="min-w-0 flex-1"><p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#a9a9a9]">{option.market} · {option.ticker}</p><h2 className="mt-1 text-xl font-semibold tracking-tight text-[#f4f4f4]">{option.company}</h2><p className="mt-1 text-sm text-[#a9a9a9]">{option.documents.length} collected disclosure{option.documents.length === 1 ? "" : "s"}</p></div>
