@@ -48,3 +48,6 @@ same-model/source-fidelity/label-count matched subset, and independent Qwen
 relabeling. The original 0.063 gap is unstable under document resampling. Matching
 does not remove the gap, while new model labels materially change its size.
 Source and extraction-model differences prevent a causal market attribution.
+The same Qwen classifications, scored against existing labels on 23 matched
+passages per market, show a +0.065 gap with a disclosure-bootstrap range spanning
+zero. Treat this as an observed pilot difference, not a proven market effect.

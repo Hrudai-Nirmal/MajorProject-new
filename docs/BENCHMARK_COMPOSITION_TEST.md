@@ -60,6 +60,27 @@ benchmark cannot isolate a market effect from disclosure type, source selection,
 and AI label uncertainty. These results supersede the earlier working guess
 that label balance was the leading explanation.
 
+## Same current model in both markets
+
+The 46 Qwen classifications above can also be scored as *predictions* against
+the existing AI reference labels. This directly tests one model on both sides
+of the fixed matched sample. The prompt asked for the sentiment of the whole
+passage in both markets. Its wording differs from the original extraction
+prompt, so these scores are a separate comparison.
+
+| Market | Passages | Qwen macro-F1 | Agreements |
+| --- | ---: | ---: | ---: |
+| US | 23 | 0.565 | 14 |
+| India | 23 | 0.500 | 13 |
+
+The US minus India gap is **+0.065**. Each side contains passages from ten
+documents. In 5,000 disclosure-level bootstrap resamples, the 2.5–97.5
+percentile range for this gap was **-0.158 to +0.318**; 71.8% of resamples had
+a positive gap. This is evidence that the point difference persists in this
+one controlled sample, while the range does not establish a reliable direction.
+The existing reference labels are AI-generated and disclosure type still differs
+across markets.
+
 The raw pilot input and model outputs were kept outside version control under
 `tmp/` because they include the full passage text. The prior 20-passage context
 pilot remains separately recorded in `benchmark/context_pilot.json`.
