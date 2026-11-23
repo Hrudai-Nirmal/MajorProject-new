@@ -3,6 +3,8 @@ import Link from "next/link";
 import { MvpInsightBanner } from "@/components/MvpInsightBanner";
 import type { MarketMetrics } from "@/lib/api";
 import metrics from "@/research-data/metrics.json";
+import expandedSample from "@/research-data/expanded-same-model.json";
+import { getMatchedMetrics } from "@/lib/benchmark-sensitivity.cjs";
 
 const CLASS_STYLE: Record<string, string> = {
   positive: "bg-indigo-50 text-indigo-700 ring-indigo-200",
@@ -89,6 +91,7 @@ export default async function BenchmarkPage() {
   const usF1 = metrics.US?.macro_f1 ?? 0;
   const indiaF1 = metrics.India?.macro_f1 ?? 0;
   const maxF1 = Math.max(usF1, indiaF1, 0.01);
+  const matchedMetrics = getMatchedMetrics(expandedSample.rows, expandedSample.matched_chunk_ids);
 
   return (
     <div>
@@ -107,6 +110,21 @@ export default async function BenchmarkPage() {
       </p>
 
       <MvpInsightBanner />
+
+      <div className="mb-6 rounded-xl border border-indigo-200 bg-indigo-50 p-5">
+        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">Expanded same-model pilot</p>
+        <h2 className="mt-1 text-lg font-semibold text-slate-900">Comparable disclosure excerpts</h2>
+        <p className="mt-2 text-sm leading-relaxed text-slate-700">
+          Qwen classified {matchedMetrics.US.count} US and {matchedMetrics.India.count} India excerpts
+          with matched sentiment-label counts. Macro-F1 was {matchedMetrics.US.macroF1.toFixed(3)}
+          {" "}for the US and {matchedMetrics.India.macroF1.toFixed(3)} for India, a gap of
+          {" "}{(matchedMetrics.US.macroF1 - matchedMetrics.India.macroF1).toFixed(3)}.
+        </p>
+        <p className="mt-2 text-xs leading-relaxed text-slate-600">
+          The difference remains preliminary. Resampling disclosures produced gaps in either direction,
+          and the reference labels are AI-generated.
+        </p>
+      </div>
 
       {metrics.cross_market_gap && (
         <div className="mb-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
