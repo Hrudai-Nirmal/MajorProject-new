@@ -40,3 +40,11 @@ reference label from the full chunk. The saved observations are in
 `benchmark/context_pilot.json`. This is a separate experiment and does not update
 the published benchmark or Supabase labels. Model agreement here is not human-validated
 accuracy, and the 20-passage sample is too small to establish a market effect.
+
+## Benchmark composition sensitivity
+
+`docs/BENCHMARK_COMPOSITION_TEST.md` records a disclosure-level bootstrap,
+same-model/source-fidelity/label-count matched subset, and independent Qwen
+relabeling. The original 0.063 gap is unstable under document resampling. Matching
+does not remove the gap, while new model labels materially change its size.
+Source and extraction-model differences prevent a causal market attribution.
