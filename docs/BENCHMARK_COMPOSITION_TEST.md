@@ -81,6 +81,34 @@ one controlled sample, while the range does not establish a reliable direction.
 The existing reference labels are AI-generated and disclosure type still differs
 across markets.
 
+## Expanded same-model sample for presentation
+
+An additional Qwen run used existing labeled summary excerpts only. Groq returned
+a rate-limit response while expanding the US side, so the run was stopped to
+preserve API capacity for the presentation. Completed predictions, combined with
+the earlier matched run, cover **44 US and 34 India passages**. No requests were
+sent through the production backend and no Supabase rows were changed. The
+completed predictions and matched identifiers are saved in
+`benchmark/expanded_same_model.json` without source text or credentials.
+
+A fixed-seed sample from the completed predictions matches 28 passages per
+market, with 16 positive, 10 neutral, and 2 negative existing reference labels
+on each side. Median passage lengths are 129 US and 126 India words. It spans
+12 US and 13 India documents.
+
+| Market | Matched passages | Qwen macro-F1 | Agreements |
+| --- | ---: | ---: | ---: |
+| US | 28 | 0.642 | 21 |
+| India | 28 | 0.595 | 20 |
+
+The expanded matched gap is **+0.047**. In 5,000 disclosure-level bootstrap
+resamples, its 2.5–97.5 percentile range is **-0.161 to +0.306**; 69.1% of
+resamples have a positive gap. The point estimate remains positive, but the
+range crosses zero. The US completed set is partly determined by interruption
+order, so the result is a sensitivity check rather than a representative new
+benchmark. The two-negative-per-market count and AI-generated reference labels
+remain substantial limitations.
+
 The raw pilot input and model outputs were kept outside version control under
 `tmp/` because they include the full passage text. The prior 20-passage context
 pilot remains separately recorded in `benchmark/context_pilot.json`.

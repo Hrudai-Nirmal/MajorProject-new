@@ -51,3 +51,8 @@ Source and extraction-model differences prevent a causal market attribution.
 The same Qwen classifications, scored against existing labels on 23 matched
 passages per market, show a +0.065 gap with a disclosure-bootstrap range spanning
 zero. Treat this as an observed pilot difference, not a proven market effect.
+An expanded same-model sample in `benchmark/expanded_same_model.json` covers 44
+US and 34 India summary excerpts. A matched 28-per-market comparison yields a
++0.047 gap, again with a disclosure-bootstrap range spanning zero. The Groq
+rate limit ended the expansion early, so avoid further model calls before the
+presentation unless capacity is confirmed.
