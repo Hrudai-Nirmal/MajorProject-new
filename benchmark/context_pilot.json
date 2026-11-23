@@ -1,0 +1,227 @@
+{
+  "predictor": "qwen/qwen3.8-27b",
+  "reference_model": "openai/gpt-oss-120b",
+  "sample_seed": 20261123,
+  "observations": [
+    {
+      "doc_id": "KO_Q2FY26_earnings_transcript",
+      "chunk_index": 0,
+      "market": "US",
+      "company": "The Coca-Cola Company",
+      "target": "Operating margin was 34.9%, compared with 34.1% in the prior-year quarter, and comparable operating margin was 35.6%, compared with 34.7%.",
+      "context_words": 178,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "chunk_index": 2,
+      "market": "US",
+      "company": "JPMorgan Chase & Co.",
+      "target": "Investment banking fees up 7% year-on-year, ranked #1 with 8.9% wallet share; debt underwriting fees up 12%; equity underwriting fees down 6%.",
+      "context_words": 146,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "chunk_index": 1,
+      "market": "US",
+      "company": "Microsoft Corporation",
+      "target": "Q1 FY26 guidance: capex over $30 billion, Microsoft Cloud gross margin ~67%, driven by continued AI infrastructure scaling.",
+      "context_words": 148,
+      "short_label": "neutral",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "chunk_index": 3,
+      "market": "US",
+      "company": "Apple Inc.",
+      "target": "in every geographic segment and double-digit growth in emerging markets including India, the Middle East, South Asia and Brazil.",
+      "context_words": 169,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "VZ_Q1FY26_earnings_transcript",
+      "chunk_index": 0,
+      "market": "US",
+      "company": "Verizon Communications Inc.",
+      "target": "A January network outage cut wireless service revenue by approximately 80 basis points in the quarter via customer credits; CFO Anthony Skiadas described this as \"a onetime pressure...",
+      "context_words": 121,
+      "short_label": "negative",
+      "context_label": "negative",
+      "reference_label": "negative"
+    },
+    {
+      "doc_id": "V_Q2FY26_earnings_transcript",
+      "chunk_index": 0,
+      "market": "US",
+      "company": "Visa Inc.",
+      "target": "CEMEA (Central Europe, Middle East, Africa) payments volume growth stepped down about 2.5 percentage points versus Q1, \"primarily due to the conflict in the Middle East,\" per CFO Christopher Suh, though he noted CEMEA is only about 6% of total payments volume.",
+      "context_words": 128,
+      "short_label": "negative",
+      "context_label": "negative",
+      "reference_label": "negative"
+    },
+    {
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "chunk_index": 1,
+      "market": "US",
+      "company": "Ford Motor Company",
+      "target": "Adjusted EBIT was $3.5 billion, or $2.2 billion excluding a one-time $1.3 billion IEPA tariff benefit ($700 million to Ford Blue, $500 million to Ford Pro).",
+      "context_words": 205,
+      "short_label": "neutral",
+      "context_label": "neutral",
+      "reference_label": "neutral"
+    },
+    {
+      "doc_id": "NVDA_Q2FY26_earnings_transcript",
+      "chunk_index": 2,
+      "market": "US",
+      "company": "NVIDIA Corporation",
+      "target": "NVIDIA guided Q3 FY2026 revenue to about $54.0 billion, plus or minus 2%, without assuming H20 shipments to China.",
+      "context_words": 126,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "chunk_index": 4,
+      "market": "US",
+      "company": "Exxon Mobil Corporation",
+      "target": "She also noted the company's North American-weighted refining and chemicals footprint carries a structural feedstock/energy cost advantage as oil prices rise.",
+      "context_words": 144,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "PFE_Q2FY25_earnings_transcript",
+      "chunk_index": 0,
+      "market": "US",
+      "company": "Pfizer Inc.",
+      "target": "Adjusted diluted EPS was $0.78, ahead of expectations, primarily due to strong top-line performance and cost management execution.",
+      "context_words": 169,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "BAJFINANCE_Q1FY27_concall_transcript",
+      "chunk_index": 1,
+      "market": "India",
+      "company": "Bajaj Finance Ltd",
+      "target": "16.13 million new loans and added 5.10 million new customers, taking its total customer franchise to 124.43 million.",
+      "context_words": 105,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "BHARTIARTL_Q1FY27_concall_transcript",
+      "chunk_index": 1,
+      "market": "India",
+      "company": "Bharti Airtel Ltd",
+      "target": "The company added 14.9 million customers in the quarter, taking its global subscriber base to 681 million across 15 countries.",
+      "context_words": 110,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "LT_Q1FY27_concall_transcript",
+      "chunk_index": 0,
+      "market": "India",
+      "company": "Larsen & Toubro Ltd",
+      "target": "Management attributed the PAT improvement to better services performance, higher treasury income, and improved working-capital levels in the projects and manufacturing portfolio.",
+      "context_words": 109,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "VBL_Q2CY26_concall_transcript",
+      "chunk_index": 1,
+      "market": "India",
+      "company": "Varun Beverages Ltd",
+      "target": "Management characterized the quarter as strong across markets, citing improved realizations, healthy seasonal demand in India, expanded manufacturing capacity, distribution reach, and continued investment in chilling infrastructure.",
+      "context_words": 126,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "TCS_Q1FY26_concall_transcript",
+      "chunk_index": 0,
+      "market": "India",
+      "company": "Tata Consultancy Services",
+      "target": "TCS reported Q1 FY26 revenue of INR 63,437 crore, up 1.3% year-on-year but down 3.3% sequentially, reflecting demand softness and the BSNL contract wind-down -- an explicit, named revenue headwind.",
+      "context_words": 168,
+      "short_label": "negative",
+      "context_label": "negative",
+      "reference_label": "negative"
+    },
+    {
+      "doc_id": "TATAMOTORS_Q4FY26_concall_transcript",
+      "chunk_index": 0,
+      "market": "India",
+      "company": "Tata Motors Ltd",
+      "target": "Q1 FY27 results were not yet released as of the collection date (board meeting/concall scheduled for 12 August 2026), so this file covers the most recently reported quarter, Q4 FY26 (quarter ended March 2026), across Tata Motors' demerged reporting units.",
+      "context_words": 146,
+      "short_label": "neutral",
+      "context_label": "neutral",
+      "reference_label": "neutral"
+    },
+    {
+      "doc_id": "RELIANCE_Q1FY26_concall_transcript",
+      "chunk_index": 0,
+      "market": "India",
+      "company": "Reliance Industries Ltd",
+      "target": "Reliance Industries reported a 78% year-on-year jump in consolidated net profit for Q1 FY26, reaching INR 26,994 crore -- the company's best-ever first-quarter profit.",
+      "context_words": 160,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "HINDUNILVR_Q1FY27_concall_transcript",
+      "chunk_index": 1,
+      "market": "India",
+      "company": "Hindustan Unilever Ltd",
+      "target": "EBITDA grew 8% YoY to Rs 3,947 crore, with operating margin holding at 23.0%, within management's target band.",
+      "context_words": 118,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "positive"
+    },
+    {
+      "doc_id": "HDFCBANK_Q1FY26_concall_transcript",
+      "chunk_index": 1,
+      "market": "India",
+      "company": "HDFC Bank Ltd",
+      "target": "the NIM decline, return on assets (ROA) remained stable around 1.9% due to cost efficiencies and lower credit costs -- a mitigating factor explicitly offsetting the margin pressure.",
+      "context_words": 133,
+      "short_label": "positive",
+      "context_label": "positive",
+      "reference_label": "neutral"
+    },
+    {
+      "doc_id": "SUNPHARMA_Q1FY26_concall_transcript",
+      "chunk_index": 1,
+      "market": "India",
+      "company": "Sun Pharmaceutical Industries Ltd",
+      "target": "Cequa, Winlevi, Odomzo) is being offset by decline in the US generics business due to additional competition -- management's own framing of a structural mix shift already underway.",
+      "context_words": 120,
+      "short_label": "negative",
+      "context_label": "negative",
+      "reference_label": "negative"
+    }
+  ]
+}

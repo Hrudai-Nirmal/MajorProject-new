@@ -30,3 +30,13 @@ Qwen 3.5 9B sentiment/risk/topic extraction. The configured Groq key returned 40
 2026-11-22, so `scripts/run_extraction.py --local` was used for these records, and each
 database row records the actual model. No gold labels were fabricated. Benchmark F1 still
 covers only the original 128 chunks and is not comparable to the new model's outputs.
+
+## November 2026 context pilot
+
+`scripts/context_pilot.py` samples ten distinct companies per market from comparable
+`summary_excerpt` chunks. It classifies the same target sentence alone and with its
+surrounding chunk using Groq Qwen 3.8 27B. Groq GPT OSS 120B supplies a provisional
+reference label from the full chunk. The saved observations are in
+`benchmark/context_pilot.json`. This is a separate experiment and does not update
+the published benchmark or Supabase labels. Model agreement here is not human-validated
+accuracy, and the 20-passage sample is too small to establish a market effect.
