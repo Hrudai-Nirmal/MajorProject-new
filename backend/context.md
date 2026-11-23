@@ -19,6 +19,9 @@ financial-snapshot data from Supabase and exposes those records to the Next.js f
   next model is tried after a provider rate limit, missing model, server error,
   or connection error. Extraction remains on Groq. `OPENROUTER_API_KEY` is
   required for chat and must be configured on Render.
+- Quarter-specific chat questions retrieve a wider candidate set and retain
+  only documents whose `fiscal_period` matches the requested quarter. This
+  prevents a similar passage from another fiscal year being cited as the answer.
 - `documents.source_fidelity` distinguishes short curated excerpts from full-transcript-derived
   India documents, which lets the evaluation compare source quality instead of treating all
   disclosures as equally complete.
