@@ -31,7 +31,7 @@ def answer_question(question: str, retrieved_chunks: list[dict]) -> str:
         raise ValueError("Question must not be empty")
 
     context = "\n\n".join(
-        f"[{chunk['company']} / {chunk['market']} / {chunk['doc_type']}]: {chunk['text']}"
+        f"[{chunk['company']} / {chunk['market']} / {chunk['doc_type']} / {chunk.get('fiscal_period', 'period unspecified')}]: {chunk['text']}"
         for chunk in retrieved_chunks
     )
     prompt = CHAT_PROMPT.format(context=context, question=question)

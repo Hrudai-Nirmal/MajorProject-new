@@ -21,5 +21,7 @@ class ChatResponse(BaseModel):
 @router.post("/", response_model=ChatResponse)
 def chat(req: ChatRequest):
     chunks = retrieve_top_k(req.question, k=req.top_k, market=req.market)
+    if not chunks:
+        return ChatResponse(answer="I couldn't find a disclosure matching that question in the indexed sources.", sources=[])
     answer = answer_question(req.question, chunks)
     return ChatResponse(answer=answer, sources=chunks)
