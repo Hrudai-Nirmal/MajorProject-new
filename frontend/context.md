@@ -11,6 +11,11 @@ Airbnb, Alphabet, Wipro, ICICI Bank, and Maruti Suzuki. Library, Compare,
 and Research require a fresh committed `research-data` export to show new
 companies, while document detail and chat use the live Supabase records.
 
+Library groups disclosures by market and ticker in an alphabetical single-column
+picker. Selecting a company reveals its latest snapshot and disclosure links
+beside the picker. Compare uses the same picker independently in US and India
+columns; direct `?us=...&india=...` links still seed the two selections.
+
 The benchmark page also shows the expanded same-model pilot from
 `research-data/expanded-same-model.json`. Its scores are calculated from the
 recorded matched chunk IDs so the displayed figures stay tied to the source data.
