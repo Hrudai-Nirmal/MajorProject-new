@@ -1,0 +1,766 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "sample_seed": 20261123,
+  "rows": [
+    {
+      "chunk_id": "02cbc271-4ea7-4695-8e47-91528290987b",
+      "doc_id": "SUNPHARMA_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 120
+    },
+    {
+      "chunk_id": "049e4749-18db-43bf-9d24-4836ff9036a0",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 117
+    },
+    {
+      "chunk_id": "060ab038-8b41-494b-b782-2ccfe453c87a",
+      "doc_id": "VZ_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 180
+    },
+    {
+      "chunk_id": "0afd8e70-a3bf-4fc5-a489-ff23b5dcfa4e",
+      "doc_id": "BHARTIARTL_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "neutral",
+      "word_count": 169
+    },
+    {
+      "chunk_id": "0c5df7cf-1686-4392-848b-9eba87e57c16",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 195
+    },
+    {
+      "chunk_id": "1008e2dd-cdd4-4e7c-a71c-e386f1b22255",
+      "doc_id": "TATAMOTORS_Q4FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "negative",
+      "word_count": 129
+    },
+    {
+      "chunk_id": "14ce0368-d51c-4ccc-bd58-195e9a7f639e",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 113
+    },
+    {
+      "chunk_id": "18a0e93d-4132-425a-92ac-d87ac4b79a36",
+      "doc_id": "LT_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 109
+    },
+    {
+      "chunk_id": "287c6233-9083-4cef-b940-08f47373f8ad",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "neutral",
+      "word_count": 130
+    },
+    {
+      "chunk_id": "2ba006c9-efe1-47af-bdc2-bbac31ca78ae",
+      "doc_id": "VBL_Q2CY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 93
+    },
+    {
+      "chunk_id": "2bc90554-44ee-4094-8007-58f545c84282",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 147
+    },
+    {
+      "chunk_id": "33b9efa4-3899-4168-a59d-383a4b69fcbd",
+      "doc_id": "SUNPHARMA_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 122
+    },
+    {
+      "chunk_id": "347c263a-677a-410f-8d05-cb2b1fe9123c",
+      "doc_id": "VBL_Q2CY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 126
+    },
+    {
+      "chunk_id": "35574647-a62c-426b-a835-29a0c99752eb",
+      "doc_id": "BHARTIARTL_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 110
+    },
+    {
+      "chunk_id": "37504c83-e239-4da5-8967-2fec2090b56d",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 203
+    },
+    {
+      "chunk_id": "39a19c82-ff9b-4b77-aac7-904eaf41e1f5",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 148
+    },
+    {
+      "chunk_id": "3e4ae15b-f834-46af-9cf9-1eae9c7e0132",
+      "doc_id": "ONGC_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "negative",
+      "word_count": 137
+    },
+    {
+      "chunk_id": "407df24f-2c5d-41f5-b04e-76bb5f751d28",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 169
+    },
+    {
+      "chunk_id": "4a3bb605-237e-4f6e-994f-91805a7b992b",
+      "doc_id": "PG_Q3FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "positive",
+      "word_count": 60
+    },
+    {
+      "chunk_id": "4bbb698e-d5d5-4ce6-8cd6-a0336a2abcb7",
+      "doc_id": "TCS_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "neutral",
+      "word_count": 72
+    },
+    {
+      "chunk_id": "51f90777-b726-4453-b36a-ad99fc4c502b",
+      "doc_id": "PG_Q3FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "negative",
+      "word_count": 260
+    },
+    {
+      "chunk_id": "527fa074-aa91-4fce-95e6-be47a855ff68",
+      "doc_id": "CAT_Q2FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 116
+    },
+    {
+      "chunk_id": "597bb647-9c56-402c-b352-534babc4aa1f",
+      "doc_id": "HINDUNILVR_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 118
+    },
+    {
+      "chunk_id": "5df2abe8-8265-41cf-925b-990929faa36b",
+      "doc_id": "BAJFINANCE_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 174
+    },
+    {
+      "chunk_id": "601533ec-00b9-43f5-bf63-1ccd33d27c12",
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 144
+    },
+    {
+      "chunk_id": "60c022b1-4904-4de9-bf0c-d243c3f97bbc",
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "negative",
+      "word_count": 68
+    },
+    {
+      "chunk_id": "64acd204-2157-4e83-8a9a-50186a33aeb8",
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 180
+    },
+    {
+      "chunk_id": "64e1d7b1-642c-4409-83d1-b5dccb6db4c7",
+      "doc_id": "ONGC_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 117
+    },
+    {
+      "chunk_id": "6bd46329-ac28-4957-a59a-d4162b291930",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 103
+    },
+    {
+      "chunk_id": "6cdcfdd9-d8ff-4c52-9830-9b4d05965976",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "negative",
+      "word_count": 77
+    },
+    {
+      "chunk_id": "6f1add6d-3fd4-4bf4-bb27-377f3893ecbd",
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "negative",
+      "word_count": 172
+    },
+    {
+      "chunk_id": "6f268327-89d1-4f22-a6ab-6c3b38d76e0a",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 33
+    },
+    {
+      "chunk_id": "708cf5c0-4ea5-463d-8304-bf6cc0d21d74",
+      "doc_id": "V_Q2FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "negative",
+      "word_count": 128
+    },
+    {
+      "chunk_id": "7272454e-0d30-4e14-9a3c-0f3f3dbb96dd",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "positive",
+      "word_count": 151
+    },
+    {
+      "chunk_id": "73023147-31a4-4e63-99a1-a9dda236357d",
+      "doc_id": "DIXON_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 120
+    },
+    {
+      "chunk_id": "7707011b-03c2-4e35-aa9a-f73e0c7b4cd3",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "negative",
+      "word_count": 174
+    },
+    {
+      "chunk_id": "775fa21f-6733-438a-89bc-990648973d92",
+      "doc_id": "INFY_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 138
+    },
+    {
+      "chunk_id": "78549897-e3b1-4fb2-b279-d59e82a60a65",
+      "doc_id": "KO_Q2FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 178
+    },
+    {
+      "chunk_id": "7a3cd524-dde5-4d34-981d-5026f741c3b6",
+      "doc_id": "BAJFINANCE_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 114
+    },
+    {
+      "chunk_id": "7af0aa6d-0401-44e2-a1db-b4ef7e056bad",
+      "doc_id": "ONGC_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "negative",
+      "word_count": 150
+    },
+    {
+      "chunk_id": "7cffeed9-c73e-4d38-a8e9-47a9ffc60102",
+      "doc_id": "INFY_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 147
+    },
+    {
+      "chunk_id": "7f03dc36-855f-49b7-b62b-b51771afb1ef",
+      "doc_id": "RELIANCE_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 160
+    },
+    {
+      "chunk_id": "81789140-b686-425c-9221-dc46556a9837",
+      "doc_id": "HINDUNILVR_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 112
+    },
+    {
+      "chunk_id": "82be2ca9-6b10-4d04-9f64-318925d820cc",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 107
+    },
+    {
+      "chunk_id": "8842f326-0710-460a-a742-cd81e0808ca2",
+      "doc_id": "DIXON_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 108
+    },
+    {
+      "chunk_id": "8ea00b8d-3cf8-4afa-92b1-741ad072047b",
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 129
+    },
+    {
+      "chunk_id": "92e3ab19-1d1d-4b66-a1c6-e8d53114e456",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "negative",
+      "qwen_prediction": "negative",
+      "word_count": 124
+    },
+    {
+      "chunk_id": "9531e645-9a0b-4a3b-a283-6db1d50bc484",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 111
+    },
+    {
+      "chunk_id": "987409f6-e41b-441e-83d6-d89fb7114e0c",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "negative",
+      "word_count": 205
+    },
+    {
+      "chunk_id": "996227a8-74fc-4aa8-8476-336c6b8faef9",
+      "doc_id": "HINDUNILVR_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 158
+    },
+    {
+      "chunk_id": "9b94b7ea-2083-4048-8176-8392384f2d6f",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 127
+    },
+    {
+      "chunk_id": "9c2fca89-8148-4ecd-a826-a841f0bc2167",
+      "doc_id": "HDFCBANK_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 141
+    },
+    {
+      "chunk_id": "a69ff156-31c9-45d9-bdbd-6e132744619d",
+      "doc_id": "KO_Q2FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 113
+    },
+    {
+      "chunk_id": "a7ad0608-2147-4ed4-91c3-486a51409311",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 103
+    },
+    {
+      "chunk_id": "b01bd726-76d6-4d8b-b97e-2e210eb2ee01",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 144
+    },
+    {
+      "chunk_id": "b3c6447a-a1a9-419e-ac5f-b29ca68d0053",
+      "doc_id": "WMT_Q2FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 124
+    },
+    {
+      "chunk_id": "b49779d0-565d-4d16-b949-7fb75e7aa875",
+      "doc_id": "DIXON_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 125
+    },
+    {
+      "chunk_id": "bf8b0780-662f-4a8b-961d-e65ed4880cc9",
+      "doc_id": "TATAMOTORS_Q4FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 178
+    },
+    {
+      "chunk_id": "c4b134ef-b27a-4b0e-ab1f-7d53ef884588",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 102
+    },
+    {
+      "chunk_id": "c7ae6ead-1a4f-4f44-bfb3-4cf80e7d5853",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 223
+    },
+    {
+      "chunk_id": "c9ba6bbb-14c6-4cdf-82d9-df1d6c2108f8",
+      "doc_id": "BAJFINANCE_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "positive",
+      "word_count": 105
+    },
+    {
+      "chunk_id": "cb7b093f-b398-4780-819d-ab0b0a988ee5",
+      "doc_id": "JPM_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 146
+    },
+    {
+      "chunk_id": "cc966810-9eb4-43c4-a9e1-18a5f9bb4890",
+      "doc_id": "CAT_Q2FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 176
+    },
+    {
+      "chunk_id": "d17f1dec-c109-4f49-8269-412356edcb71",
+      "doc_id": "XOM_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 33
+    },
+    {
+      "chunk_id": "d2dc3a96-af63-4887-88f0-148c38d9adbf",
+      "doc_id": "RELIANCE_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 81
+    },
+    {
+      "chunk_id": "db70065d-3433-4152-9072-19c4c14d88a8",
+      "doc_id": "TCS_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 168
+    },
+    {
+      "chunk_id": "e16783ac-dacf-495a-982e-18ec0b66d3b3",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "negative",
+      "word_count": 155
+    },
+    {
+      "chunk_id": "e3255560-9a78-4ea6-9075-0e9134203772",
+      "doc_id": "LT_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 128
+    },
+    {
+      "chunk_id": "e809e3e9-041c-44ad-902b-a250ace13ecc",
+      "doc_id": "BHARTIARTL_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 106
+    },
+    {
+      "chunk_id": "e9b57edd-aa0f-4c65-819d-43818bf605db",
+      "doc_id": "PFE_Q2FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "negative",
+      "word_count": 143
+    },
+    {
+      "chunk_id": "ee5413d7-8de4-4e2e-86b3-dd6edda1d7f1",
+      "doc_id": "F_Q1FY26_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 180
+    },
+    {
+      "chunk_id": "ee55ab1a-8682-4950-83ce-26714ce31b64",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 104
+    },
+    {
+      "chunk_id": "f1b67a58-20e7-47d1-8995-f5f590f78e12",
+      "doc_id": "VBL_Q2CY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 106
+    },
+    {
+      "chunk_id": "f88e1565-eaa9-40b0-b21a-336ccd4f0d5f",
+      "doc_id": "MSFT_Q4FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 180
+    },
+    {
+      "chunk_id": "fa6728cd-ec10-42fb-a85d-7d64f0042166",
+      "doc_id": "HDFCBANK_Q1FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 133
+    },
+    {
+      "chunk_id": "fa8716cb-b309-42bf-902d-56dcf33f48b1",
+      "doc_id": "TATAMOTORS_Q4FY26_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "neutral",
+      "word_count": 146
+    },
+    {
+      "chunk_id": "ff56ca3a-00ad-4244-98d1-972026867148",
+      "doc_id": "LT_Q1FY27_concall_transcript",
+      "market": "India",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "neutral",
+      "qwen_prediction": "positive",
+      "word_count": 101
+    },
+    {
+      "chunk_id": "ffdf5435-d292-4520-8f5c-7ead57de9c28",
+      "doc_id": "AAPL_Q3FY25_earnings_transcript",
+      "market": "US",
+      "source_fidelity": "summary_excerpt",
+      "gold_sentiment": "positive",
+      "qwen_prediction": "positive",
+      "word_count": 163
+    }
+  ],
+  "matched_chunk_ids": [
+    "cc966810-9eb4-43c4-a9e1-18a5f9bb4890",
+    "a69ff156-31c9-45d9-bdbd-6e132744619d",
+    "b01bd726-76d6-4d8b-b97e-2e210eb2ee01",
+    "8ea00b8d-3cf8-4afa-92b1-741ad072047b",
+    "39a19c82-ff9b-4b77-aac7-904eaf41e1f5",
+    "ffdf5435-d292-4520-8f5c-7ead57de9c28",
+    "9b94b7ea-2083-4048-8176-8392384f2d6f",
+    "0c5df7cf-1686-4392-848b-9eba87e57c16",
+    "c7ae6ead-1a4f-4f44-bfb3-4cf80e7d5853",
+    "7707011b-03c2-4e35-aa9a-f73e0c7b4cd3",
+    "a7ad0608-2147-4ed4-91c3-486a51409311",
+    "cb7b093f-b398-4780-819d-ab0b0a988ee5",
+    "049e4749-18db-43bf-9d24-4836ff9036a0",
+    "c4b134ef-b27a-4b0e-ab1f-7d53ef884588",
+    "060ab038-8b41-494b-b782-2ccfe453c87a",
+    "407df24f-2c5d-41f5-b04e-76bb5f751d28",
+    "7f03dc36-855f-49b7-b62b-b51771afb1ef",
+    "bf8b0780-662f-4a8b-961d-e65ed4880cc9",
+    "1008e2dd-cdd4-4e7c-a71c-e386f1b22255",
+    "9c2fca89-8148-4ecd-a826-a841f0bc2167",
+    "0afd8e70-a3bf-4fc5-a489-ff23b5dcfa4e",
+    "347c263a-677a-410f-8d05-cb2b1fe9123c",
+    "5df2abe8-8265-41cf-925b-990929faa36b",
+    "7af0aa6d-0401-44e2-a1db-b4ef7e056bad",
+    "81789140-b686-425c-9221-dc46556a9837",
+    "e809e3e9-041c-44ad-902b-a250ace13ecc",
+    "7a3cd524-dde5-4d34-981d-5026f741c3b6",
+    "18a0e93d-4132-425a-92ac-d87ac4b79a36",
+    "f1b67a58-20e7-47d1-8995-f5f590f78e12",
+    "e3255560-9a78-4ea6-9075-0e9134203772",
+    "2ba006c9-efe1-47af-bdc2-bbac31ca78ae",
+    "d2dc3a96-af63-4887-88f0-148c38d9adbf",
+    "708cf5c0-4ea5-463d-8304-bf6cc0d21d74",
+    "60c022b1-4904-4de9-bf0c-d243c3f97bbc",
+    "4bbb698e-d5d5-4ce6-8cd6-a0336a2abcb7",
+    "3e4ae15b-f834-46af-9cf9-1eae9c7e0132",
+    "b3c6447a-a1a9-419e-ac5f-b29ca68d0053",
+    "e9b57edd-aa0f-4c65-819d-43818bf605db",
+    "9531e645-9a0b-4a3b-a283-6db1d50bc484",
+    "7272454e-0d30-4e14-9a3c-0f3f3dbb96dd",
+    "d17f1dec-c109-4f49-8269-412356edcb71",
+    "6f268327-89d1-4f22-a6ab-6c3b38d76e0a",
+    "ee55ab1a-8682-4950-83ce-26714ce31b64",
+    "4a3bb605-237e-4f6e-994f-91805a7b992b",
+    "14ce0368-d51c-4ccc-bd58-195e9a7f639e",
+    "2bc90554-44ee-4094-8007-58f545c84282",
+    "996227a8-74fc-4aa8-8476-336c6b8faef9",
+    "64e1d7b1-642c-4409-83d1-b5dccb6db4c7",
+    "35574647-a62c-426b-a835-29a0c99752eb",
+    "02cbc271-4ea7-4695-8e47-91528290987b",
+    "73023147-31a4-4e63-99a1-a9dda236357d",
+    "b49779d0-565d-4d16-b949-7fb75e7aa875",
+    "775fa21f-6733-438a-89bc-990648973d92",
+    "7cffeed9-c73e-4d38-a8e9-47a9ffc60102",
+    "597bb647-9c56-402c-b352-534babc4aa1f",
+    "fa6728cd-ec10-42fb-a85d-7d64f0042166"
+  ]
+}

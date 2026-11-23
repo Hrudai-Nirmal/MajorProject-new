@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from app.services.retrieval import retrieve_top_k
-from app.services.groq_service import answer_question
+from app.services.openrouter_chat import answer_question
 
 router = APIRouter()
 
