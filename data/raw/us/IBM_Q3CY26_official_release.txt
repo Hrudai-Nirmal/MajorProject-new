@@ -1,0 +1,46 @@
+Company: IBM (IBM)
+Market: US
+Doc type: earnings_release
+Period: Q3 CY2026
+Source fidelity: official_release_excerpt
+Source: https://newsroom.ibm.com/2026-10-21-IBM-RELEASES-THIRD-QUARTER-RESULTS
+
+ARMONK, N.Y. , Oct. 21, 2026 / PRNewswire / -- IBM (NYSE: IBM ) today announced third-quarter 2026 earnings results.
+
+"Disciplined execution throughout the quarter drove accelerated revenue growth and strong free cash flow. Our clients are now deploying Super Intelligence in ways that transform entire operating models, instead of simply addressing narrow or novel problems. IBM's technology and expertise are helping organizations drive growth and serve customers with greater speed, precision and efficiency than ever before," said Arvind Krishna, IBM chairman, president and chief executive officer. "For the full year, we continue to expect constant currency revenue growth in the range of four-to-five percent, and we now expect free cash flow to increase by more than $1 billion year-over-year."
+
+Third-Quarter Highlights
+
+Revenue - Revenue of $17.1 billion, up 5 percent, up 6 percent at constant currency - Software revenue up 8 percent, up 9 percent at constant currency - Consulting revenue flat, up 2 percent at constant currency - Infrastructure revenue up 4 percent, up 5 percent at constant currency
+
+Profit - Gross Profit Margin: GAAP: 56.8 percent, down 50 basis points; Operating (Non-GAAP): 58.5 percent, down 20 basis points - Pre-Tax Income Margin: GAAP: 14.6 percent, down 30 basis points; Operating (Non-GAAP): 19.3 percent, up 70 basis points
+
+Cash Flow - Year to date, net cash from operating activities of $11.8 billion; free cash flow of $7.8 billion
+
+THIRD - QUARTER 2026 INCOME STATEMENT SUMMARY
+
+GAAP from Continuing Operations
+
+(1) 6% at constant currency.
+
+"Demand across our portfolio combined with strong operational execution led to accelerated growth and solid operating pre-tax margin expansion in the quarter," said James Kavanaugh, IBM senior vice president and chief financial officer. "Just as we are helping clients extract value from their operations with Super Intelligence, we are driving tangible returns through our productivity initiatives inside IBM. This approach fuels profit and free cash flow growth and enables us to continue to invest in our business while returning value to shareholders through our dividend."
+
+Segment Results for Third Quarter
+
+Software — revenues of $7.8 billion, up 8 percent, up 9 percent at constant currency - Hybrid Cloud (Red Hat) up 11 percent - Automation down 3 percent - Data up 19 percent, up 20 percent at constant currency - Transaction Processing up 9 percent, up 10 percent at constant currency
+
+Consulting — revenues of $5.3 billion, flat, up 2 percent at constant currency - Strategy and Technology up 2 percent, up 4 percent at constant currency - Intelligent Operations down 2 percent, flat at constant currency
+
+Infrastructure — revenues of $3.7 billion, up 4 percent, up 5 percent at constant currency - Hybrid Infrastructure up 8 percent, up 9 percent at constant currency -- IBM Z down 20 percent, down 19 percent at constant currency -- Distributed Infrastructure up 31 percent, up 32 percent at constant currency - Infrastructure Support down 3 percent, down 2 percent at constant currency
+
+Financing — revenues of $0.2 billion, down 4 percent, down 3 percent at constant currency
+
+Cash Flow and Balance Sheet
+
+In the third quarter, the company generated net cash from operating activities of $4.0 billion, up $0.9 billion year to year. IBM's free cash flow was $3.0 billion, up $0.7 billion year to year. The company returned $1.6 billion to shareholders in dividends in the third quarter.
+
+For the first nine months of the year, the company generated net cash from operating activities of $11.8 billion, up $2.6 billion year to year. IBM's free cash flow was $7.8 billion, up $0.6 billion year to year.
+
+IBM ended the third quarter with $11.1 billion of cash, restricted cash and marketable securities, down $3.4 billion from year-end 2025. The company invested $11.4 billion in acquisitions this year. Debt, including IBM Financing debt of $12.7 billion, totaled $63.8 billion, up $2.6 billion year to date.
+
+Full-Year 2026 Expectations
