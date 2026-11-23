@@ -1,0 +1,30 @@
+Company: Airbnb, Inc. (ABNB)
+Market: US
+Doc type: earnings_release
+Period: Q3 CY2026
+Source fidelity: official_release_excerpt
+Source: https://news.airbnb.com/airbnb-q3-2026-financial-results
+
+It’s rare for a marketplace of our size to reaccelerate growth, but that’s exactly what we’re doing. In Q3, we delivered our fastest revenue growth in more than three years, with acceleration across our business, including our most established markets. This momentum has been building for several quarters, driven by years of work to rebuild Airbnb, fundamentally change how we operate, and improve our product. And as we build an AI-native Airbnb, we’re innovating faster and operating more efficiently.
+
+In Q3, revenue grew 19% year-over-year to $4.9 billion. GBV grew 21% year-over-year to $27.7 billion, driven by strong demand and moderately higher Average Daily Rate (“ADR”). Nights and Seats Booked grew 16% year-over-year. Net income was $1.9 billion, and Adjusted EBITDA grew 22% year-over-year to $2.5 billion, expanding Adjusted EBITDA Margin to 52%. 1 We’re also announcing a new authorization to repurchase up to an additional $12 billion of our Class A common stock, reflecting our confidence in Airbnb’s future growth.
+
+That confidence is grounded in the momentum we’re seeing across the business. Every region delivered double-digit nights growth in Q3, with all five of our core markets—the U.S., France, the UK, Canada, and Australia—accelerating, along with nearly all of our expansion markets. In North America, nights booked grew at their fastest pace in four years. We’re also seeing more guests return to Airbnb, and more people try it for the first time. First-time booker growth accelerated to 13% year-over-year, the highest it has been since early 2022, with Gen Z growing the fastest.
+
+Our growth isn’t being driven by any single product or feature. It’s the result of hundreds of improvements we’ve made across Airbnb over the last several years. Together, they’ve helped drive the overall acceleration in revenue, GBV, and Nights and Seats Booked growth since the beginning of 2025:
+
+And we’re continuing to accelerate the pace of innovation. AI is helping our teams move faster, and in Q3 alone, we shipped more than 50 products and features—nearly 70% more than a year ago.
+
+Here are some highlights from the quarter:
+
+2026 Fall Update: Making it easier to plan trips and manage listings
+
+Recommendations from friends and family are one of the top ways people discover new places to travel. That’s why we expanded Connections as part of our Fall Update. Guests can now connect with friends, family, and people they’ve traveled with to see where they’ve stayed, what activities they recommend, and where they’re going next. Our new Travel Map brings their trips, reviews, and recommendations together in one place, with simple privacy controls that let guests decide what they share.
+
+We also introduced Neighborhood pages, starting in Paris, to help guests learn more about an area before they book. Neighborhood pages will bring together insights from Airbnb guests and hosts, along with top experiences from local hosts. During the initial rollout in Paris, we saw a meaningful uplift in bookings, and we’re planning to expand Neighborhood pages to 1,500 neighborhoods by the end of the year.
+
+For hosts, we introduced a redesigned multi-listing calendar that makes it much easier to manage multiple listings. Hosts can now see reservations and availability across all their listings in one place, update pricing and availability in bulk, and organize listings into groups. The calendar also helps hosts fill unbooked nights by recommending changes to minimum stays and last-minute discounts. This is a significant improvement for hosts, especially those who use API integrations, helping them manage their businesses more efficiently. In the first month of early access, we saw strong adoption with nearly 1 in 4 eligible hosts opting in.
+
+Expanding Airbnb with new services, hotels, and partnerships
+
+We’re building new businesses that can bring more travelers to Airbnb and make our core business stronger. We’re expanding our selection of hotels, introducing more services, and building partnerships that help us reach new guests.

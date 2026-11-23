@@ -56,3 +56,16 @@ US and 34 India summary excerpts. A matched 28-per-market comparison yields a
 +0.047 gap, again with a disclosure-bootstrap range spanning zero. The Groq
 rate limit ended the expansion early, so avoid further model calls before the
 presentation unless capacity is confirmed.
+
+## November 2026 official-release expansion
+
+Six more companies were added: IBM, Airbnb, and Alphabet in the US; Wipro,
+ICICI Bank, and Maruti Suzuki in India. Each record is a bounded excerpt of
+an official Q3 CY2026 or Q2 FY2027 release with its source URL and
+`official_release_excerpt` fidelity. The corpus now has 46 disclosures and
+172 chunks. All 24 new chunks are embedded in Supabase, scored with the LM
+dictionary, and classified for sentiment, risk, and topics by local Qwen 3.5
+9B. The published research snapshot needs regeneration after any database
+update. The 24 new chunks have no independent gold label, so the benchmark
+still scores only 128 previously labeled chunks; its F1 must not be presented
+as an evaluation of the expanded sample.

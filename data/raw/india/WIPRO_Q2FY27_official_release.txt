@@ -1,0 +1,48 @@
+Company: Wipro Limited (WIPRO)
+Market: India
+Doc type: earnings_release
+Period: Q2 FY2027
+Source fidelity: official_release_excerpt
+Source: https://www.wipro.com/newsroom/press-releases/2026/wipro-announces-results-for-the-quarter-ended-september-30-2026/
+
+EAST BRUNSWICK, N.J. | BENGALURU, India – October 15, 2026 : Wipro Limited (NYSE: WIT, BSE: 507685, NSE: WIPRO), a leading AI-powered technology services and consulting company, announced financial results under International Financial Reporting Standards (IFRS) for the quarter ended September 30, 2026.
+
+Highlights of the Results
+
+Results for the Quarter ended September 30, 2026:
+
+Gross revenue at ₹247.5 billion ($2,583.0 million 1 ), an increase of 1.1% QoQ and 9.1% YoY.
+
+IT services segment revenue was at $2611.5 million, decrease of 0.1% QoQ and increase of 0.3% YoY.
+
+Non-GAAP constant currency 2 IT Services segment revenue was flat sequentially and increase of 0.6% YoY.
+
+Total Bookings 3 was at $2,595 million, down by 22.9% QoQ in constant currency 2 . Large deal bookings 4 was at $674 million, decrease of 58.6% QoQ in constant currency 2 .
+
+IT services operating margin 5 for Q2’27 was at 16.5%, up by 0.5% QoQ and down by 0.2% YoY.
+
+Net income for the quarter was at ₹32.0 billion ($333.9 million 1 ), decrease of 4.7% QoQ and 1.9% YoY.
+
+Earnings per share for the quarter at ₹3.23 ($0.03 1 ), increase of 0.9% QoQ and increase of 4.2% YoY.
+
+Operating cash flows of ₹53.0 billion ($553.6 million 1 ), increase of 61.3% QoQ and at 165.8% of net income for the quarter.
+
+Voluntary attrition was at 13.8% on a trailing 12-month basis.
+
+Outlook for the Quarter ending December 31, 2026
+
+We expect revenue from our IT Services business segment to be in the range of $2,571 million to $2,625 million*. This translates to sequential guidance of (-)1.5% to (+)0.5% in constant currency terms.
+
+*Outlook for the Quarter ending December 31, 2026, is based on the following exchange rates: GBP/USD at 1.35, Euro/USD at 1.15 , AUD/USD at 0.71, USD/INR at 95.76 and CAD/USD at 0.72
+
+Performance for the Quarter ended September 30, 2026
+
+Srini Pallia, CEO and Managing Director, said , “The strategic investments we have been making are beginning to deliver results. They are enhancing our ability to win in new markets, add new clients, and grow existing relationships. At the same time, our consulting-led, AI-powered strategy is helping us create larger transformation opportunities. We see AI as a long-term growth driver that will expand the addressable market for technology and business transformation. We are already seeing its potential reflected in the momentum across our AI-Native Unit and AI offerings portfolio”.
+
+Aparna Iyer, Chief Financial Officer, said , “Our operating margin for the quarter was 16.5%, an expansion of 0.5% sequentially. We have delivered this improvement even while continuing to invest in our business and people. We remain relentless in driving cash flow conversion. Q2 is yet another quarter where our operating cash flow has been robust and stood at 166% of net income.”
+
+For the convenience of the readers, the amounts in Indian Rupees in this release have been translated into United States Dollars at the certified foreign exchange rate of US$1 = ₹95.83, as published by the Federal Reserve Board of Governors on September 30, 2026. However, the realized exchange rate in our IT Services business segment for the quarter ended September 30, 2026, was US$1= ₹94.45
+
+Constant currency (CC) for a period is the product of volumes in that period times the average actual exchange rate of the corresponding comparative period.
+
+Total Bookings refers to the total contract value of all orders that were booked during the period including new orders, renewals, and increases to existing contracts. Bookings do not reflect subsequent terminations or reductions related to bookings originally recorded in prior fiscal periods. Bookings are recorded using then-existing foreign currency exchange rates and are not subsequently adjusted for foreign currency exchange rate fluctuations. The revenues from these contracts accrue over the tenure of the contract. For constant currency growth rates, refer note 2.

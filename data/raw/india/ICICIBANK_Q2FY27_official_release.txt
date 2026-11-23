@@ -1,0 +1,34 @@
+Company: ICICI Bank Limited (ICICIBANK)
+Market: India
+Doc type: earnings_release
+Period: Q2 FY2027
+Source fidelity: official_release_excerpt
+Source: https://www.icici.bank.in/about-us/news-room/2026/performance-review-quarter-ended-september-30-2026
+
+The Board of Directors of ICICI Bank Limited (NSE: ICICIBANK, BSE: 532174, NYSE: IBN) at its meeting held at Mumbai today, approved the standalone and consolidated accounts of the Bank for the quarter ended September 30, 2026 (Q2-2027). The statutory auditors have conducted a limited review and have issued an unmodified report on the standalone and consolidated financial statements for the quarter ended September 30, 2026.
+
+Profit & loss account
+
+Profit before tax excluding treasury increased by 23.4% to ₹ 19,954 crore (US$ 2.1 billion) in Q2-2027 compared to ₹ 16,164 crore (US$ 1.7 billion) in the quarter ended September 30, 2025 (Q2-2026)
+
+Core operating profit increased by 21.8% year-on-year to ₹ 20,805 crore (US$ 2.2 billion) in Q2-2027 from ₹ 17,078 crore (US$ 1.8 billion) in Q2-2026 Core operating profit excluding dividend from subsidiaries increased by 25.0% year-on-year to ₹ 20,342 crore (US$ 2.1 billion) in Q2-2027 from ₹ 16,268 crore (US$ 1.7 billion) in Q2-2026
+
+Net interest income (NII) increased by 17.7% year-on-year to ₹ 25,339 crore (US$ 2.6 billion) in Q2-2027 from ₹ 21,529 crore (US$ 2.2 billion) in Q2-2026
+
+Net interest margin was 4.18% in Q2-2027 compared to 4.36% in Q1-2027 and 4.30% in Q2-2026. The benefit of interest on tax refund was negligible in Q2-2027 compared to 8 basis points in Q1-2027 and negligible in Q2-2026. Excluding the benefit of interest on tax refund, the net interest margin was 4.28% in Q1-2027
+
+Non-interest income, excluding treasury, increased by 12.5% year-on-year to ₹ 8,277 crore (US$ 864 million) in Q2-2027 from ₹ 7,356 crore (US$ 768 million) in Q2-2026
+
+Fee income increased by 20.1% year-on-year to ₹ 7,795 crore (US$ 813 million) in Q2-2027 from ₹ 6,491 crore (US$ 677 million) in Q2-2026. Fees from retail, rural and business banking customers constituted about 75% of total fees in Q2-2027
+
+Operating expenses increased by 8.5% year-on-year to ₹ 12,811 crore (US$ 1.3 billion) in Q2-2027 from ₹ 11,807 crore (US$ 1.2 billion) in Q2-2026
+
+There was a treasury loss of ₹ 230 crore (US$ 24 million) in Q2-2027 as compared to gain of ₹ 151 crore (US$ 16 million) in Q1-2027 and ₹ 220 crore (US$ 23 million) in Q2-2026 primarily reflecting market movements
+
+Provisions (excluding provision for tax) were ₹ 851 crore (US$ 89 million) in Q2-2027 compared to ₹ 914 crore (US$ 95 million) in Q2-2026. At September 30, 2026, the Bank continued to hold contingency provision of ₹ 13,100 crore (US$ 1.4 billion), and additional standard asset provision of ₹ 1,283 crore (US$ 134 million) made in Q3-2026 as directed by RBI in respect of the agricultural priority sector portfolio
+
+Profit before tax increased by 20.4% year-on-year to ₹ 19,724 crore (US$ 2.1 billion) in Q2-2027 from ₹ 16,384 crore (US$ 1.7 billion) in Q2-2026
+
+Profit after tax increased by 20.1% year-on-year to ₹ 14,843 crore (US$ 1.5 billion) in Q2-2027 compared to ₹ 12,359 crore (US$ 1.3 billion) in Q2-2026
+
+Total advances increased by 30.0% year-on-year and 12.3% sequentially to ₹ 18,31,580 crore (US$ 191.1 billion) at September 30, 2026. Excluding loans provided by international branches of the Bank against FCNR (B) deposits, total loans grew by 24.1% year-on-year and 7.3% sequentially. The retail and rural loan portfolio grew by 14.8% year-on-year and 3.2% sequentially, and comprised 51.6% of the total loan portfolio at September 30, 2026. Including non-fund outstanding, the retail and rural portfolio was 43.0% of the total portfolio at September 30, 2026. The business banking portfolio grew by 33.8% year-on-year and 11.1% sequentially at September 30, 2026. The domestic corporate portfolio grew by 30.6% year-on-year and 10.4% sequentially at September 30, 2026. The domestic advances grew by 22.8% year-on-year and 6.8% sequentially at September 30, 2026. The overseas loan portfolio was 7.8% of the overall loan book at September 30, 2026.
